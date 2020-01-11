@@ -12,6 +12,9 @@ entries:
     - output: web,pdf
       title: module name here
       url: /core
+    - output: web,pdf
+      title: Title
+      url: /lesson01
     output: web
     title: dslectures
   output: web

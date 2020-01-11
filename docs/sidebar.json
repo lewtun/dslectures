@@ -1,6 +1,7 @@
 {
   "dslectures": {
     "Overview": "/",
-    "module name here": "/core"
+    "module name here": "/core",
+    "Title": "/lesson01"
   }
 }
