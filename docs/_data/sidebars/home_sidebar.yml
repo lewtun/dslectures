@@ -10,10 +10,10 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
-      title: module name here
+      title: Core library
       url: /core
     - output: web,pdf
-      title: Title
+      title: Lesson 1
       url: /lesson01
     output: web
     title: dslectures
