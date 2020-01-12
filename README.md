@@ -26,7 +26,7 @@ There are many challenges involved with making data science an effective compone
 <div class="codecell" markdown="1">
 <div class="input_area" markdown="1">
 
-```python
+```
 from IPython.display import display, HTML, Image
 
 
