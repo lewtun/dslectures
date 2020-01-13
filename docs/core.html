@@ -23,12 +23,32 @@ summary: "API details."
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">print_name</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_dataset</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Download datasets from Google Drive.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">name_to_id</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;embeddings&#39;</span><span class="p">:</span> <span class="s1">&#39;1dRwSXbFTcQbn8c3V24G92wFY4DXZ1SDt&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;imdb&#39;</span><span class="p">:</span> <span class="s1">&#39;1wF0YEmQOwceJz2d6w4CfhBgydU87dPGl&#39;</span><span class="p">}</span>
+    
+    <span class="k">if</span> <span class="n">dataset_name</span> <span class="ow">in</span> <span class="n">name_to_id</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">file_url</span> <span class="o">=</span> <span class="s1">&#39;https://docs.google.com/uc?export=download&amp;id=&#39;</span> <span class="o">+</span> <span class="n">name_to_id</span><span class="p">[</span><span class="n">dataset_name</span><span class="p">]</span>
+            <span class="n">wget</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">file_url</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="s1">&#39;../data/&#39;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Something went wrong during download. Try again.&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">e</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Download of </span><span class="si">{dataset_name}</span><span class="s1"> dataset complete.&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s1">&#39;File not on Google Drive.&#39;</span><span class="p">)</span>
+    
 </pre></div>
 
     </div>
@@ -45,8 +65,9 @@ summary: "API details."
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="print_name" class="doc_header"><code>print_name</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L6" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>print_name</code>(<strong><code>string</code></strong>)</p>
+<h4 id="get_dataset" class="doc_header"><code>get_dataset</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L11" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_dataset</code>(<strong><code>dataset_name</code></strong>:<code>str</code>)</p>
 </blockquote>
+<p>Download datasets from Google Drive.</p>
 
 </div>
 
@@ -61,7 +82,7 @@ summary: "API details."
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">print_name</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s1">&#39;imdb&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -74,38 +95,9 @@ summary: "API details."
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>hello
+<pre>Download of imdb dataset complete.
 </pre>
 </div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">1</span><span class="o">+</span><span class="mi">3</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>4</pre>
-</div>
-
 </div>
 
 </div>
