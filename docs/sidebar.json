@@ -2,7 +2,7 @@
   "dslectures": {
     "Overview": "/",
     "Core library": "/core",
-    "Lesson 1": "/lesson01",
+    "Lesson 1 - Introduction to pandas": "/lesson01_intro-to-pandas",
     "Lesson 09 - Overfitting": "/lesson09-overfitting",
     "Lesson 10 - Neighbours and clustering": "/lesson10-k-means",
     "Lesson 12 - Natural Language Processing I": "/lesson12-nlp-1",

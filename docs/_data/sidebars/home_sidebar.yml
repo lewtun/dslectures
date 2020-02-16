@@ -13,8 +13,8 @@ entries:
       title: Core library
       url: /core
     - output: web,pdf
-      title: Lesson 1
-      url: /lesson01
+      title: Lesson 1 - Introduction to pandas
+      url: /lesson01_intro-to-pandas
     - output: web,pdf
       title: Lesson 09 - Overfitting
       url: /lesson09-overfitting
