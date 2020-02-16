@@ -14,7 +14,8 @@ def get_dataset(dataset_name: str):
     """
 
     name_to_id = {'embeddings': '1dRwSXbFTcQbn8c3V24G92wFY4DXZ1SDt',
-                  'imdb': '1wF0YEmQOwceJz2d6w4CfhBgydU87dPGl'}
+                  'imdb': '1wF0YEmQOwceJz2d6w4CfhBgydU87dPGl',
+                  'housing': '1d7oOKdDmZFx8wf0c8OfuTW1FpUyJHABh'}
 
     if dataset_name in name_to_id:
         try:

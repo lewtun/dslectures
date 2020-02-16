@@ -36,7 +36,8 @@ summary: "API details."
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="n">name_to_id</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;embeddings&#39;</span><span class="p">:</span> <span class="s1">&#39;1dRwSXbFTcQbn8c3V24G92wFY4DXZ1SDt&#39;</span><span class="p">,</span>
-                  <span class="s1">&#39;imdb&#39;</span><span class="p">:</span> <span class="s1">&#39;1wF0YEmQOwceJz2d6w4CfhBgydU87dPGl&#39;</span><span class="p">}</span>
+                  <span class="s1">&#39;imdb&#39;</span><span class="p">:</span> <span class="s1">&#39;1wF0YEmQOwceJz2d6w4CfhBgydU87dPGl&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;housing&#39;</span><span class="p">:</span> <span class="s1">&#39;1d7oOKdDmZFx8wf0c8OfuTW1FpUyJHABh&#39;</span><span class="p">}</span>
     
     <span class="k">if</span> <span class="n">dataset_name</span> <span class="ow">in</span> <span class="n">name_to_id</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
@@ -48,7 +49,6 @@ summary: "API details."
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Download of </span><span class="si">{dataset_name}</span><span class="s1"> dataset complete.&#39;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s1">&#39;File not on Google Drive.&#39;</span><span class="p">)</span>
-    
 </pre></div>
 
     </div>
@@ -71,6 +71,40 @@ summary: "API details."
 
 </div>
 
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Dowload the California housing dataset:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s1">&#39;housing&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Download of housing dataset complete.
+</pre>
+</div>
 </div>
 
 </div>
