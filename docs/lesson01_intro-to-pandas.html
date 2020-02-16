@@ -1,11 +1,11 @@
 ---
 
-title: Lesson 1 - Introduction to pandas
+title: Lesson 1 - Introduction to pandas and seaborn
 
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "How to use the pandas library to quickly load data into Python and calculate descriptive statistics to gain a good understanding about the structure of a dataset."
+summary: "How to use the pandas and seaborn libraries to quickly load data into Python, calculate descriptive statistics, and make simple visualisations."
 ---
 <!--
 
@@ -32,7 +32,7 @@ summary: "How to use the pandas library to quickly load data into Python and cal
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="What-is-pandas?">What is pandas?<a class="anchor-link" href="#What-is-pandas?">&#182;</a></h2><p>{% include image.html max-width="400" file="/dslectures/images/pandas.jpeg" %}</p>
-<p style="text-align: center;"> <b>Figure:</b> Not a Python library. </p><p>Pandas is one of the most popular Python libraries in data science and for good reasons. It provides high-level data structures and functions that are designed to make working with <em>structured</em> or <em>tabular</em> data fast, easy, and expressive. In particular, pandas provides fancy indexing capabilities that make it easy to reshape, slice and dice, perform aggregregations, and select subsets of data (and more!). Since data manipulation and cleaning are such important skills in data science, pandas will be one of the primary focuses in the first half of this module.</p>
+<p style="text-align: center;"> <b>Figure:</b> Not a Python library. </p><p><a href="https://pandas.pydata.org/">pandas</a> is one of the most popular Python libraries in data science and for good reasons. It provides high-level data structures and functions that are designed to make working with <em>structured</em> or <em>tabular</em> data fast, easy, and expressive. In particular, pandas provides fancy indexing capabilities that make it easy to reshape, slice and dice, perform aggregregations, and select subsets of data (and more!). Since data manipulation and cleaning are such important skills in data science, pandas will be one of the primary focuses in the first half of this module.</p>
 <p>The two workhorse data structures of pandas are:</p>
 <ul>
 <li><code>Series</code>: a one-dimensional array-like object that contains a sequence of values and an associated array of data labels, called its <em>index</em>;</li>
@@ -45,8 +45,18 @@ summary: "How to use the pandas library to quickly load data into Python and cal
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 <p>which is the accepted convention in the community. Thus whenever you see <code>pd</code> in code, you know it's referring to pandas.</p>
-<hr>
-<p><strong>You should know</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Import-libraries">Import libraries<a class="anchor-link" href="#Import-libraries">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>To use any Python library in your code you first have to make it accessible, i.e. you have to <em>import</em> it. For example, executing</p>
 <div class="highlight"><pre><span></span><span class="n">current_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
 </pre></div>
@@ -62,14 +72,7 @@ summary: "How to use the pandas library to quickly load data into Python and cal
 <span class="n">current_time</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
 </pre></div>
 <p>which should return a datetime string in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO format</a> like <code>'2019-02-24T13:15:33.512181'</code>. See <a href="https://www.codementor.io/sheena/python-path-virtualenv-import-for-beginners-du107r3o1">this article</a> for a nice summary about imports and what scope means in the context of Python.</p>
-<hr>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Import-libraries">Import libraries<a class="anchor-link" href="#Import-libraries">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -923,10 +926,44 @@ memory usage: 1.6+ MB
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We see there are 20,640 rows in the dataset and that the <code>total_bedrooms</code> column is missing values because it has less than 20,640 non-null values.</p>
+<p>We see there are 20,640 rows in the dataset and that the <code>total_bedrooms</code> column is missing values because it has less than 20,640 non-null values. We also see that <code>ocean_proximity</code> is of <code>object</code> type, which suggests it is a <code>str</code> - to see how many districts belong to each category we can use the <code>DataFrame.value_counts</code> method:</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">housing_data</span><span class="p">[</span><span class="s1">&#39;ocean_proximity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;1H OCEAN     9136
+INLAND        6551
+NEAR OCEAN    2658
+NEAR BAY      2290
+ISLAND           5
+Name: ocean_proximity, dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1194,6 +1231,15 @@ memory usage: 1.6+ MB
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h3 id="Exercise-#1">Exercise #1<a class="anchor-link" href="#Exercise-#1">&#182;</a></h3><p>Create a histogram of the <code>median_income</code> attribute. Does it look like it was expressed in US dollars? What do you think might explain the possible range of values in the data?</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Correlation-matrix-heatmap">Correlation matrix heatmap<a class="anchor-link" href="#Correlation-matrix-heatmap">&#182;</a></h2>
 </div>
 </div>
@@ -1265,7 +1311,19 @@ Name: median_house_value, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As expected, <code>median_house_value</code> correlates perfectly with itself. We also see a few other variables have mild to weak positive correlations with the target - let's use them to build our heatmap! By default, seaborn uses strong positive correlations are shown in lighter shades:</p>
+<hr>
+<h3 id="Exercise-#2">Exercise #2<a class="anchor-link" href="#Exercise-#2">&#182;</a></h3><ul>
+<li>Which attribute is the most promising to predict the median house value?</li>
+<li>How can you interpret the small negative correlation between the latitude and the median house value?</li>
+</ul>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's now build our heatmap! By default, seaborn uses strong positive correlations are shown in lighter shades:</p>
 
 </div>
 </div>
@@ -1399,13 +1457,10 @@ $$ \rho_{X,Y} = \frac{\mathrm{cov}(X,Y)}{\sigma_X\sigma_Y} \,,$$<p>where $\sigma
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Exercise">Exercise<a class="anchor-link" href="#Exercise">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Visit the seaborn <a href="https://seaborn.pydata.org/">website</a> and explore the available plotting functions and apply them to attributes in the housing dataset.</p>
+<hr>
+<h3 id="Exercise-#3">Exercise #3<a class="anchor-link" href="#Exercise-#3">&#182;</a></h3><p>Why do you think we see a horizontal line at around $500,000?</p>
+<h3 id="Exercise-#4">Exercise #4<a class="anchor-link" href="#Exercise-#4">&#182;</a></h3><p>Visit the seaborn <a href="https://seaborn.pydata.org/">website</a> and explore the available plotting functions and apply them to attributes in the housing dataset.</p>
+<hr>
 
 </div>
 </div>
