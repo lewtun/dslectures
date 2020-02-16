@@ -5,7 +5,7 @@ title: Introduction to Data Science
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "Welcome to the documentation for BTW2401 - Data Science and Visualisation!"
+summary: "Welcome to the course materials for BTW2401 - Data Science and Visualisation!"
 ---
 <!--
 
@@ -27,7 +27,7 @@ summary: "Welcome to the documentation for BTW2401 - Data Science and Visualisat
 <h2 id="What-is-this-thing-called-data-science?">What is this thing called data science?<a class="anchor-link" href="#What-is-this-thing-called-data-science?">&#182;</a></h2><p>Data science is a big deal in business these days, and with good reasons. Amongst them (Loukides, 2010):</p>
 <ul>
 <li>Almost every aspect of a business is open to data collection, be it web server logs, tweet streams, IoT sensors, online transactions, or some other source. Data science provides techniques to extract useful information from this data and thus generate added value;</li>
-<li>The question facing every company, startup, and non-profit that wants to attract a community in the modern era is how to use data <em>effectively.</em> Using data effectively requires something different from traditional statistics; namely an interdisciplinary approach that involves elements of statistics, computer science, and domain expertise. Data science is the methodology that synthesises these three domains (Fig. 1).</li>
+<li>The question facing every company, startup, and non-profit that wants to attract a community in the modern era is how to use data <em>effectively.</em> Using data effectively requires something different from traditional statistics; namely an interdisciplinary approach that involves elements of statistics, computer science, and domain expertise. Data science is the methodology that synthesises these three domains.</li>
 </ul>
 <p>In essence, data science is about the extraction of useful information and knowledge from
 large volumes of data, in order to improve business decision-making (Provost &amp; Fawcett, 2013). With improved decision making comes improved productivity, market value, and competitive edge. Thus the main goal of data science is to enable data-driven decision making across the whole company (Fig. 1), where decisions are based on the analysis of data rather than pure intuition.</p>
@@ -36,28 +36,12 @@ large volumes of data, in order to improve business decision-making (Provost &am
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_html rendered_html output_subarea ">
-<table style='width:60%'><tr><td><img src='images/venn.png' /></td><td><img src='images/ddd.png' /></td></tr></table>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Figure 1:</strong> (Left) The data science Venn diagram (Conway, 2010). (Right) Data science in the context of various data-related processes in the organization. (Provost and Fawcett, 2013).</p>
-
+<div style="text-align: center">
+{% include image.html max-width="400" file="/dslectures/images/ddd.png" %}
+<p style="text-align: center;"> <b>Figure:</b> Data science in the context of various data-related processes in the organization. (Provost and Fawcett, 2013). </p>
+</div>
 </div>
 </div>
 </div>
@@ -85,18 +69,128 @@ large volumes of data, in order to improve business decision-making (Provost &am
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Structure-of-the-module">Structure of the module<a class="anchor-link" href="#Structure-of-the-module">&#182;</a></h2><p>The module structure consists of classroom sessions, self-study tasks, and group work. The classroom sessions will involve a mix of theoretical and practical (programming) work, with an emphasis on the latter. The self-study tasks will be used to read selected chapters from the module textbook and complete ungraded programming assignments. The outline for the module is shown in the table below.</p>
+<table>
+<thead><tr>
+<th style="text-align:center">CW</th>
+<th style="text-align:center">Date</th>
+<th style="text-align:center">Topic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">20.02</td>
+<td style="text-align:center">Introduction to data science</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">27.02</td>
+<td style="text-align:center">Python for data analysis I</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center">5.03</td>
+<td style="text-align:center">Python for data analysis II</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center">12.03</td>
+<td style="text-align:center">Introduction to random forests</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:center">19.03</td>
+<td style="text-align:center">Random forest deep dive</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center">26.03</td>
+<td style="text-align:center">Model interpretation</td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:center">2.04</td>
+<td style="text-align:center">Classification</td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:center">9.04</td>
+<td style="text-align:center"><strong>No class (Easter)</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td style="text-align:center">16.04</td>
+<td style="text-align:center"><strong>Midterm exam &amp; define group projects</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td style="text-align:center">23.04</td>
+<td style="text-align:center">Cross-validation and model performance</td>
+</tr>
+<tr>
+<td style="text-align:center">18</td>
+<td style="text-align:center">30.04</td>
+<td style="text-align:center">Neighbours and clusters I</td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td style="text-align:center">7.05</td>
+<td style="text-align:center">Neighbours and clusters II</td>
+</tr>
+<tr>
+<td style="text-align:center">20</td>
+<td style="text-align:center">14.05</td>
+<td style="text-align:center">Natural language processing I</td>
+</tr>
+<tr>
+<td style="text-align:center">21</td>
+<td style="text-align:center">21.05</td>
+<td style="text-align:center"><strong>Project submission</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">22</td>
+<td style="text-align:center">28.05</td>
+<td style="text-align:center">Natural language processing II</td>
+</tr>
+<tr>
+<td style="text-align:center">23</td>
+<td style="text-align:center">4.06</td>
+<td style="text-align:center"><strong>Project presentations</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">24</td>
+<td style="text-align:center">11.06</td>
+<td style="text-align:center">Deep learning</td>
+</tr>
+<tr>
+<td style="text-align:center">25</td>
+<td style="text-align:center">18.06</td>
+<td style="text-align:center">Exam preparation</td>
+</tr>
+<tr>
+<td style="text-align:center">26</td>
+<td style="text-align:center">25.06</td>
+<td style="text-align:center">Exam preparation</td>
+</tr>
+<tr>
+<td style="text-align:center">27</td>
+<td style="text-align:center">???</td>
+<td style="text-align:center"><strong>Final exam</strong></td>
+</tr>
+</tbody>
+</table>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Module-policies">Module policies<a class="anchor-link" href="#Module-policies">&#182;</a></h2><p><strong>Before class</strong>
-We expect students to prepare for each class by completing the self-study tasks in advance.</p>
-<p><strong>During class</strong>
-Please refrain from using your phone or social media (Facebook, Twitter, etc) during class; we do however encourage you to use the class Slack group! We also expect students to take an active role during the class by asking questions and contributing to the discussions.</p>
-<p><strong>Academic integrity and honesty</strong>
-Your answers to homework, quizzes, and exams must be your own work (except for the group project, which is a collaborative task). Please don’t cheat or plagiarise other people’s work.</p>
+<h2 id="Module-policies">Module policies<a class="anchor-link" href="#Module-policies">&#182;</a></h2><p><strong>Before class</strong></p>
+<p>We expect students to prepare for each class by completing the self-study tasks in advance.</p>
+<p><strong>During class</strong></p>
+<p>Please refrain from using your phone or social media (Facebook, Twitter, etc) during class; we do however encourage you to use the class Slack group! We also expect students to take an active role during the class by asking questions and contributing to the discussions.</p>
+<p><strong>Academic integrity and honesty</strong></p>
+<p>Your answers to homework, quizzes, and exams must be your own work (except for the group project, which is a collaborative task). Please don’t cheat or plagiarise other people’s work.</p>
 
 </div>
 </div>
