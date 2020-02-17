@@ -26,7 +26,7 @@ There are many challenges involved with making data science an effective compone
 
 <div style="text-align: center">
 <img src="notebooks/images/ddd.png" width="400">
-<p style="text-align: center;"> <b>Figure:</b> Data science in the context of various data-related processes in the organization. (Provost and Fawcett, 2013). </p>
+<p style="text-align: center;"> <b>Figure:</b> Data science in the context of various data-related processes in the organization (Provost and Fawcett, 2013). </p>
 </div>
 
 ## Learning objectives of the course
@@ -63,13 +63,13 @@ The module structure consists of classroom sessions, self-study tasks, and group
 | 18 | 30.04 | Neighbours and clusters I |
 | 19 | 7.05 | Neighbours and clusters II |
 | 20 | 14.05 | Natural language processing I |
-| 21 | 21.05 | **Project submission** |
+| 21 | 21.05 | **No class (Ascension) and project submission** |
 | 22 | 28.05 | Natural language processing II |
 | 23 | 4.06 | **Project presentations** |
 | 24 | 11.06 | Deep learning |
 | 25 | 18.06 | Exam preparation|
 | 26 | 25.06 | Exam preparation |
-| 27 | ??? | **Final exam** |
+| 27 | TBD | **Final exam** |
 
 ## Module policies 
 
@@ -89,9 +89,9 @@ Your answers to homework, quizzes, and exams must be your own work (except for t
 
 The assessment for this module involves **_three_** parts whose sum is 100 points: one written mid-term test (10 points), one group project (50 points), and one final written exam (40 points). The total number of points determines the overall grade for the module.
 
-1. **Written mid-term test:** The mid-term test will consist of multiple choice and short-answer questions, covering content from the first seven lectures and chapters 1–4 of the module textbook Data Science for Business (see references below). This test has a maximum score of 10 points and will be held on XXXX.
+1. **Written mid-term test:** The mid-term test will consist of multiple choice and short-answer questions, covering content from the first seven lectures and chapters 1–4 of the module textbook Data Science for Business (see references below). This test has a maximum score of 10 points and will be held on April 16th.
 2. **Group project:** Students will be allocated into small groups and tasked to solve an end-to-end data science project. The results from the analysis must be submitted in the form of a Jupyter Notebook, followed by a 15 minute oral presentation to the class. The maximum score for this assessment is 50 points, evenly distributed across the analysis code and presentation.
-3. **Written examination:** The final written examination will consist of multiple choice and short answer questions, covering the content of the lectures and the module textbook. Students will not be required to solve any Python programming questions in the exam. The exam has a maximum score of 40 points and will take place on XXXX
+3. **Written examination:** The final written examination will consist of multiple choice and short answer questions, covering the content of the lectures and the module textbook. Students will not be required to solve any Python programming questions in the exam. The exam has a maximum score of 40 points and the final date will lie somewhere between June 29th and July 17th.
 
 ## Recommended references
 
