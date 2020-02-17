@@ -50,7 +50,7 @@ The module structure consists of classroom sessions, self-study tasks, and group
 
 | CW | Date | Topic | Links |
 | :--- | :--- | :--- | :--- |
-| 8 | 20.02 | Introduction to data science | [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/lewtun/dslectures/master?urlpath=lab/tree/notebooks/lesson01_intro-to-pandas.ipynb) [![slides](https://img.shields.io/static/v1?label=slides&message=lesson01_intro-to-pandas_slides.pdf&color=blue&logo=Google-drive)](https://www.google.com) |
+| 8 | 20.02 | Introduction to data science | [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/lewtun/dslectures/master?urlpath=lab/tree/notebooks/lesson01_intro-to-pandas.ipynb) [![slides](https://img.shields.io/static/v1?label=slides&message=lesson01-slides_intro-to-ds-and-ml.pdf&color=blue&logo=Google-drive)](https://drive.google.com/file/d/14bPRdbbf_CjDOfG8rBbSBQO-dDpxDj2G/view) |
 | 9 | 27.02 | Python for data analysis I | |
 | 10 | 5.03 | Python for data analysis II | |
 | 11 | 12.03 | Introduction to random forests | |
