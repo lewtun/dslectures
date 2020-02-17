@@ -71,6 +71,18 @@ The module structure consists of classroom sessions, self-study tasks, and group
 | 26 | 25.06 | Exam preparation | |
 | 27 | TBD | **Final exam** | |
 
+## Programming environment
+We will be teaching most of the class via Jupyter notebooks in Python. The notebooks for each class will be made available here. Note that some parts of the notebooks are removed for you to fill in as you follow along in class. You can open and run them directly on binder by clicking on the binder badge (see example below) at the top of each lecture notebook. We highly encourage the use of binder, since it requires no local installation and runs for free. 
+
+Binder badge:  ![Binder](https://mybinder.org/badge_logo.svg) 
+
+A few remarks about binder:
+1. Binder is free to use.
+2. If you edit a notebook make sure to download the notebooks, since binder does not store your changes.
+3. Binder will automatically shut down user sessions that have more than 10 minutes of inactivity (if you leave your window open, this will be counted as “activity”).
+4. Binder aims to provide at least 12 hours of session time per user session. Beyond that, it is not guaranteed that the session will remain running.
+
+
 ## Module policies 
 
 **Before class**
