@@ -48,28 +48,28 @@ Throughout the course, students will also have the opportunity to learn several 
 ## Structure of the module
 The module structure consists of classroom sessions, self-study tasks, and group work. The classroom sessions will involve a mix of theoretical and practical (programming) work, with an emphasis on the latter. The self-study tasks will be used to read selected chapters from the module textbook and complete ungraded programming assignments. The outline for the module is shown in the table below.
 
-| CW | Date | Topic |
-| :---: | :---: | :---: |
-| 8 | 20.02 | Introduction to data science |
-| 9 | 27.02 | Python for data analysis I |
-| 10 | 5.03 | Python for data analysis II |
-| 11 | 12.03 | Introduction to random forests |
-| 12 | 19.03 | Random forest deep dive |
-| 13 | 26.03 | Model interpretation |
-| 14 | 2.04 | Classification |
-| 15 | 9.04 | **No class (Easter)** |
-| 16 | 16.04 | **Midterm exam & define group projects** |
-| 17 | 23.04 | Cross-validation and model performance |
-| 18 | 30.04 | Neighbours and clusters I |
-| 19 | 7.05 | Neighbours and clusters II |
-| 20 | 14.05 | Natural language processing I |
-| 21 | 21.05 | **No class (Ascension) & project submission** |
-| 22 | 28.05 | Natural language processing II |
-| 23 | 4.06 | **Project presentations** |
-| 24 | 11.06 | Deep learning |
-| 25 | 18.06 | Exam preparation|
-| 26 | 25.06 | Exam preparation |
-| 27 | TBD | **Final exam** |
+| CW | Date | Topic | Links |
+| :--- | :--- | :--- | :--- |
+| 8 | 20.02 | Introduction to data science | [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/lewtun/dslectures/master?urlpath=lab/tree/notebooks/lesson01_intro-to-pandas.ipynb) [![slides](https://img.shields.io/static/v1?label=slides&message=lesson01_intro-to-pandas_slides.pdf&color=blue&logo=Google-drive)](https://www.google.com) |
+| 9 | 27.02 | Python for data analysis I | |
+| 10 | 5.03 | Python for data analysis II | |
+| 11 | 12.03 | Introduction to random forests | |
+| 12 | 19.03 | Random forest deep dive | |
+| 13 | 26.03 | Model interpretation | |
+| 14 | 2.04 | Classification | |
+| 15 | 9.04 | **No class (Easter)** | |
+| 16 | 16.04 | **Midterm exam & define group projects** | |
+| 17 | 23.04 | Cross-validation and model performance | |
+| 18 | 30.04 | Neighbours and clusters I | |
+| 19 | 7.05 | Neighbours and clusters II | |
+| 20 | 14.05 | Natural language processing I | |
+| 21 | 21.05 | **No class (Ascension) & project submission** | |
+| 22 | 28.05 | Natural language processing II | |
+| 23 | 4.06 | **Project presentations** | |
+| 24 | 11.06 | Deep learning | |
+| 25 | 18.06 | Exam preparation| |
+| 26 | 25.06 | Exam preparation | |
+| 27 | TBD | **Final exam** | |
 
 ## Module policies 
 
