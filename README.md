@@ -63,7 +63,7 @@ The module structure consists of classroom sessions, self-study tasks, and group
 | 18 | 30.04 | Neighbours and clusters I |
 | 19 | 7.05 | Neighbours and clusters II |
 | 20 | 14.05 | Natural language processing I |
-| 21 | 21.05 | **No class (Ascension) and project submission** |
+| 21 | 21.05 | **No class (Ascension) & project submission** |
 | 22 | 28.05 | Natural language processing II |
 | 23 | 4.06 | **Project presentations** |
 | 24 | 11.06 | Deep learning |
