@@ -162,6 +162,11 @@ We will use the Python programming language to analyse and visualise a variety o
 
 Although machine learning is not the only focus of this course, Géron’s book or fastAI’s MOOC provide the right level of technical detail to gain a deeper understanding of this exciting field.
 
+**Kaggle Learn**
+* [Kaggle Learn](https://www.kaggle.com/learn/overview)
+
+Kaggle Learn is a great resource to brush up on concepts like Python basics, data visualisation or pandas in an online notebook environment (similar to Binder).
+
 ##  Sources used for this syllabus
 * M. Loukides, _What is Data Science?,_ (O’Reilly 2010). Retrieved from https://www.oreilly.com/ideas/what-is-data-science
 * D. Conway, _The Data Science Venn Diagram,_ (2010). Retrieved from http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram
