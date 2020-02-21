@@ -50,7 +50,7 @@ The module structure consists of classroom sessions, self-study tasks, and group
 
 | CW | Date | Topic | Links |
 | :--- | :--- | :--- | :--- |
-| 8 | 20.02 | Introduction to data science | [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/lewtun/dslectures/master?urlpath=lab/tree/notebooks/lesson01_intro-to-pandas.ipynb) [![notebook](https://img.shields.io/static/v1?label=notebook&message=lesson01_intro-to-pandas.ipynb&color=red&logo=Jupyter)](https://raw.githubusercontent.com/lewtun/dslectures/master/notebooks/lesson01_intro-to-pandas.ipynb) [![slides](https://img.shields.io/static/v1?label=slides&message=lesson01_intro-to-ds-and-ml.pdf&color=green&logo=read-the-docs)](https://drive.google.com/file/d/14bPRdbbf_CjDOfG8rBbSBQO-dDpxDj2G/view) |
+| 8 | 20.02 | Introduction to data science | [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/lewtun/dslectures/master?urlpath=lab/tree/notebooks/lesson01_intro-to-pandas.ipynb) [![notebook](https://img.shields.io/static/v1?label=notebook&message=lesson01_intro-to-pandas.ipynb&color=red&logo=Jupyter)](https://raw.githubusercontent.com/lewtun/dslectures/master/notebooks/lesson01_intro-to-pandas.ipynb) [![slides](https://img.shields.io/static/v1?label=slides&message=lesson01_intro-to-ds-and-ml.pdf&color=blue&logo=Google-drive)](https://drive.google.com/file/d/14bPRdbbf_CjDOfG8rBbSBQO-dDpxDj2G/view) |
 | 9 | 27.02 | Python for data analysis I | |
 | 10 | 5.03 | Python for data analysis II | |
 | 11 | 12.03 | Introduction to random forests | |
@@ -85,10 +85,13 @@ A few remarks about binder:
 4. Binder aims to provide at least 12 hours of session time per user session. Beyond that, it is not guaranteed that the session will remain running.
 
 
+### Download/Upload
+Since binder does not store your changes permanently you should download the notebooks you worked on at the end of your session. If you want to continue your session you can re-upload them to binder. See the image below for instructions how to upload/download.
 
-
-## Local environment
-
+<div style="text-align: center">
+<img src="notebooks/images/binder-download-upload.png" width="800">
+<p style="text-align: center;"> <b>Figure:</b> Download and upload buttons on Jupyter lab as seen in the binder environment. </p>
+</div>
 
 ## Module policies 
 
