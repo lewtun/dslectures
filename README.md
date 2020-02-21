@@ -93,6 +93,34 @@ Since binder does not store your changes permanently you should download the not
 <p style="text-align: center;"> <b>Figure:</b> Download and upload buttons on Jupyter lab as seen in the binder environment. </p>
 </div>
 
+## Local environment
+You can also install the data science lecture material locally. In general when working with Python it is recommended to use [virtual environments](https://docs.python.org/3/tutorial/venv.html). This makes sure that packages you install don't interfere with packages you already installed in other projects.
+
+To install the data science lectures run the following command:
+
+```bash
+pip install dslectures
+```
+
+To install Jupyter lab (a more advanced environment than Jupyter notebooks) run:
+
+```bash
+pip install jupyterlab
+```
+Then make sure you download all course material from the [GitHub repository](https://github.com/lewtun/dslectures) or just the missing notebooks. In general you will need to copy all materials, since some resources such as images are not self-contained in the notebooks.
+
+Finally, to start Juypter lab run:
+```bash
+jupyter-lab
+```
+
+### Updating the local environment
+Since we are building the materials up throughout the course you will need to update your local environment ideally every time we move on to the next lesson. To do so just run the following command before you start Jupyter lab
+
+```bash
+pip install --upgrade dslectures
+```
+
 ## Module policies 
 
 **Before class**
@@ -109,7 +137,7 @@ Your answers to homework, quizzes, and exams must be your own work (except for t
 
 ## Assessment
 
-The assessment for this module involves **_three_** parts whose sum is 100 points: one written mid-term test (10 points), one group project (50 points), and one final written exam (40 points). The total number of points determines the overall grade for the module.
+The assessment for this module involves **_three_** parts whose sum is 100 points: one written mid-term test (10 points), one group project (40 points), and one final written exam (50 points). The total number of points determines the overall grade for the module.
 
 1. **Written mid-term test:** The mid-term test will consist of multiple choice and short-answer questions, covering content from the first seven lectures and chapters 1–4 of the module textbook Data Science for Business (see references below). This test has a maximum score of 10 points and will be held on April 16th.
 2. **Group project:** Students will be allocated into small groups and tasked to solve an end-to-end data science project. The results from the analysis must be submitted in the form of a Jupyter Notebook, followed by a 15 minute oral presentation to the class. The maximum score for this assessment is 50 points, evenly distributed across the analysis code and presentation.
