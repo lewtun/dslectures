@@ -71,10 +71,10 @@ The module structure consists of classroom sessions, self-study tasks, and group
 | 26 | 25.06 | Exam preparation | |
 | 27 | TBD | **Final exam** | |
 
-*Note:* To download the notebook right-click on the badge ![notebook](https://img.shields.io/static/v1?label=notebook&message=example-notebook.ipynb&color=red&logo=Jupyter) and select "Save Link as ...".
+*Note:* To download the notebook right-click on the badge ![notebook](https://img.shields.io/static/v1?label=notebook&message=example-notebook.ipynb&color=red&logo=Jupyter) and select "Save Link as ..." and make sure to save them with the `.ipynb` ending.
 
 ## Cloud environment
-We will be teaching most of the class via Jupyter notebooks in Python. The notebooks for each class will be made available here. Note that some parts of the notebooks are removed for you to fill in as you follow along in class. You can open and run them directly on binder by clicking on the binder badge (see example below) at the top of each lecture notebook. We highly encourage the use of binder, since it requires no local installation and runs for free. 
+We will be teaching most of the class via Jupyter notebooks in Python. The notebooks for each class will be made available from links on this website. Note that some parts of the notebooks are removed for you to fill in as you follow along in class. You can open and run them directly on binder by clicking on the binder badge (see example below) at the top of each lecture notebook. We highly encourage the use of binder, since it requires no local installation and runs for free. 
 
 Binder badge:  ![Binder](https://mybinder.org/badge_logo.svg) 
 
