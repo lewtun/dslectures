@@ -82,7 +82,7 @@ large volumes of data, in order to improve business decision-making (Provost &am
 <td style="text-align:left">8</td>
 <td style="text-align:left">20.02</td>
 <td style="text-align:left">Introduction to data science</td>
-<td style="text-align:left"><a href="https://mybinder.org/v2/gh/lewtun/dslectures/master?urlpath=lab/tree/notebooks/lesson01_intro-to-pandas.ipynb"><img src="https://mybinder.org/badge_logo.svg" alt="Binder"></a> <a href="https://drive.google.com/file/d/14bPRdbbf_CjDOfG8rBbSBQO-dDpxDj2G/view"><img src="https://img.shields.io/static/v1?label=slides&amp;message=lesson01_intro-to-ds-and-ml.pdf&amp;color=blue&amp;logo=Google-drive" alt="slides"></a></td>
+<td style="text-align:left"><a href="https://mybinder.org/v2/gh/lewtun/dslectures/master?urlpath=lab/tree/notebooks/lesson01_intro-to-pandas.ipynb"><img src="https://mybinder.org/badge_logo.svg" alt="Binder"></a> <a href="https://raw.githubusercontent.com/lewtun/dslectures/master/notebooks/lesson01_intro-to-pandas.ipynb"><img src="https://img.shields.io/static/v1?label=notebook&amp;message=lesson01_intro-to-pandas.ipynb&amp;color=red&amp;logo=Jupyter" alt="notebook"></a> <a href="https://drive.google.com/file/d/14bPRdbbf_CjDOfG8rBbSBQO-dDpxDj2G/view"><img src="https://img.shields.io/static/v1?label=slides&amp;message=lesson01_intro-to-ds-and-ml.pdf&amp;color=blue&amp;logo=Google-drive" alt="slides"></a></td>
 </tr>
 <tr>
 <td style="text-align:left">9</td>
@@ -196,17 +196,17 @@ large volumes of data, in order to improve business decision-making (Provost &am
 <td style="text-align:left">27</td>
 <td style="text-align:left">TBD</td>
 <td style="text-align:left"><strong>Final exam</strong></td>
-<td style="text-align:left"></td>
 </tr>
 </tbody>
 </table>
+<p><em>Note:</em> To download the notebook right-click on the badge <img src="https://img.shields.io/static/v1?label=notebook&amp;message=example-notebook.ipynb&amp;color=red&amp;logo=Jupyter" alt="notebook"> and select "Save Link as ..." and make sure to save them with the <code>.ipynb</code> ending.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Programming-environment">Programming environment<a class="anchor-link" href="#Programming-environment">&#182;</a></h2><p>We will be teaching most of the class via Jupyter notebooks in Python. The notebooks for each class will be made available here. Note that some parts of the notebooks are removed for you to fill in as you follow along in class. You can open and run them directly on binder by clicking on the binder badge (see example below) at the top of each lecture notebook. We highly encourage the use of binder, since it requires no local installation and runs for free.</p>
+<h2 id="Cloud-environment">Cloud environment<a class="anchor-link" href="#Cloud-environment">&#182;</a></h2><p>We will be teaching most of the class via Jupyter notebooks in Python. The notebooks for each class will be made available from links on this website. Note that some parts of the notebooks are removed for you to fill in as you follow along in class. You can open and run them directly on binder by clicking on the binder badge (see example below) at the top of each lecture notebook. We highly encourage the use of binder, since it requires no local installation and runs for free.</p>
 <p>Binder badge:  <img src="https://mybinder.org/badge_logo.svg" alt="Binder"></p>
 <p>A few remarks about binder:</p>
 <ol>
@@ -215,6 +215,30 @@ large volumes of data, in order to improve business decision-making (Provost &am
 <li>Binder will automatically shut down user sessions that have more than 10 minutes of inactivity (if you leave your window open, this will be counted as “activity”).</li>
 <li>Binder aims to provide at least 12 hours of session time per user session. Beyond that, it is not guaranteed that the session will remain running.</li>
 </ol>
+<h3 id="Download/Upload">Download/Upload<a class="anchor-link" href="#Download/Upload">&#182;</a></h3><p>Since binder does not store your changes permanently you should download the notebooks you worked on at the end of your session. If you want to continue your session you can re-upload them to binder. See the image below for instructions how to upload/download.</p>
+<div style="text-align: center">
+{% include image.html max-width="800" file="/dslectures/images/binder-download-upload.png" %}
+<p style="text-align: center;"> <b>Figure:</b> Download and upload buttons on Jupyter lab as seen in the binder environment. </p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Local-environment">Local environment<a class="anchor-link" href="#Local-environment">&#182;</a></h2><p>You can also install the data science lecture material locally. In general when working with Python it is recommended to use <a href="https://docs.python.org/3/tutorial/venv.html">virtual environments</a>. This makes sure that packages you install don't interfere with packages you already installed in other projects.</p>
+<p>To install the data science lectures run the following command:</p>
+<div class="highlight"><pre><span></span>pip install dslectures
+</pre></div>
+<p>To install Jupyter lab (a more advanced environment than Jupyter notebooks) run:</p>
+<div class="highlight"><pre><span></span>pip install jupyterlab
+</pre></div>
+<p>Then make sure you download all course material from the <a href="https://github.com/lewtun/dslectures">GitHub repository</a> or just the missing notebooks. In general you will need to copy all materials, since some resources such as images are not self-contained in the notebooks.</p>
+<p>Finally, to start Juypter lab run:</p>
+<div class="highlight"><pre><span></span>jupyter-lab
+</pre></div>
+<h3 id="Updating-the-local-environment">Updating the local environment<a class="anchor-link" href="#Updating-the-local-environment">&#182;</a></h3><p>Since we are building the materials up throughout the course you will need to update your local environment ideally every time we move on to the next lesson. To do so just run the following command before you start Jupyter lab</p>
+<div class="highlight"><pre><span></span>pip install --upgrade dslectures
+</pre></div>
 
 </div>
 </div>
@@ -233,7 +257,7 @@ large volumes of data, in order to improve business decision-making (Provost &am
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Assessment">Assessment<a class="anchor-link" href="#Assessment">&#182;</a></h2><p>The assessment for this module involves <strong><em>three</em></strong> parts whose sum is 100 points: one written mid-term test (10 points), one group project (50 points), and one final written exam (40 points). The total number of points determines the overall grade for the module.</p>
+<h2 id="Assessment">Assessment<a class="anchor-link" href="#Assessment">&#182;</a></h2><p>The assessment for this module involves <strong><em>three</em></strong> parts whose sum is 100 points: one written mid-term test (10 points), one group project (40 points), and one final written exam (50 points). The total number of points determines the overall grade for the module.</p>
 <ol>
 <li><strong>Written mid-term test:</strong> The mid-term test will consist of multiple choice and short-answer questions, covering content from the first seven lectures and chapters 1–4 of the module textbook Data Science for Business (see references below). This test has a maximum score of 10 points and will be held on April 16th.</li>
 <li><strong>Group project:</strong> Students will be allocated into small groups and tasked to solve an end-to-end data science project. The results from the analysis must be submitted in the form of a Jupyter Notebook, followed by a 15 minute oral presentation to the class. The maximum score for this assessment is 50 points, evenly distributed across the analysis code and presentation.</li>
@@ -262,6 +286,11 @@ large volumes of data, in order to improve business decision-making (Provost &am
 <li>J. Howard, <em>Introduction to Machine Learning for Coders,</em> (fastAI 2018).</li>
 </ul>
 <p>Although machine learning is not the only focus of this course, Géron’s book or fastAI’s MOOC provide the right level of technical detail to gain a deeper understanding of this exciting field.</p>
+<p><strong>Kaggle Learn</strong></p>
+<ul>
+<li><a href="https://www.kaggle.com/learn/overview">Kaggle Learn</a></li>
+</ul>
+<p>Kaggle Learn is a great resource to brush up on concepts like Python basics, data visualisation or pandas in an online notebook environment (similar to Binder).</p>
 
 </div>
 </div>

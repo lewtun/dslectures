@@ -50,7 +50,7 @@ The module structure consists of classroom sessions, self-study tasks, and group
 
 | CW | Date | Topic | Links |
 | :--- | :--- | :--- | :--- |
-| 8 | 20.02 | Introduction to data science | [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/lewtun/dslectures/master?urlpath=lab/tree/notebooks/lesson01_intro-to-pandas.ipynb) [![slides](https://img.shields.io/static/v1?label=slides&message=lesson01_intro-to-ds-and-ml.pdf&color=blue&logo=Google-drive)](https://drive.google.com/file/d/14bPRdbbf_CjDOfG8rBbSBQO-dDpxDj2G/view) |
+| 8 | 20.02 | Introduction to data science | [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/lewtun/dslectures/master?urlpath=lab/tree/notebooks/lesson01_intro-to-pandas.ipynb) [![notebook](https://img.shields.io/static/v1?label=notebook&message=lesson01_intro-to-pandas.ipynb&color=red&logo=Jupyter)](https://raw.githubusercontent.com/lewtun/dslectures/master/notebooks/lesson01_intro-to-pandas.ipynb) [![slides](https://img.shields.io/static/v1?label=slides&message=lesson01_intro-to-ds-and-ml.pdf&color=blue&logo=Google-drive)](https://drive.google.com/file/d/14bPRdbbf_CjDOfG8rBbSBQO-dDpxDj2G/view) |
 | 9 | 27.02 | Python for data analysis I | |
 | 10 | 5.03 | Python for data analysis II | |
 | 11 | 12.03 | Introduction to random forests | |
@@ -71,8 +71,10 @@ The module structure consists of classroom sessions, self-study tasks, and group
 | 26 | 25.06 | Exam preparation | |
 | 27 | TBD | **Final exam** | |
 
-## Programming environment
-We will be teaching most of the class via Jupyter notebooks in Python. The notebooks for each class will be made available here. Note that some parts of the notebooks are removed for you to fill in as you follow along in class. You can open and run them directly on binder by clicking on the binder badge (see example below) at the top of each lecture notebook. We highly encourage the use of binder, since it requires no local installation and runs for free. 
+*Note:* To download the notebook right-click on the badge ![notebook](https://img.shields.io/static/v1?label=notebook&message=example-notebook.ipynb&color=red&logo=Jupyter) and select "Save Link as ..." and make sure to save them with the `.ipynb` ending.
+
+## Cloud environment
+We will be teaching most of the class via Jupyter notebooks in Python. The notebooks for each class will be made available from links on this website. Note that some parts of the notebooks are removed for you to fill in as you follow along in class. You can open and run them directly on binder by clicking on the binder badge (see example below) at the top of each lecture notebook. We highly encourage the use of binder, since it requires no local installation and runs for free. 
 
 Binder badge:  ![Binder](https://mybinder.org/badge_logo.svg) 
 
@@ -82,6 +84,42 @@ A few remarks about binder:
 3. Binder will automatically shut down user sessions that have more than 10 minutes of inactivity (if you leave your window open, this will be counted as “activity”).
 4. Binder aims to provide at least 12 hours of session time per user session. Beyond that, it is not guaranteed that the session will remain running.
 
+
+### Download/Upload
+Since binder does not store your changes permanently you should download the notebooks you worked on at the end of your session. If you want to continue your session you can re-upload them to binder. See the image below for instructions how to upload/download.
+
+<div style="text-align: center">
+<img src="notebooks/images/binder-download-upload.png" width="800">
+<p style="text-align: center;"> <b>Figure:</b> Download and upload buttons on Jupyter lab as seen in the binder environment. </p>
+</div>
+
+## Local environment
+You can also install the data science lecture material locally. In general when working with Python it is recommended to use [virtual environments](https://docs.python.org/3/tutorial/venv.html). This makes sure that packages you install don't interfere with packages you already installed in other projects.
+
+To install the data science lectures run the following command:
+
+```bash
+pip install dslectures
+```
+
+To install Jupyter lab (a more advanced environment than Jupyter notebooks) run:
+
+```bash
+pip install jupyterlab
+```
+Then make sure you download all course material from the [GitHub repository](https://github.com/lewtun/dslectures) or just the missing notebooks. In general you will need to copy all materials, since some resources such as images are not self-contained in the notebooks.
+
+Finally, to start Juypter lab run:
+```bash
+jupyter-lab
+```
+
+### Updating the local environment
+Since we are building the materials up throughout the course you will need to update your local environment ideally every time we move on to the next lesson. To do so just run the following command before you start Jupyter lab
+
+```bash
+pip install --upgrade dslectures
+```
 
 ## Module policies 
 
@@ -99,7 +137,7 @@ Your answers to homework, quizzes, and exams must be your own work (except for t
 
 ## Assessment
 
-The assessment for this module involves **_three_** parts whose sum is 100 points: one written mid-term test (10 points), one group project (50 points), and one final written exam (40 points). The total number of points determines the overall grade for the module.
+The assessment for this module involves **_three_** parts whose sum is 100 points: one written mid-term test (10 points), one group project (40 points), and one final written exam (50 points). The total number of points determines the overall grade for the module.
 
 1. **Written mid-term test:** The mid-term test will consist of multiple choice and short-answer questions, covering content from the first seven lectures and chapters 1–4 of the module textbook Data Science for Business (see references below). This test has a maximum score of 10 points and will be held on April 16th.
 2. **Group project:** Students will be allocated into small groups and tasked to solve an end-to-end data science project. The results from the analysis must be submitted in the form of a Jupyter Notebook, followed by a 15 minute oral presentation to the class. The maximum score for this assessment is 50 points, evenly distributed across the analysis code and presentation.
@@ -123,6 +161,11 @@ We will use the Python programming language to analyse and visualise a variety o
 * J. Howard, _Introduction to Machine Learning for Coders,_ (fastAI 2018).
 
 Although machine learning is not the only focus of this course, Géron’s book or fastAI’s MOOC provide the right level of technical detail to gain a deeper understanding of this exciting field.
+
+**Kaggle Learn**
+* [Kaggle Learn](https://www.kaggle.com/learn/overview)
+
+Kaggle Learn is a great resource to brush up on concepts like Python basics, data visualisation or pandas in an online notebook environment (similar to Binder).
 
 ##  Sources used for this syllabus
 * M. Loukides, _What is Data Science?,_ (O’Reilly 2010). Retrieved from https://www.oreilly.com/ideas/what-is-data-science
