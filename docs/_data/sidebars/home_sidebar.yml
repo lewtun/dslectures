@@ -18,18 +18,6 @@ entries:
     - output: web,pdf
       title: Lesson 2 - Exploratory data analysis
       url: /lesson02_exploratory-data-analysis
-    - output: web,pdf
-      title: Lesson 09 - Overfitting
-      url: /lesson09-overfitting
-    - output: web,pdf
-      title: Lesson 10 - Neighbours and clustering
-      url: /lesson10-k-means
-    - output: web,pdf
-      title: Lesson 12 - Natural Language Processing I
-      url: /lesson12-nlp-1
-    - output: web,pdf
-      title: Lesson 12 - Natural Language Processing II
-      url: /lesson13-nlp-2
     output: web
     title: dslectures
   output: web
