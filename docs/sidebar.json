@@ -2,7 +2,6 @@
   "dslectures": {
     "Overview": "/",
     "Core library": "/core",
-    "Title": "/Untitled",
     "Lesson 1 - Introduction to pandas and seaborn": "/lesson01_intro-to-pandas",
     "Lesson 2 - Exploratory data analysis": "/lesson02_exploratory-data-analysis",
     "Lesson 09 - Overfitting": "/lesson09-overfitting",
