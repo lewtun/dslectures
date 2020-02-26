@@ -6,6 +6,7 @@ __all__ = ['get_dataset']
 from nbdev.showdoc import *
 import wget
 import os
+import subprocess
 
 # Cell
 def get_dataset(dataset_name: str):
@@ -13,18 +14,25 @@ def get_dataset(dataset_name: str):
     Download datasets from Google Drive.
     """
 
-    name_to_id = {'embeddings': '1dRwSXbFTcQbn8c3V24G92wFY4DXZ1SDt',
-                  'imdb': '1wF0YEmQOwceJz2d6w4CfhBgydU87dPGl',
-                  'housing': '1d7oOKdDmZFx8wf0c8OfuTW1FpUyJHABh',
-                  'housing_gmaps': '1R1RUHAXxzrIngRJMFwyp4vZRVICd-I6T'}
+    name_to_id = {
+        "embeddings": "1dRwSXbFTcQbn8c3V24G92wFY4DXZ1SDt",
+        "imdb": "1wF0YEmQOwceJz2d6w4CfhBgydU87dPGl",
+        "housing": "1d7oOKdDmZFx8wf0c8OfuTW1FpUyJHABh",
+        "housing_gmaps": "1R1RUHAXxzrIngRJMFwyp4vZRVICd-I6T",
+        "housing_addresses": "1mOK0uyRz5Zs-Qo7mVMlxwtb2xn1E6N9Q",
+    }
 
     if dataset_name in name_to_id:
         try:
-            file_url = 'https://docs.google.com/uc?export=download&id=' + name_to_id[dataset_name]
-            wget.download(file_url, out='../data/')
+            path = '../data/'
+            file_url = (
+                "https://docs.google.com/uc?export=download&id="
+                + name_to_id[dataset_name]
+            )
+            wget.download(file_url, out=path)
         except Exception as e:
-            print('Something went wrong during download. Try again.')
+            print("Something went wrong during download. Try again.")
             raise e
-        print(f'Download of {dataset_name} dataset complete.')
+        print(f"Download of {dataset_name} dataset complete.")
     else:
-        raise KeyError('File not on Google Drive.')
+        raise KeyError("File not on Google Drive.")
