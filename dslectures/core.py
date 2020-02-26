@@ -6,7 +6,6 @@ __all__ = ['get_dataset']
 from nbdev.showdoc import *
 import wget
 import os
-import subprocess
 
 # Cell
 def get_dataset(dataset_name: str):
