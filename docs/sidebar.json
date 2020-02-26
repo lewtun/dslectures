@@ -3,10 +3,6 @@
     "Overview": "/",
     "Core library": "/core",
     "Lesson 1 - Introduction to pandas and seaborn": "/lesson01_intro-to-pandas",
-    "Lesson 2 - Exploratory data analysis": "/lesson02_exploratory-data-analysis",
-    "Lesson 09 - Overfitting": "/lesson09-overfitting",
-    "Lesson 10 - Neighbours and clustering": "/lesson10-k-means",
-    "Lesson 12 - Natural Language Processing I": "/lesson12-nlp-1",
-    "Lesson 12 - Natural Language Processing II": "/lesson13-nlp-2"
+    "Lesson 2 - Exploratory data analysis": "/lesson02_exploratory-data-analysis"
   }
 }
