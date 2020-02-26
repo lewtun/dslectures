@@ -51,8 +51,8 @@ The module structure consists of classroom sessions, self-study tasks, and group
 | CW | Date | Topic | Links |
 | :--- | :--- | :--- | :--- |
 | 8 | 20.02 | Introduction to data science | [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/lewtun/dslectures/master?urlpath=lab/tree/notebooks/lesson01_intro-to-pandas.ipynb) [![notebook](https://img.shields.io/static/v1?label=notebook&message=lesson01_intro-to-pandas.ipynb&color=red&logo=Jupyter)](https://raw.githubusercontent.com/lewtun/dslectures/master/notebooks/lesson01_intro-to-pandas.ipynb) [![slides](https://img.shields.io/static/v1?label=slides&message=lesson01_intro-to-ds-and-ml.pdf&color=blue&logo=Google-drive)](https://drive.google.com/file/d/14bPRdbbf_CjDOfG8rBbSBQO-dDpxDj2G/view) |
-| 9 | 27.02 | Python for data analysis I | |
-| 10 | 5.03 | Python for data analysis II | |
+| 9 | 27.02 | Exploratory data analysis | [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/lewtun/dslectures/master?filepath=notebooks%2Flesson02_exploratory-data-analysis.ipynb) [![notebook](https://img.shields.io/static/v1?label=notebook&message=lesson02_exploratory-data-analysis.ipynb&color=red&logo=Jupyter)](https://github.com/lewtun/dslectures/blob/master/notebooks/lesson02_exploratory-data-analysis.ipynb) [![slides](https://img.shields.io/static/v1?label=slides&message=lesson02_exploratory-data-analysis.pdf&color=blue&logo=Google-drive)](https://drive.google.com/open?id=1o7zrt0wB5XeJp1r16hv2dUVQVQEVAygl)  |
+| 10 | 5.03 | Data cleaning and preparation | |
 | 11 | 12.03 | Introduction to random forests | |
 | 12 | 19.03 | Random forest deep dive | |
 | 13 | 26.03 | Model interpretation | |
@@ -71,7 +71,7 @@ The module structure consists of classroom sessions, self-study tasks, and group
 | 26 | 25.06 | Exam preparation | |
 | 27 | TBD | **Final exam** | |
 
-*Note:* To download the notebook right-click on the badge ![notebook](https://img.shields.io/static/v1?label=notebook&message=example-notebook.ipynb&color=red&logo=Jupyter) and select "Save Link as ..." and make sure to save them with the `.ipynb` ending.
+**Note:** To download the notebooks, right-click on the badge ![notebook](https://img.shields.io/static/v1?label=notebook&message=example-notebook.ipynb&color=red&logo=Jupyter) and select "Save Link as ..." and make sure to save them with the `.ipynb` ending.
 
 ## Cloud environment
 We will be teaching most of the class via Jupyter notebooks in Python. The notebooks for each class will be made available from links on this website. Note that some parts of the notebooks are removed for you to fill in as you follow along in class. You can open and run them directly on binder by clicking on the binder badge (see example below) at the top of each lecture notebook. We highly encourage the use of binder, since it requires no local installation and runs for free. 
