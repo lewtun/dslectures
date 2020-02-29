@@ -36,20 +36,21 @@ summary: "API details."
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">name_to_id</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;embeddings&quot;</span><span class="p">:</span> <span class="s2">&quot;1dRwSXbFTcQbn8c3V24G92wFY4DXZ1SDt&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;imdb&quot;</span><span class="p">:</span> <span class="s2">&quot;1wF0YEmQOwceJz2d6w4CfhBgydU87dPGl&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;housing&quot;</span><span class="p">:</span> <span class="s2">&quot;1d7oOKdDmZFx8wf0c8OfuTW1FpUyJHABh&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;housing_gmaps&quot;</span><span class="p">:</span> <span class="s2">&quot;1R1RUHAXxzrIngRJMFwyp4vZRVICd-I6T&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;housing_addresses&quot;</span><span class="p">:</span> <span class="s2">&quot;1mOK0uyRz5Zs-Qo7mVMlxwtb2xn1E6N9Q&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;word2vec-google-news-300.pkl&quot;</span><span class="p">:</span> <span class="s2">&quot;1dRwSXbFTcQbn8c3V24G92wFY4DXZ1SDt&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;imdb.csv&quot;</span><span class="p">:</span> <span class="s2">&quot;1wF0YEmQOwceJz2d6w4CfhBgydU87dPGl&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;housing.csv&quot;</span><span class="p">:</span> <span class="s2">&quot;1d7oOKdDmZFx8wf0c8OfuTW1FpUyJHABh&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;housing_gmaps_data_raw.csv&quot;</span><span class="p">:</span> <span class="s2">&quot;1R1RUHAXxzrIngRJMFwyp4vZRVICd-I6T&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;housing_addresses.csv&quot;</span><span class="p">:</span> <span class="s2">&quot;1mOK0uyRz5Zs-Qo7mVMlxwtb2xn1E6N9Q&quot;</span><span class="p">,</span>
     <span class="p">}</span>
 
+    <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;../data/&#39;</span>
+    <span class="n">gdrive_path</span> <span class="o">=</span> <span class="s2">&quot;https://docs.google.com/uc?export=download&amp;id=&quot;</span>
     <span class="k">if</span> <span class="n">dataset_name</span> <span class="ow">in</span> <span class="n">name_to_id</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="n">dataset_name</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dataset already exists at &#39;{path + dataset_name}&#39; and is not downloaded again.&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;../data/&#39;</span>
-            <span class="n">file_url</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="s2">&quot;https://docs.google.com/uc?export=download&amp;id=&quot;</span>
-                <span class="o">+</span> <span class="n">name_to_id</span><span class="p">[</span><span class="n">dataset_name</span><span class="p">]</span>
-            <span class="p">)</span>
+            <span class="n">file_url</span> <span class="o">=</span>  <span class="n">gdrive_path</span> <span class="o">+</span> <span class="n">name_to_id</span><span class="p">[</span><span class="n">dataset_name</span><span class="p">]</span>
             <span class="n">wget</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">file_url</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">path</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Something went wrong during download. Try again.&quot;</span><span class="p">)</span>
@@ -97,7 +98,7 @@ summary: "API details."
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s1">&#39;housing&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s1">&#39;housing.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -110,7 +111,7 @@ summary: "API details."
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Download of housing dataset complete.
+<pre>Dataset already exists at &#39;../data/housing.csv&#39; and is not downloaded again.
 </pre>
 </div>
 </div>
@@ -124,7 +125,7 @@ summary: "API details."
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s1">&#39;imdb&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s1">&#39;imdb.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -137,7 +138,7 @@ summary: "API details."
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Download of imdb dataset complete.
+<pre>Dataset already exists at &#39;../data/imdb.csv&#39; and is not downloaded again.
 </pre>
 </div>
 </div>
@@ -151,7 +152,7 @@ summary: "API details."
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s1">&#39;housing_gmaps&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s1">&#39;housing_gmaps_data_raw.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -164,7 +165,7 @@ summary: "API details."
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Download of housing_gmaps dataset complete.
+<pre>Dataset already exists at &#39;../data/housing_gmaps_data_raw.csv&#39; and is not downloaded again.
 </pre>
 </div>
 </div>
@@ -178,7 +179,7 @@ summary: "API details."
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s1">&#39;housing_addresses&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s1">&#39;housing_addresses.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -191,7 +192,34 @@ summary: "API details."
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Download of housing_addresses dataset complete.
+<pre>Dataset already exists at &#39;../data/housing_addresses.csv&#39; and is not downloaded again.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s1">&#39;word2vec-google-news-300.pkl&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Dataset already exists at &#39;../data/word2vec-google-news-300.pkl&#39; and is not downloaded again.
 </pre>
 </div>
 </div>
