@@ -30,7 +30,7 @@ summary: "Welcome to the course materials for BTW2401 - Data Science and Visuali
 <li>The question facing every company, startup, and non-profit that wants to attract a community in the modern era is how to use data <em>effectively.</em> Using data effectively requires something different from traditional statistics; namely an interdisciplinary approach that involves elements of statistics, computer science, and domain expertise. Data science is the methodology that synthesises these three domains.</li>
 </ul>
 <p>In essence, data science is about the extraction of useful information and knowledge from
-large volumes of data, in order to improve business decision-making (Provost &amp; Fawcett, 2013). With improved decision making comes improved productivity, market value, and competitive edge. Thus the main goal of data science is to enable data-driven decision making across the whole company (Fig. 1), where decisions are based on the analysis of data rather than pure intuition.</p>
+large volumes of data, in order to improve business decision-making (Provost &amp; Fawcett, 2013). With improved decision making comes improved productivity, market value, and competitive edge. Thus the main goal of data science is to enable data-driven decision making across the whole company, where decisions are based on the analysis of data rather than pure intuition.</p>
 <p>There are many challenges involved with making data science an effective component of a business, but for those that succeed (Google, Amazon, Facebook, LinkedIn) the rewards are immense.</p>
 
 </div>
@@ -68,7 +68,7 @@ large volumes of data, in order to improve business decision-making (Provost &am
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Structure-of-the-module">Structure of the module<a class="anchor-link" href="#Structure-of-the-module">&#182;</a></h2><p>The module structure consists of classroom sessions, self-study tasks, and group work. The classroom sessions will involve a mix of theoretical and practical (programming) work, with an emphasis on the latter. The self-study tasks will be used to read selected chapters from the module textbook and complete ungraded programming assignments. The outline for the module is shown in the table below.</p>
+<h2 id="Structure-of-the-module">Structure of the module<a class="anchor-link" href="#Structure-of-the-module">&#182;</a></h2><p>The module structure consists of classroom sessions, self-study tasks, and group work. The classroom sessions will involve a mix of theoretical and practical (programming) work, with an emphasis on the latter. The self-study tasks will be used to read selected chapters from the module textbook. The outline for the module is shown in the table below.</p>
 <table>
 <thead><tr>
 <th style="text-align:left">CW</th>
@@ -93,7 +93,7 @@ large volumes of data, in order to improve business decision-making (Provost &am
 <tr>
 <td style="text-align:left">10</td>
 <td style="text-align:left">5.03</td>
-<td style="text-align:left">Data cleaning and preparation</td>
+<td style="text-align:left">Data cleaning and feature engineering</td>
 <td style="text-align:left"></td>
 </tr>
 <tr>
@@ -159,13 +159,13 @@ large volumes of data, in order to improve business decision-making (Provost &am
 <tr>
 <td style="text-align:left">21</td>
 <td style="text-align:left">21.05</td>
-<td style="text-align:left"><strong>No class (Ascension) &amp; project submission</strong></td>
+<td style="text-align:left"><strong>No class (Ascension)</strong></td>
 <td style="text-align:left"></td>
 </tr>
 <tr>
 <td style="text-align:left">22</td>
 <td style="text-align:left">28.05</td>
-<td style="text-align:left">Natural language processing II</td>
+<td style="text-align:left">Natural language processing II <strong>&amp; group project submission</strong></td>
 <td style="text-align:left"></td>
 </tr>
 <tr>
@@ -194,7 +194,7 @@ large volumes of data, in order to improve business decision-making (Provost &am
 </tr>
 <tr>
 <td style="text-align:left">27</td>
-<td style="text-align:left">TBD</td>
+<td style="text-align:left">TBC</td>
 <td style="text-align:left"><strong>Final exam</strong></td>
 <td style="text-align:left"></td>
 </tr>
@@ -213,37 +213,37 @@ large volumes of data, in order to improve business decision-making (Provost &am
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Cloud-environment">Cloud environment<a class="anchor-link" href="#Cloud-environment">&#182;</a></h2><p>We will be teaching most of the class via Jupyter notebooks in Python. The notebooks for each class will be made available from links on this website. Note that some parts of the notebooks are removed for you to fill in as you follow along in class. You can open and run them directly on binder by clicking on the binder badge (see example below) at the top of each lecture notebook. We highly encourage the use of binder, since it requires no local installation and runs for free.</p>
+<h2 id="Cloud-environment">Cloud environment<a class="anchor-link" href="#Cloud-environment">&#182;</a></h2><p>We will be teaching most of the class via Jupyter notebooks in Python. The notebooks for each class will be made available from links on this website. Note that some parts of the notebooks are removed for you to fill in as you follow along in class. You can open and run them directly on Binder by clicking on the Binder badge (see example below) at the top of each lecture notebook. We highly encourage the use of Binder, since it requires no local installation and runs for free.</p>
 <p>Binder badge:  <img src="https://mybinder.org/badge_logo.svg" alt="Binder"></p>
-<p>A few remarks about binder:</p>
+<p>A few remarks about Binder:</p>
 <ol>
 <li>Binder is free to use.</li>
-<li>If you edit a notebook make sure to download the notebooks, since binder does not store your changes.</li>
-<li>Binder will automatically shut down user sessions that have more than 10 minutes of inactivity (if you leave your window open, this will be counted as “activity”).</li>
+<li>If you edit a notebook make sure you <em><strong>download it</strong></em>, since Binder <em><strong>does not save your changes.</strong></em></li>
+<li>Binder will automatically shut down user sessions that have more than 10 minutes of inactivity (if you leave your browser window open, this will be counted as “activity”).</li>
 <li>Binder aims to provide at least 12 hours of session time per user session. Beyond that, it is not guaranteed that the session will remain running.</li>
 </ol>
-<h3 id="Download/Upload">Download/Upload<a class="anchor-link" href="#Download/Upload">&#182;</a></h3><p>Since binder does not store your changes permanently you should download the notebooks you worked on at the end of your session. If you want to continue your session you can re-upload them to binder. See the image below for instructions how to upload/download.</p>
+<h3 id="Downloading-and-uploading-files">Downloading and uploading files<a class="anchor-link" href="#Downloading-and-uploading-files">&#182;</a></h3><p>Since Binder does not save your changes permanently, you should download the notebooks you worked on at the end of your session. If you want to continue your session later on you can re-upload them to Binder. See the image below for instructions how to upload and download files.</p>
 <div style="text-align: center">
 {% include image.html max-width="800" file="/dslectures/images/binder-download-upload.png" %}
-<p style="text-align: center;"> <b>Figure:</b> Download and upload buttons on Jupyter lab as seen in the binder environment. </p>
+<p style="text-align: center;"> <b>Figure:</b> Download and upload buttons on JupyterLab as seen in the binder environment. </p>
 </div>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Local-environment">Local environment<a class="anchor-link" href="#Local-environment">&#182;</a></h2><p>You can also install the data science lecture material locally. In general when working with Python it is recommended to use <a href="https://docs.python.org/3/tutorial/venv.html">virtual environments</a>. This makes sure that packages you install don't interfere with packages you already installed in other projects.</p>
-<p>To install the data science lectures run the following command:</p>
+<h2 id="Local-environment">Local environment<a class="anchor-link" href="#Local-environment">&#182;</a></h2><p>You can also install the data science lecture material locally on your laptop. In general, when working with Python it is recommended to use <a href="https://docs.python.org/3/tutorial/venv.html">virtual environments</a>. This makes sure that the packages you install don't interfere with the packages you already installed in other projects.</p>
+<p>To install the data science lectures library run the following command:</p>
 <div class="highlight"><pre><span></span>pip install dslectures
 </pre></div>
-<p>To install Jupyter lab (a more advanced environment than Jupyter notebooks) run:</p>
+<p>To install JupyterLab (a more advanced environment than Jupyter notebooks) run:</p>
 <div class="highlight"><pre><span></span>pip install jupyterlab
 </pre></div>
 <p>Then make sure you download all course material from the <a href="https://github.com/lewtun/dslectures">GitHub repository</a> or just the missing notebooks. In general you will need to copy all materials, since some resources such as images are not self-contained in the notebooks.</p>
-<p>Finally, to start Juypter lab run:</p>
+<p>Finally, to start JuypterLab run:</p>
 <div class="highlight"><pre><span></span>jupyter-lab
 </pre></div>
-<h3 id="Updating-the-local-environment">Updating the local environment<a class="anchor-link" href="#Updating-the-local-environment">&#182;</a></h3><p>Since we are building the materials up throughout the course you will need to update your local environment ideally every time we move on to the next lesson. To do so just run the following command before you start Jupyter lab</p>
+<h3 id="Updating-the-local-environment">Updating the local environment<a class="anchor-link" href="#Updating-the-local-environment">&#182;</a></h3><p>Since we are developing the materials throughout the course you will need to update your local environment every time we move on to the next lesson. To do so just run the following command before you start JupyterLab</p>
 <div class="highlight"><pre><span></span>pip install --upgrade dslectures
 </pre></div>
 
@@ -267,8 +267,8 @@ large volumes of data, in order to improve business decision-making (Provost &am
 <h2 id="Assessment">Assessment<a class="anchor-link" href="#Assessment">&#182;</a></h2><p>The assessment for this module involves <strong><em>three</em></strong> parts whose sum is 100 points: one written mid-term test (10 points), one group project (40 points), and one final written exam (50 points). The total number of points determines the overall grade for the module.</p>
 <ol>
 <li><strong>Written mid-term test:</strong> The mid-term test will consist of multiple choice and short-answer questions, covering content from the first seven lectures and chapters 1–4 of the module textbook Data Science for Business (see references below). This test has a maximum score of 10 points and will be held on April 16th.</li>
-<li><strong>Group project:</strong> Students will be allocated into small groups and tasked to solve an end-to-end data science project. The results from the analysis must be submitted in the form of a Jupyter Notebook, followed by a 15 minute oral presentation to the class. The maximum score for this assessment is 50 points, evenly distributed across the analysis code and presentation.</li>
-<li><strong>Written examination:</strong> The final written examination will consist of multiple choice and short answer questions, covering the content of the lectures and the module textbook. Students will not be required to solve any Python programming questions in the exam. The exam has a maximum score of 40 points and the final date will lie somewhere between June 29th and July 17th.</li>
+<li><strong>Group project:</strong> Students will be allocated into small groups and tasked to solve an end-to-end data science project. The results from the analysis must be submitted in the form of a Jupyter notebook, followed by a 15 minute oral presentation to the class. The maximum score for this assessment is 40 points, evenly distributed across the analysis code (20 points) and presentation (20 points).</li>
+<li><strong>Written examination:</strong> The final written examination will consist of multiple choice and short answer questions, covering the content of the lectures and the module textbook. Students will not be required to solve any Python programming questions in the exam. The exam has a maximum score of 50 points and the final date will lie somewhere between June 29th and July 17th.</li>
 </ol>
 
 </div>
@@ -279,9 +279,9 @@ large volumes of data, in order to improve business decision-making (Provost &am
 <h2 id="Recommended-references">Recommended references<a class="anchor-link" href="#Recommended-references">&#182;</a></h2><p><strong>Data Science</strong></p>
 <ul>
 <li>F. Provost and T. Fawcett, <em>Data Science for Business,</em> (O’Reilly Media 2013). </li>
-<li>J. VanderPlas, <em>Python for Data Science Handbook,</em> (O’Reilly Media 2016).</li>
+<li>J. VanderPlas, <a href="https://jakevdp.github.io/PythonDataScienceHandbook/"><em>Python for Data Science Handbook,</em></a> (O’Reilly Media 2016).</li>
 </ul>
-<p>Provost &amp; Fawcett will be used as the <strong><em>primary</em></strong> textbook for the module and is the standard data science text for business programs at over 150 universities around the world.</p>
+<p>Provost &amp; Fawcett will be used as the <strong><em>primary</em></strong> textbook for the module and is the standard data science text for business programs at over 150 universities around the world. The book by VanderPlas is an excellent reference for the Python programming aspects of the module.</p>
 <p><strong>Python Programming</strong></p>
 <ul>
 <li>W. McKinney, <em>Python for Data Analysis,</em> 2nd ed (O’Reilly Media 2017).</li>
