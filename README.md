@@ -20,7 +20,7 @@ Data science is a big deal in business these days, and with good reasons. Amongs
 * The question facing every company, startup, and non-profit that wants to attract a community in the modern era is how to use data _effectively._ Using data effectively requires something different from traditional statistics; namely an interdisciplinary approach that involves elements of statistics, computer science, and domain expertise. Data science is the methodology that synthesises these three domains.
 
 In essence, data science is about the extraction of useful information and knowledge from
-large volumes of data, in order to improve business decision-making (Provost & Fawcett, 2013). With improved decision making comes improved productivity, market value, and competitive edge. Thus the main goal of data science is to enable data-driven decision making across the whole company (Fig. 1), where decisions are based on the analysis of data rather than pure intuition.
+large volumes of data, in order to improve business decision-making (Provost & Fawcett, 2013). With improved decision making comes improved productivity, market value, and competitive edge. Thus the main goal of data science is to enable data-driven decision making across the whole company, where decisions are based on the analysis of data rather than pure intuition.
 
 There are many challenges involved with making data science an effective component of a business, but for those that succeed (Google, Amazon, Facebook, LinkedIn) the rewards are immense.
 
@@ -46,13 +46,13 @@ Throughout the course, students will also have the opportunity to learn several 
 * Practical experience with machine learning.
 
 ## Structure of the module
-The module structure consists of classroom sessions, self-study tasks, and group work. The classroom sessions will involve a mix of theoretical and practical (programming) work, with an emphasis on the latter. The self-study tasks will be used to read selected chapters from the module textbook and complete ungraded programming assignments. The outline for the module is shown in the table below.
+The module structure consists of classroom sessions, self-study tasks, and group work. The classroom sessions will involve a mix of theoretical and practical (programming) work, with an emphasis on the latter. The self-study tasks will be used to read selected chapters from the module textbook. The outline for the module is shown in the table below.
 
 | CW | Date | Topic | Links |
 | :--- | :--- | :--- | :--- |
 | 8 | 20.02 | Introduction to data science | [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/lewtun/dslectures/master?urlpath=lab/tree/notebooks/lesson01_intro-to-pandas.ipynb) [![notebook](https://img.shields.io/static/v1?label=notebook&message=lesson01_intro-to-pandas.ipynb&color=red&logo=Jupyter)](https://raw.githubusercontent.com/lewtun/dslectures/master/notebooks/lesson01_intro-to-pandas.ipynb) [![slides](https://img.shields.io/static/v1?label=slides&message=lesson01_intro-to-ds-and-ml.pdf&color=blue&logo=Google-drive)](https://drive.google.com/file/d/14bPRdbbf_CjDOfG8rBbSBQO-dDpxDj2G/view) |
 | 9 | 27.02 | Exploratory data analysis | [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/lewtun/dslectures/master?urlpath=lab/tree/notebooks%2Flesson02_exploratory-data-analysis.ipynb) [![notebook](https://img.shields.io/static/v1?label=notebook&message=lesson02_exploratory-data-analysis.ipynb&color=red&logo=Jupyter)](https://github.com/lewtun/dslectures/blob/master/notebooks/lesson02_exploratory-data-analysis.ipynb) [![slides](https://img.shields.io/static/v1?label=slides&message=lesson02_exploratory-data-analysis.pdf&color=blue&logo=Google-drive)](https://drive.google.com/open?id=1o7zrt0wB5XeJp1r16hv2dUVQVQEVAygl)  |
-| 10 | 5.03 | Data cleaning and preparation | |
+| 10 | 5.03 | Data cleaning and feature engineering | |
 | 11 | 12.03 | Introduction to random forests | |
 | 12 | 19.03 | Random forest deep dive | |
 | 13 | 26.03 | Model interpretation | |
@@ -63,59 +63,60 @@ The module structure consists of classroom sessions, self-study tasks, and group
 | 18 | 30.04 | Neighbours and clusters I | |
 | 19 | 7.05 | Neighbours and clusters II | |
 | 20 | 14.05 | Natural language processing I | |
-| 21 | 21.05 | **No class (Ascension) & project submission** | |
-| 22 | 28.05 | Natural language processing II | |
+| 21 | 21.05 | **No class (Ascension)** | |
+| 22 | 28.05 | Natural language processing II **& group project submission** | |
 | 23 | 4.06 | **Project presentations** | |
 | 24 | 11.06 | Deep learning | |
 | 25 | 18.06 | Exam preparation| |
 | 26 | 25.06 | Exam preparation | |
-| 27 | TBD | **Final exam** | |
+| 27 | TBC | **Final exam** | |
 
 **Note:** To download the notebooks, right-click on the badge ![notebook](https://img.shields.io/static/v1?label=notebook&message=example-notebook.ipynb&color=red&logo=Jupyter) and select "Save Link as ..." and make sure to save them with the `.ipynb` ending.
 
 ## Cloud environment
-We will be teaching most of the class via Jupyter notebooks in Python. The notebooks for each class will be made available from links on this website. Note that some parts of the notebooks are removed for you to fill in as you follow along in class. You can open and run them directly on binder by clicking on the binder badge (see example below) at the top of each lecture notebook. We highly encourage the use of binder, since it requires no local installation and runs for free. 
+We will be teaching most of the class via Jupyter notebooks in Python. The notebooks for each class will be made available from links on this website. Note that some parts of the notebooks are removed for you to fill in as you follow along in class. You can open and run them directly on Binder by clicking on the Binder badge (see example below) at the top of each lecture notebook. We highly encourage the use of Binder, since it requires no local installation and runs for free. 
 
 Binder badge:  ![Binder](https://mybinder.org/badge_logo.svg) 
 
-A few remarks about binder:
+A few remarks about Binder:
+
 1. Binder is free to use.
-2. If you edit a notebook make sure to download the notebooks, since binder does not store your changes.
-3. Binder will automatically shut down user sessions that have more than 10 minutes of inactivity (if you leave your window open, this will be counted as “activity”).
+2. If you edit a notebook make sure you _**download it**_, since Binder _**does not save your changes.**_
+3. Binder will automatically shut down user sessions that have more than 10 minutes of inactivity (if you leave your browser window open, this will be counted as “activity”).
 4. Binder aims to provide at least 12 hours of session time per user session. Beyond that, it is not guaranteed that the session will remain running.
 
 
-### Download/Upload
-Since binder does not store your changes permanently you should download the notebooks you worked on at the end of your session. If you want to continue your session you can re-upload them to binder. See the image below for instructions how to upload/download.
+### Downloading and uploading files
+Since Binder does not save your changes permanently, you should download the notebooks you worked on at the end of your session. If you want to continue your session later on you can re-upload them to Binder. See the image below for instructions how to upload and download files.
 
 <div style="text-align: center">
 <img src="notebooks/images/binder-download-upload.png" width="800">
-<p style="text-align: center;"> <b>Figure:</b> Download and upload buttons on Jupyter lab as seen in the binder environment. </p>
+<p style="text-align: center;"> <b>Figure:</b> Download and upload buttons on JupyterLab as seen in the binder environment. </p>
 </div>
 
 ## Local environment
-You can also install the data science lecture material locally. In general when working with Python it is recommended to use [virtual environments](https://docs.python.org/3/tutorial/venv.html). This makes sure that packages you install don't interfere with packages you already installed in other projects.
+You can also install the data science lecture material locally on your laptop. In general, when working with Python it is recommended to use [virtual environments](https://docs.python.org/3/tutorial/venv.html). This makes sure that the packages you install don't interfere with the packages you already installed in other projects.
 
-To install the data science lectures run the following command:
+To install the data science lectures library run the following command:
 
 ```bash
 pip install dslectures
 ```
 
-To install Jupyter lab (a more advanced environment than Jupyter notebooks) run:
+To install JupyterLab (a more advanced environment than Jupyter notebooks) run:
 
 ```bash
 pip install jupyterlab
 ```
 Then make sure you download all course material from the [GitHub repository](https://github.com/lewtun/dslectures) or just the missing notebooks. In general you will need to copy all materials, since some resources such as images are not self-contained in the notebooks.
 
-Finally, to start Juypter lab run:
+Finally, to start JuypterLab run:
 ```bash
 jupyter-lab
 ```
 
 ### Updating the local environment
-Since we are building the materials up throughout the course you will need to update your local environment ideally every time we move on to the next lesson. To do so just run the following command before you start Jupyter lab
+Since we are developing the materials throughout the course you will need to update your local environment every time we move on to the next lesson. To do so just run the following command before you start JupyterLab
 
 ```bash
 pip install --upgrade dslectures
@@ -140,16 +141,16 @@ Your answers to homework, quizzes, and exams must be your own work (except for t
 The assessment for this module involves **_three_** parts whose sum is 100 points: one written mid-term test (10 points), one group project (40 points), and one final written exam (50 points). The total number of points determines the overall grade for the module.
 
 1. **Written mid-term test:** The mid-term test will consist of multiple choice and short-answer questions, covering content from the first seven lectures and chapters 1–4 of the module textbook Data Science for Business (see references below). This test has a maximum score of 10 points and will be held on April 16th.
-2. **Group project:** Students will be allocated into small groups and tasked to solve an end-to-end data science project. The results from the analysis must be submitted in the form of a Jupyter Notebook, followed by a 15 minute oral presentation to the class. The maximum score for this assessment is 50 points, evenly distributed across the analysis code and presentation.
-3. **Written examination:** The final written examination will consist of multiple choice and short answer questions, covering the content of the lectures and the module textbook. Students will not be required to solve any Python programming questions in the exam. The exam has a maximum score of 40 points and the final date will lie somewhere between June 29th and July 17th.
+2. **Group project:** Students will be allocated into small groups and tasked to solve an end-to-end data science project. The results from the analysis must be submitted in the form of a Jupyter notebook, followed by a 15 minute oral presentation to the class. The maximum score for this assessment is 40 points, evenly distributed across the analysis code (20 points) and presentation (20 points).
+3. **Written examination:** The final written examination will consist of multiple choice and short answer questions, covering the content of the lectures and the module textbook. Students will not be required to solve any Python programming questions in the exam. The exam has a maximum score of 50 points and the final date will lie somewhere between June 29th and July 17th.
 
 ## Recommended references
 
 **Data Science**
 * F. Provost and T. Fawcett, _Data Science for Business,_ (O’Reilly Media 2013). 
-* J. VanderPlas, _Python for Data Science Handbook,_ (O’Reilly Media 2016).
+* J. VanderPlas, [_Python for Data Science Handbook,_](https://jakevdp.github.io/PythonDataScienceHandbook/) (O’Reilly Media 2016).
 
-Provost & Fawcett will be used as the **_primary_** textbook for the module and is the standard data science text for business programs at over 150 universities around the world.
+Provost & Fawcett will be used as the **_primary_** textbook for the module and is the standard data science text for business programs at over 150 universities around the world. The book by VanderPlas is an excellent reference for the Python programming aspects of the module.
 
 **Python Programming**
 * W. McKinney, _Python for Data Analysis,_ 2nd ed (O’Reilly Media 2017).
