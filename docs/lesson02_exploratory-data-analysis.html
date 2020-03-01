@@ -5,7 +5,7 @@ title: Lesson 2 - Exploratory data analysis
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "A walkthrough on the fundamental mechanics to manipulate the data contained in pandas.Series or pandas.DataFrame objects."
+summary: "A walkthrough on the fundamental mechanics to manipulate the data contained in pandas Series or DataFrame objects."
 ---
 <!--
 
@@ -89,7 +89,9 @@ summary: "A walkthrough on the fundamental mechanics to manipulate the data cont
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In data science we apply the scientific method to data with the goal gain insights. This means that we state a hypothesis about the data, test it and refine it if necessary. In this framework, exploratory data analysis (EDA) is the step where we explore the data before actually building models. This helps us understand what information is actually contained in the data and what insights could be gained from it.</p>
+<div style="text-align: center">
+{% include image.html max-width="400" file="/dslectures/images/data-exploration.jpg" %}
+</div><p>In data science we apply the scientific method to data with the goal gain insights. This means that we state a hypothesis about the data, test it and refine it if necessary. In this framework, exploratory data analysis (EDA) is the step where we explore the data before actually building models. This helps us understand what information is actually contained in the data and what insights could be gained from it.</p>
 <p>Formally, the goals of EDA are:</p>
 <ul>
 <li>Suggest hypotheses about the phenomena of interest</li>
@@ -251,9 +253,11 @@ Download of housing_addresses dataset complete.
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>housing (1).csv            housing_addresses.csv
-housing.csv                housing_gmaps_data_raw.csv
-housing_addresses (1).csv  uc
+<pre>housing (1).csv                housing_gmaps_data_raw (1).csv
+housing.csv                    housing_gmaps_data_raw.csv
+housing_addresses (1).csv      imdb.csv
+housing_addresses.csv          uc
+housing_backup.csv
 </pre>
 </div>
 </div>
@@ -425,7 +429,6 @@ housing_addresses (1).csv  uc
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Unnamed: 0</th>
       <th>street_number</th>
       <th>route</th>
       <th>locality-political</th>
@@ -436,7 +439,6 @@ housing_addresses (1).csv  uc
   <tbody>
     <tr>
       <th>0</th>
-      <td>0</td>
       <td>3130</td>
       <td>Grizzly Peak Boulevard</td>
       <td>Berkeley</td>
@@ -445,7 +447,6 @@ housing_addresses (1).csv  uc
     </tr>
     <tr>
       <th>1</th>
-      <td>1</td>
       <td>2005</td>
       <td>Tunnel Road</td>
       <td>Oakland</td>
@@ -454,7 +455,6 @@ housing_addresses (1).csv  uc
     </tr>
     <tr>
       <th>2</th>
-      <td>2</td>
       <td>6886</td>
       <td>Chabot Road</td>
       <td>Oakland</td>
@@ -463,7 +463,6 @@ housing_addresses (1).csv  uc
     </tr>
     <tr>
       <th>3</th>
-      <td>3</td>
       <td>6365</td>
       <td>Florio Street</td>
       <td>Oakland</td>
@@ -472,7 +471,6 @@ housing_addresses (1).csv  uc
     </tr>
     <tr>
       <th>4</th>
-      <td>4</td>
       <td>5407</td>
       <td>Bryant Avenue</td>
       <td>Oakland</td>
@@ -560,7 +558,7 @@ housing_addresses (1).csv  uc
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>((20640, 10), (12590, 6))</pre>
+<pre>((20640, 10), (12590, 5))</pre>
 </div>
 
 </div>
@@ -602,8 +600,8 @@ housing_addresses (1).csv  uc
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>Index([&#39;Unnamed: 0&#39;, &#39;street_number&#39;, &#39;route&#39;, &#39;locality-political&#39;,
-       &#39;postal_code&#39;, &#39;latitude_longitude&#39;],
+<pre>Index([&#39;street_number&#39;, &#39;route&#39;, &#39;locality-political&#39;, &#39;postal_code&#39;,
+       &#39;latitude_longitude&#39;],
       dtype=&#39;object&#39;)</pre>
 </div>
 
@@ -671,7 +669,6 @@ housing_addresses (1).csv  uc
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Unnamed: 0</th>
       <th>street_number</th>
       <th>street_name</th>
       <th>city</th>
@@ -682,7 +679,6 @@ housing_addresses (1).csv  uc
   <tbody>
     <tr>
       <th>0</th>
-      <td>0</td>
       <td>3130</td>
       <td>Grizzly Peak Boulevard</td>
       <td>Berkeley</td>
@@ -691,7 +687,6 @@ housing_addresses (1).csv  uc
     </tr>
     <tr>
       <th>1</th>
-      <td>1</td>
       <td>2005</td>
       <td>Tunnel Road</td>
       <td>Oakland</td>
@@ -700,7 +695,6 @@ housing_addresses (1).csv  uc
     </tr>
     <tr>
       <th>2</th>
-      <td>2</td>
       <td>6886</td>
       <td>Chabot Road</td>
       <td>Oakland</td>
@@ -709,7 +703,6 @@ housing_addresses (1).csv  uc
     </tr>
     <tr>
       <th>3</th>
-      <td>3</td>
       <td>6365</td>
       <td>Florio Street</td>
       <td>Oakland</td>
@@ -718,7 +711,6 @@ housing_addresses (1).csv  uc
     </tr>
     <tr>
       <th>4</th>
-      <td>4</td>
       <td>5407</td>
       <td>Bryant Avenue</td>
       <td>Oakland</td>
@@ -788,7 +780,7 @@ housing_addresses (1).csv  uc
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<h4 id="Exercise-#1">Exercise #1<a class="anchor-link" href="#Exercise-#1">&#182;</a></h4><p>Does the above number make sense to you? How might you find out if it does or does not?</p>
+<h4 id="Exercise-#1">Exercise #1<a class="anchor-link" href="#Exercise-#1">&#182;</a></h4><p>Does the above number make sense to you? What additional data could you find to determine if it does or does not?</p>
 <hr>
 
 </div>
@@ -1006,7 +998,7 @@ housing_addresses (1).csv  uc
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Although the <code>housing_data</code> and <code>housing_addresses</code> <code>DataFrames</code> contain interesting information, it would be nice if there was a way to join the two tables.</p>
 <p>More generally, one of the most common operations in pandas (or data science for that matter) is the combination of data contained in various objects. In particular, <em><strong>merge</strong></em> or <em><strong>join</strong></em> operations combine datasets by linking rows using one of more <em><strong>keys</strong></em>. These operations are central to relational databases (e.g. SQL-based). The <code>pandas.merge()</code> function in pandas is the main entry point for using these algorithms on your data.</p>
-<p>Let's use this idea to combine the <code>housing_data</code> and <code>housing_addresses</code> <code>DataFrames</code> via their common latitude and longitude coordinates. First we need to combine the <code>latitude</code> and <code>longitude</code> columns of <code>housing_data</code> into the same <code>lat,lon</code> format as our <code>housing_addresses</code> <code>DataFrame</code>. To do so, we will use the <code>Series.astype()</code> function to convert the numerical column values to strings, then use string concatenation to create a new <code>latitude_longitude</code> column with the desired format:</p>
+<p>Let's use this idea to combine the <code>housing_data</code> and <code>housing_addresses</code> <code>pandas.DataFrame</code> objects via their common latitude and longitude coordinates. First we need to combine the <code>latitude</code> and <code>longitude</code> columns of <code>housing_data</code> into the same <code>lat,lon</code> format as our <code>housing_addresses</code> <code>pandas.DataFrame</code>. To do so, we will use the <code>Series.astype()</code> function to convert the numerical column values to strings, then use string concatenation to create a new <code>latitude_longitude</code> column with the desired format:</p>
 
 </div>
 </div>
@@ -1161,7 +1153,7 @@ housing_addresses (1).csv  uc
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now that we have <code>latitude_longitude</code> present in both <code>DataFrames</code> we can merge the two tables together in pandas as follows:</p>
+<p>Now that we have <code>latitude_longitude</code> present in both <code>pandas.DataFrame</code> objects we can merge the two tables together in pandas as follows:</p>
 
 </div>
 </div>
@@ -1219,7 +1211,6 @@ housing_addresses (1).csv  uc
       <th>median_house_value</th>
       <th>ocean_proximity</th>
       <th>latitude_longitude</th>
-      <th>Unnamed: 0</th>
       <th>street_number</th>
       <th>street_name</th>
       <th>city</th>
@@ -1240,7 +1231,6 @@ housing_addresses (1).csv  uc
       <td>452600.0</td>
       <td>NEAR BAY</td>
       <td>37.88,-122.23</td>
-      <td>0</td>
       <td>3130</td>
       <td>Grizzly Peak Boulevard</td>
       <td>Berkeley</td>
@@ -1259,7 +1249,6 @@ housing_addresses (1).csv  uc
       <td>358500.0</td>
       <td>NEAR BAY</td>
       <td>37.86,-122.22</td>
-      <td>1</td>
       <td>2005</td>
       <td>Tunnel Road</td>
       <td>Oakland</td>
@@ -1278,7 +1267,6 @@ housing_addresses (1).csv  uc
       <td>352100.0</td>
       <td>NEAR BAY</td>
       <td>37.85,-122.24</td>
-      <td>2</td>
       <td>6886</td>
       <td>Chabot Road</td>
       <td>Oakland</td>
@@ -1297,7 +1285,6 @@ housing_addresses (1).csv  uc
       <td>341300.0</td>
       <td>NEAR BAY</td>
       <td>37.85,-122.25</td>
-      <td>3</td>
       <td>6365</td>
       <td>Florio Street</td>
       <td>Oakland</td>
@@ -1316,7 +1303,6 @@ housing_addresses (1).csv  uc
       <td>342200.0</td>
       <td>NEAR BAY</td>
       <td>37.85,-122.25</td>
-      <td>3</td>
       <td>6365</td>
       <td>Florio Street</td>
       <td>Oakland</td>
@@ -1335,7 +1321,7 @@ housing_addresses (1).csv  uc
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Boom! We now have a single <code>DataFrame</code> that links information for house prices and attributes and their addresses.</p>
+<p>Boom! We now have a single <code>pandas.DataFrame</code> that links information for house prices and attributes and their addresses.</p>
 
 </div>
 </div>
@@ -1349,7 +1335,7 @@ housing_addresses (1).csv  uc
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In general the <code>'how'</code> argument of <code>pd.merge()</code> allows four different join types:</p>
+<p>In general the <code>'how'</code> argument of <code>pandas.merge()</code> allows four different join types:</p>
 <ul>
 <li><code>'left'</code>: Use all key combinations found in the left table</li>
 <li><code>'right'</code>: Use all key combinations found in the right table</li>
@@ -1384,7 +1370,7 @@ housing_addresses (1).csv  uc
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>It is not uncommon for a dataset to have tens or hundreds of columns, and in practice we may only want to focus our attention on a smaller subset. One way to remove unwanted columns is via the <code>DataFrame.drop()</code> method. Since we have duplicate information about the latitude and longitude coordinate, we may as well drop these two columns from our merged <code>DataFrame</code>:</p>
+<p>It is not uncommon for a dataset to have tens or hundreds of columns, and in practice we may only want to focus our attention on a smaller subset. One way to remove unwanted columns is via the <code>DataFrame.drop()</code> method. Since we have duplicate information about the latitude and longitude coordinate, we may as well drop the <code>latitude_longitude</code> column from our merged <code>pandas.DataFrame</code>:</p>
 
 </div>
 </div>
@@ -1395,7 +1381,7 @@ housing_addresses (1).csv  uc
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># inplace=True manipulates an object without returning a new object</span>
-<span class="n">housing_merged</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span> <span class="n">housing_merged</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">housing_merged</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;latitude_longitude&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span> <span class="n">housing_merged</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -1427,6 +1413,8 @@ housing_addresses (1).csv  uc
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>longitude</th>
+      <th>latitude</th>
       <th>housing_median_age</th>
       <th>total_rooms</th>
       <th>total_bedrooms</th>
@@ -1435,8 +1423,6 @@ housing_addresses (1).csv  uc
       <th>median_income</th>
       <th>median_house_value</th>
       <th>ocean_proximity</th>
-      <th>latitude_longitude</th>
-      <th>Unnamed: 0</th>
       <th>street_number</th>
       <th>street_name</th>
       <th>city</th>
@@ -1446,6 +1432,8 @@ housing_addresses (1).csv  uc
   <tbody>
     <tr>
       <th>0</th>
+      <td>-122.23</td>
+      <td>37.88</td>
       <td>41.0</td>
       <td>880.0</td>
       <td>129.0</td>
@@ -1454,8 +1442,6 @@ housing_addresses (1).csv  uc
       <td>8.3252</td>
       <td>452600.0</td>
       <td>NEAR BAY</td>
-      <td>37.88,-122.23</td>
-      <td>0</td>
       <td>3130</td>
       <td>Grizzly Peak Boulevard</td>
       <td>Berkeley</td>
@@ -1463,6 +1449,8 @@ housing_addresses (1).csv  uc
     </tr>
     <tr>
       <th>1</th>
+      <td>-122.22</td>
+      <td>37.86</td>
       <td>21.0</td>
       <td>7099.0</td>
       <td>1106.0</td>
@@ -1471,8 +1459,6 @@ housing_addresses (1).csv  uc
       <td>8.3014</td>
       <td>358500.0</td>
       <td>NEAR BAY</td>
-      <td>37.86,-122.22</td>
-      <td>1</td>
       <td>2005</td>
       <td>Tunnel Road</td>
       <td>Oakland</td>
@@ -1480,6 +1466,8 @@ housing_addresses (1).csv  uc
     </tr>
     <tr>
       <th>2</th>
+      <td>-122.24</td>
+      <td>37.85</td>
       <td>52.0</td>
       <td>1467.0</td>
       <td>190.0</td>
@@ -1488,8 +1476,6 @@ housing_addresses (1).csv  uc
       <td>7.2574</td>
       <td>352100.0</td>
       <td>NEAR BAY</td>
-      <td>37.85,-122.24</td>
-      <td>2</td>
       <td>6886</td>
       <td>Chabot Road</td>
       <td>Oakland</td>
@@ -1497,6 +1483,8 @@ housing_addresses (1).csv  uc
     </tr>
     <tr>
       <th>3</th>
+      <td>-122.25</td>
+      <td>37.85</td>
       <td>52.0</td>
       <td>1274.0</td>
       <td>235.0</td>
@@ -1505,8 +1493,6 @@ housing_addresses (1).csv  uc
       <td>5.6431</td>
       <td>341300.0</td>
       <td>NEAR BAY</td>
-      <td>37.85,-122.25</td>
-      <td>3</td>
       <td>6365</td>
       <td>Florio Street</td>
       <td>Oakland</td>
@@ -1514,6 +1500,8 @@ housing_addresses (1).csv  uc
     </tr>
     <tr>
       <th>4</th>
+      <td>-122.25</td>
+      <td>37.85</td>
       <td>52.0</td>
       <td>1627.0</td>
       <td>280.0</td>
@@ -1522,8 +1510,6 @@ housing_addresses (1).csv  uc
       <td>3.8462</td>
       <td>342200.0</td>
       <td>NEAR BAY</td>
-      <td>37.85,-122.25</td>
-      <td>3</td>
       <td>6365</td>
       <td>Florio Street</td>
       <td>Oakland</td>
@@ -1554,6 +1540,33 @@ housing_addresses (1).csv  uc
 <p style="text-align: center;"> <b>Figure:</b> Visualisation of the <code>axis</code> parameter in pandas. </p>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Saving-a-DataFrame-to-disk">Saving a DataFrame to disk<a class="anchor-link" href="#Saving-a-DataFrame-to-disk">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>At this point, we have a unfified table with housing data and their addresses. This is usually a good point to save the intermediate results to disk so that we can reload them without having to run all preprocessing steps. To do so in pandas, we can make use of the <code>DataFrame.to_csv()</code> function:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># use index=False to avoid adding an extra column for the index</span>
+<span class="n">housing_merged</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">path_or_buf</span><span class="o">=</span><span class="n">DATA</span><span class="o">/</span><span class="s1">&#39;housing_merged.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1909,7 +1922,7 @@ Name: 2, dtype: object</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>population             496
+<pre>total_rooms           1467
 street_name    Chabot Road
 Name: 2, dtype: object</pre>
 </div>
@@ -1922,7 +1935,7 @@ Name: 2, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Masks are especially common to use, e.g. let's select the subset of expensive houses:</p>
+<p>Masks or filters are especially common to use, e.g. let's select the subset of expensive houses:</p>
 
 </div>
 </div>
@@ -1964,6 +1977,8 @@ Name: 2, dtype: object</pre>
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>longitude</th>
+      <th>latitude</th>
       <th>housing_median_age</th>
       <th>total_rooms</th>
       <th>total_bedrooms</th>
@@ -1972,8 +1987,6 @@ Name: 2, dtype: object</pre>
       <th>median_income</th>
       <th>median_house_value</th>
       <th>ocean_proximity</th>
-      <th>latitude_longitude</th>
-      <th>Unnamed: 0</th>
       <th>street_number</th>
       <th>street_name</th>
       <th>city</th>
@@ -1983,6 +1996,8 @@ Name: 2, dtype: object</pre>
   <tbody>
     <tr>
       <th>0</th>
+      <td>-122.23</td>
+      <td>37.88</td>
       <td>41.0</td>
       <td>880.0</td>
       <td>129.0</td>
@@ -1991,8 +2006,6 @@ Name: 2, dtype: object</pre>
       <td>8.3252</td>
       <td>452600.0</td>
       <td>NEAR BAY</td>
-      <td>37.88,-122.23</td>
-      <td>0</td>
       <td>3130</td>
       <td>Grizzly Peak Boulevard</td>
       <td>Berkeley</td>
@@ -2000,6 +2013,8 @@ Name: 2, dtype: object</pre>
     </tr>
     <tr>
       <th>89</th>
+      <td>-122.27</td>
+      <td>37.80</td>
       <td>52.0</td>
       <td>249.0</td>
       <td>78.0</td>
@@ -2008,8 +2023,6 @@ Name: 2, dtype: object</pre>
       <td>1.2434</td>
       <td>500001.0</td>
       <td>NEAR BAY</td>
-      <td>37.8,-122.27</td>
-      <td>25</td>
       <td>321</td>
       <td>10th Street</td>
       <td>Oakland</td>
@@ -2017,6 +2030,8 @@ Name: 2, dtype: object</pre>
     </tr>
     <tr>
       <th>140</th>
+      <td>-122.18</td>
+      <td>37.81</td>
       <td>30.0</td>
       <td>292.0</td>
       <td>38.0</td>
@@ -2025,8 +2040,6 @@ Name: 2, dtype: object</pre>
       <td>6.3624</td>
       <td>483300.0</td>
       <td>NEAR BAY</td>
-      <td>37.81,-122.18</td>
-      <td>48</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>Oakland</td>
@@ -2034,6 +2047,8 @@ Name: 2, dtype: object</pre>
     </tr>
     <tr>
       <th>459</th>
+      <td>-122.25</td>
+      <td>37.87</td>
       <td>52.0</td>
       <td>609.0</td>
       <td>236.0</td>
@@ -2042,8 +2057,6 @@ Name: 2, dtype: object</pre>
       <td>1.1696</td>
       <td>500001.0</td>
       <td>NEAR BAY</td>
-      <td>37.87,-122.25</td>
-      <td>139</td>
       <td>15</td>
       <td>Canyon Road</td>
       <td>Berkeley</td>
@@ -2051,6 +2064,8 @@ Name: 2, dtype: object</pre>
     </tr>
     <tr>
       <th>489</th>
+      <td>-122.25</td>
+      <td>37.86</td>
       <td>48.0</td>
       <td>2153.0</td>
       <td>517.0</td>
@@ -2059,8 +2074,6 @@ Name: 2, dtype: object</pre>
       <td>3.0417</td>
       <td>489600.0</td>
       <td>NEAR BAY</td>
-      <td>37.86,-122.25</td>
-      <td>145</td>
       <td>2805</td>
       <td>Kelsey Street</td>
       <td>Berkeley</td>
@@ -2085,6 +2098,8 @@ Name: 2, dtype: object</pre>
     </tr>
     <tr>
       <th>20422</th>
+      <td>-118.90</td>
+      <td>34.14</td>
       <td>35.0</td>
       <td>1503.0</td>
       <td>263.0</td>
@@ -2093,8 +2108,6 @@ Name: 2, dtype: object</pre>
       <td>5.1457</td>
       <td>500001.0</td>
       <td>&lt;1H OCEAN</td>
-      <td>34.14,-118.9</td>
-      <td>12411</td>
       <td>890</td>
       <td>West Potrero Road</td>
       <td>Thousand Oaks</td>
@@ -2102,6 +2115,8 @@ Name: 2, dtype: object</pre>
     </tr>
     <tr>
       <th>20426</th>
+      <td>-118.69</td>
+      <td>34.18</td>
       <td>11.0</td>
       <td>1177.0</td>
       <td>138.0</td>
@@ -2110,8 +2125,6 @@ Name: 2, dtype: object</pre>
       <td>10.0472</td>
       <td>500001.0</td>
       <td>&lt;1H OCEAN</td>
-      <td>34.18,-118.69</td>
-      <td>12414</td>
       <td>NaN</td>
       <td>East Las Virgenes Canyon Road</td>
       <td>NaN</td>
@@ -2119,6 +2132,8 @@ Name: 2, dtype: object</pre>
     </tr>
     <tr>
       <th>20427</th>
+      <td>-118.80</td>
+      <td>34.19</td>
       <td>4.0</td>
       <td>15572.0</td>
       <td>2222.0</td>
@@ -2127,8 +2142,6 @@ Name: 2, dtype: object</pre>
       <td>8.6499</td>
       <td>500001.0</td>
       <td>&lt;1H OCEAN</td>
-      <td>34.19,-118.8</td>
-      <td>12415</td>
       <td>5135</td>
       <td>Island Forest Place</td>
       <td>Westlake Village</td>
@@ -2136,6 +2149,8 @@ Name: 2, dtype: object</pre>
     </tr>
     <tr>
       <th>20436</th>
+      <td>-118.69</td>
+      <td>34.21</td>
       <td>10.0</td>
       <td>3663.0</td>
       <td>409.0</td>
@@ -2144,8 +2159,6 @@ Name: 2, dtype: object</pre>
       <td>12.5420</td>
       <td>500001.0</td>
       <td>&lt;1H OCEAN</td>
-      <td>34.21,-118.69</td>
-      <td>12424</td>
       <td>6</td>
       <td>Ranchero Road</td>
       <td>Bell Canyon</td>
@@ -2153,6 +2166,8 @@ Name: 2, dtype: object</pre>
     </tr>
     <tr>
       <th>20443</th>
+      <td>-118.85</td>
+      <td>34.27</td>
       <td>50.0</td>
       <td>187.0</td>
       <td>33.0</td>
@@ -2161,8 +2176,6 @@ Name: 2, dtype: object</pre>
       <td>3.3438</td>
       <td>500001.0</td>
       <td>&lt;1H OCEAN</td>
-      <td>34.27,-118.85</td>
-      <td>12431</td>
       <td>2182</td>
       <td>Tierra Rejada Road</td>
       <td>Moorpark</td>
@@ -2224,6 +2237,8 @@ Name: 2, dtype: object</pre>
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>longitude</th>
+      <th>latitude</th>
       <th>housing_median_age</th>
       <th>total_rooms</th>
       <th>total_bedrooms</th>
@@ -2232,8 +2247,6 @@ Name: 2, dtype: object</pre>
       <th>median_income</th>
       <th>median_house_value</th>
       <th>ocean_proximity</th>
-      <th>latitude_longitude</th>
-      <th>Unnamed: 0</th>
       <th>street_number</th>
       <th>street_name</th>
       <th>city</th>
@@ -2243,6 +2256,8 @@ Name: 2, dtype: object</pre>
   <tbody>
     <tr>
       <th>701</th>
+      <td>-121.97</td>
+      <td>37.64</td>
       <td>32.0</td>
       <td>1283.0</td>
       <td>194.0</td>
@@ -2251,8 +2266,6 @@ Name: 2, dtype: object</pre>
       <td>6.0574</td>
       <td>431000.0</td>
       <td>&lt;1H OCEAN</td>
-      <td>37.64,-121.97</td>
-      <td>235</td>
       <td>33803</td>
       <td>Palomares Road</td>
       <td>Castro Valley</td>
@@ -2260,6 +2273,8 @@ Name: 2, dtype: object</pre>
     </tr>
     <tr>
       <th>830</th>
+      <td>-121.99</td>
+      <td>37.61</td>
       <td>9.0</td>
       <td>3666.0</td>
       <td>711.0</td>
@@ -2268,8 +2283,6 @@ Name: 2, dtype: object</pre>
       <td>4.6458</td>
       <td>217000.0</td>
       <td>&lt;1H OCEAN</td>
-      <td>37.61,-121.99</td>
-      <td>293</td>
       <td>NaN</td>
       <td>South Fork Trail</td>
       <td>Castro Valley</td>
@@ -2277,6 +2290,8 @@ Name: 2, dtype: object</pre>
     </tr>
     <tr>
       <th>859</th>
+      <td>-121.97</td>
+      <td>37.57</td>
       <td>21.0</td>
       <td>4342.0</td>
       <td>783.0</td>
@@ -2285,8 +2300,6 @@ Name: 2, dtype: object</pre>
       <td>4.6146</td>
       <td>247600.0</td>
       <td>&lt;1H OCEAN</td>
-      <td>37.57,-121.97</td>
-      <td>311</td>
       <td>121</td>
       <td>Overacker Terrace</td>
       <td>Fremont</td>
@@ -2294,6 +2307,8 @@ Name: 2, dtype: object</pre>
     </tr>
     <tr>
       <th>860</th>
+      <td>-121.96</td>
+      <td>37.58</td>
       <td>15.0</td>
       <td>3575.0</td>
       <td>597.0</td>
@@ -2302,8 +2317,6 @@ Name: 2, dtype: object</pre>
       <td>5.7192</td>
       <td>283500.0</td>
       <td>&lt;1H OCEAN</td>
-      <td>37.58,-121.96</td>
-      <td>312</td>
       <td>NaN</td>
       <td>Deer Gulch Loop Trail</td>
       <td>Fremont</td>
@@ -2311,6 +2324,8 @@ Name: 2, dtype: object</pre>
     </tr>
     <tr>
       <th>861</th>
+      <td>-121.98</td>
+      <td>37.58</td>
       <td>20.0</td>
       <td>4126.0</td>
       <td>1031.0</td>
@@ -2319,8 +2334,6 @@ Name: 2, dtype: object</pre>
       <td>3.6832</td>
       <td>216900.0</td>
       <td>&lt;1H OCEAN</td>
-      <td>37.58,-121.98</td>
-      <td>313</td>
       <td>37296</td>
       <td>Mission Boulevard</td>
       <td>Fremont</td>
@@ -2345,6 +2358,8 @@ Name: 2, dtype: object</pre>
     </tr>
     <tr>
       <th>20502</th>
+      <td>-118.68</td>
+      <td>34.33</td>
       <td>45.0</td>
       <td>121.0</td>
       <td>25.0</td>
@@ -2353,8 +2368,6 @@ Name: 2, dtype: object</pre>
       <td>2.9821</td>
       <td>325000.0</td>
       <td>&lt;1H OCEAN</td>
-      <td>34.33,-118.68</td>
-      <td>12469</td>
       <td>NaN</td>
       <td>Windmill Canyon Road</td>
       <td>Simi Valley</td>
@@ -2362,6 +2375,8 @@ Name: 2, dtype: object</pre>
     </tr>
     <tr>
       <th>20503</th>
+      <td>-118.75</td>
+      <td>34.33</td>
       <td>27.0</td>
       <td>534.0</td>
       <td>85.0</td>
@@ -2370,8 +2385,6 @@ Name: 2, dtype: object</pre>
       <td>8.2787</td>
       <td>330000.0</td>
       <td>&lt;1H OCEAN</td>
-      <td>34.33,-118.75</td>
-      <td>12470</td>
       <td>NaN</td>
       <td>Middle Ridge Fire Road</td>
       <td>Simi Valley</td>
@@ -2379,6 +2392,8 @@ Name: 2, dtype: object</pre>
     </tr>
     <tr>
       <th>20504</th>
+      <td>-118.73</td>
+      <td>34.29</td>
       <td>11.0</td>
       <td>5451.0</td>
       <td>736.0</td>
@@ -2387,8 +2402,6 @@ Name: 2, dtype: object</pre>
       <td>7.3550</td>
       <td>343900.0</td>
       <td>&lt;1H OCEAN</td>
-      <td>34.29,-118.73</td>
-      <td>12471</td>
       <td>3435</td>
       <td>Avenida Simi</td>
       <td>Simi Valley</td>
@@ -2396,6 +2409,8 @@ Name: 2, dtype: object</pre>
     </tr>
     <tr>
       <th>20505</th>
+      <td>-118.72</td>
+      <td>34.29</td>
       <td>22.0</td>
       <td>3266.0</td>
       <td>529.0</td>
@@ -2404,8 +2419,6 @@ Name: 2, dtype: object</pre>
       <td>6.0368</td>
       <td>248000.0</td>
       <td>&lt;1H OCEAN</td>
-      <td>34.29,-118.72</td>
-      <td>12472</td>
       <td>3889</td>
       <td>Avenida Simi</td>
       <td>Simi Valley</td>
@@ -2413,6 +2426,8 @@ Name: 2, dtype: object</pre>
     </tr>
     <tr>
       <th>20506</th>
+      <td>-118.73</td>
+      <td>34.29</td>
       <td>8.0</td>
       <td>4983.0</td>
       <td>754.0</td>
@@ -2421,8 +2436,6 @@ Name: 2, dtype: object</pre>
       <td>6.9454</td>
       <td>276500.0</td>
       <td>&lt;1H OCEAN</td>
-      <td>34.29,-118.73</td>
-      <td>12471</td>
       <td>3435</td>
       <td>Avenida Simi</td>
       <td>Simi Valley</td>
@@ -3085,7 +3098,7 @@ Name: city, dtype: int64</pre>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The group operation above can be best understood by the H. Wickam's <a href="https://medium.com/analytics-vidhya/split-apply-combine-strategy-for-data-mining-4fd6e2a0cc99"><em>split-apply-combine</em></a> strategy, where you break up a big problem into manageable pieces, operate on each piece independently and then put all the pieces back together.</p>
 <p><strong>Split:</strong>
-In the first stage of the process, data contained in a <code>Series</code> or <code>DataFrame</code> object is <em>split</em> into groups based on one or more specified <em>keys</em>. The splitting is performed on a particular <em>axis</em> of the object (see the notebook from lesson 2). For example, a <code>DataFrame</code> can be grouped on its rows (<code>axis=0</code>) or its columns (<code>axis=1</code>).</p>
+In the first stage of the process, data contained in a <code>pandas.Series</code> or <code>pandas.DataFrame</code> object is <em>split</em> into groups based on one or more specified <em>keys</em>. The splitting is performed on a particular <em>axis</em> of the object (see the notebook from lesson 2). For example, a <code>pandas.DataFrame</code> can be grouped on its rows (<code>axis=0</code>) or its columns (<code>axis=1</code>).</p>
 <p><strong>Apply:</strong>
 Once the split done, a function is <em>applied</em> to each group, producing a new value.</p>
 <p><strong>Combine:</strong>
@@ -3093,7 +3106,7 @@ Finally, the results of all those function applications are <em>combined</em> in
 <p>See the figure below for an example of a simple group aggregation.</p>
 <p><br>
 {% include image.html max-width="600" file="/dslectures/./images/split-apply-combine.png" %}</p>
-<p style="text-align: center;"> <b>Figure:</b> Illustraion of a group aggregation. </p><p>In general, the grouping key can take many forms and the key do not have to be all of the same type. Frequently, the grouping information is found in the same <code>DataFrame</code> as the data you want to work on, so the key is usually a <em>column name</em>. For example let's create a simple <code>DataFrame</code> as follows:</p>
+<p style="text-align: center;"> <b>Figure:</b> Illustraion of a group aggregation. </p><p>In general, the grouping key can take many forms and the key do not have to be all of the same type. Frequently, the grouping information is found in the same <code>pandas.DataFrame</code> as the data you want to work on, so the key is usually a <em>column name</em>. For example let's create a simple <code>pandas.DataFrame</code> as follows:</p>
 
 </div>
 </div>
@@ -3154,36 +3167,36 @@ Finally, the results of all those function applications are <em>combined</em> in
       <th>0</th>
       <td>a</td>
       <td>one</td>
-      <td>-1.135395</td>
-      <td>-1.833434</td>
+      <td>1.837510</td>
+      <td>0.875095</td>
     </tr>
     <tr>
       <th>1</th>
       <td>a</td>
       <td>two</td>
-      <td>-1.188437</td>
-      <td>-0.888461</td>
+      <td>0.771915</td>
+      <td>-0.256958</td>
     </tr>
     <tr>
       <th>2</th>
       <td>b</td>
       <td>one</td>
-      <td>-0.028174</td>
-      <td>1.969277</td>
+      <td>-0.830038</td>
+      <td>-0.037795</td>
     </tr>
     <tr>
       <th>3</th>
       <td>b</td>
       <td>two</td>
-      <td>0.179291</td>
-      <td>-0.146069</td>
+      <td>0.727881</td>
+      <td>-0.254475</td>
     </tr>
     <tr>
       <th>4</th>
       <td>a</td>
       <td>one</td>
-      <td>-0.219636</td>
-      <td>-0.777580</td>
+      <td>0.168928</td>
+      <td>-1.287844</td>
     </tr>
   </tbody>
 </table>
@@ -3223,7 +3236,7 @@ Finally, the results of all those function applications are <em>combined</em> in
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x13c3ce310&gt;</pre>
+<pre>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x132484ed0&gt;</pre>
 </div>
 
 </div>
@@ -3288,13 +3301,13 @@ Finally, the results of all those function applications are <em>combined</em> in
   <tbody>
     <tr>
       <th>a</th>
-      <td>-0.847823</td>
-      <td>-1.166491</td>
+      <td>0.926117</td>
+      <td>-0.223236</td>
     </tr>
     <tr>
       <th>b</th>
-      <td>0.075559</td>
-      <td>0.911604</td>
+      <td>-0.051078</td>
+      <td>-0.146135</td>
     </tr>
   </tbody>
 </table>
@@ -3314,14 +3327,12 @@ Finally, the results of all those function applications are <em>combined</em> in
 <li>Use the above <code>DataFrame.groupby()</code> techniques to find the top 10 cities which have the most expensive houses on average. Look up some of the names on the web - do the results make sense?</li>
 <li>Use the <code>DataFrame.loc[]</code> method to filter out the houses with the capped values of over $500,000. Repeat the same step as above. </li>
 </ul>
-<hr>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
 <h4 id="Exercise-#6">Exercise #6<a class="anchor-link" href="#Exercise-#6">&#182;</a></h4><ul>
 <li>Use the <code>DataFrame.groupby()</code> and <code>agg()</code> techniques to find the distribution of mean house prices according to <code>ocean_proximity</code>.</li>
 <li>Store the result from the above step in a new <code>pandas.DataFrame</code> and visualise it with seaborn's barplot.</li>

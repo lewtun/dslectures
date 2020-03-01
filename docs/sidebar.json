@@ -3,6 +3,7 @@
     "Overview": "/",
     "Core library": "/core",
     "Lesson 1 - Introduction to pandas and seaborn": "/lesson01_intro-to-pandas",
-    "Lesson 2 - Exploratory data analysis": "/lesson02_exploratory-data-analysis"
+    "Lesson 2 - Exploratory data analysis": "/lesson02_exploratory-data-analysis",
+    "Lesson 3 - Data cleaning and feature engineering": "/lesson03_data-cleaning"
   }
 }
