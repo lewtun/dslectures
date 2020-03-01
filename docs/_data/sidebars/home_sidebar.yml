@@ -18,6 +18,9 @@ entries:
     - output: web,pdf
       title: Lesson 2 - Exploratory data analysis
       url: /lesson02_exploratory-data-analysis
+    - output: web,pdf
+      title: Lesson 3 - Data cleaning and feature engineering
+      url: /lesson03_data-cleaning
     output: web
     title: dslectures
   output: web
