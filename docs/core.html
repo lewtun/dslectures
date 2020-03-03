@@ -36,20 +36,21 @@ summary: "API details."
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">name_to_id</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;embeddings&quot;</span><span class="p">:</span> <span class="s2">&quot;1dRwSXbFTcQbn8c3V24G92wFY4DXZ1SDt&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;imdb&quot;</span><span class="p">:</span> <span class="s2">&quot;1wF0YEmQOwceJz2d6w4CfhBgydU87dPGl&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;housing&quot;</span><span class="p">:</span> <span class="s2">&quot;1d7oOKdDmZFx8wf0c8OfuTW1FpUyJHABh&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;housing_gmaps&quot;</span><span class="p">:</span> <span class="s2">&quot;1R1RUHAXxzrIngRJMFwyp4vZRVICd-I6T&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;housing_addresses&quot;</span><span class="p">:</span> <span class="s2">&quot;1mOK0uyRz5Zs-Qo7mVMlxwtb2xn1E6N9Q&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;word2vec-google-news-300.pkl&quot;</span><span class="p">:</span> <span class="s2">&quot;1dRwSXbFTcQbn8c3V24G92wFY4DXZ1SDt&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;imdb.csv&quot;</span><span class="p">:</span> <span class="s2">&quot;1wF0YEmQOwceJz2d6w4CfhBgydU87dPGl&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;housing.csv&quot;</span><span class="p">:</span> <span class="s2">&quot;1d7oOKdDmZFx8wf0c8OfuTW1FpUyJHABh&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;housing_gmaps_data_raw.csv&quot;</span><span class="p">:</span> <span class="s2">&quot;1R1RUHAXxzrIngRJMFwyp4vZRVICd-I6T&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;housing_addresses.csv&quot;</span><span class="p">:</span> <span class="s2">&quot;1mOK0uyRz5Zs-Qo7mVMlxwtb2xn1E6N9Q&quot;</span><span class="p">,</span>
     <span class="p">}</span>
 
+    <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;../data/&#39;</span>
+    <span class="n">gdrive_path</span> <span class="o">=</span> <span class="s2">&quot;https://docs.google.com/uc?export=download&amp;id=&quot;</span>
     <span class="k">if</span> <span class="n">dataset_name</span> <span class="ow">in</span> <span class="n">name_to_id</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="n">dataset_name</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dataset already exists at &#39;{path + dataset_name}&#39; and is not downloaded again.&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;../data/&#39;</span>
-            <span class="n">file_url</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="s2">&quot;https://docs.google.com/uc?export=download&amp;id=&quot;</span>
-                <span class="o">+</span> <span class="n">name_to_id</span><span class="p">[</span><span class="n">dataset_name</span><span class="p">]</span>
-            <span class="p">)</span>
+            <span class="n">file_url</span> <span class="o">=</span>  <span class="n">gdrive_path</span> <span class="o">+</span> <span class="n">name_to_id</span><span class="p">[</span><span class="n">dataset_name</span><span class="p">]</span>
             <span class="n">wget</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">file_url</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">path</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Something went wrong during download. Try again.&quot;</span><span class="p">)</span>
@@ -87,7 +88,14 @@ summary: "API details."
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Dowload the California housing dataset:</p>
+<h2 id="California-Housing-Prices">California Housing Prices<a class="anchor-link" href="#California-Housing-Prices">&#182;</a></h2><p>This dataset from Kaggle (<a href="https://www.kaggle.com/camnugent/california-housing-prices">link</a>) is used in the second chapter of Aurélien Géron's recent book <em>Hands-On Machine learning with Scikit-Learn and TensorFlow</em>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="housing.csv"><code>housing.csv</code><a class="anchor-link" href="#housing.csv">&#182;</a></h3><p>This dataset pertains to the houses found in a given California district and some summary stats about them based on the 1990 census data.</p>
 
 </div>
 </div>
@@ -97,7 +105,7 @@ summary: "API details."
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s1">&#39;housing&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s1">&#39;housing.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -110,7 +118,7 @@ summary: "API details."
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Download of housing dataset complete.
+<pre>Download of housing.csv dataset complete.
 </pre>
 </div>
 </div>
@@ -119,12 +127,19 @@ summary: "API details."
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="housing_gmaps_data_raw.csv"><code>housing_gmaps_data_raw.csv</code><a class="anchor-link" href="#housing_gmaps_data_raw.csv">&#182;</a></h3><p>This dataset contains the raw outputs of the addresses associated with the coordinates in the <code>housing.csv</code> dataset as retrieved with the Google Maps API.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s1">&#39;imdb&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s1">&#39;housing_gmaps_data_raw.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -137,7 +152,7 @@ summary: "API details."
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Download of imdb dataset complete.
+<pre>Download of housing_gmaps_data_raw.csv dataset complete.
 </pre>
 </div>
 </div>
@@ -146,12 +161,19 @@ summary: "API details."
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="housing_addresses.csv"><code>housing_addresses.csv</code><a class="anchor-link" href="#housing_addresses.csv">&#182;</a></h3><p>The <code>housing_addresses.csv</code> dataset is a cleaned subset of the <code>housing_gmaps_data_raw.csv</code> dataset.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s1">&#39;housing_gmaps&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s1">&#39;housing_addresses.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -164,7 +186,7 @@ summary: "API details."
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Download of housing_gmaps dataset complete.
+<pre>Download of housing_addresses.csv dataset complete.
 </pre>
 </div>
 </div>
@@ -173,12 +195,19 @@ summary: "API details."
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="IMDB">IMDB<a class="anchor-link" href="#IMDB">&#182;</a></h2><h3 id="imdb.csv"><code>imdb.csv</code><a class="anchor-link" href="#imdb.csv">&#182;</a></h3><p>The IMDB dataset is available on Kaggle (<a href="https://www.kaggle.com/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews">link</a>). This is a dataset for binary sentiment classification and provides a set of 25,000 highly polar movie reviews for training and 25,000 for testing.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s1">&#39;housing_addresses&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s1">&#39;imdb.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -191,7 +220,41 @@ summary: "API details."
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Download of housing_addresses dataset complete.
+<pre>Download of imdb.csv dataset complete.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Word2Vec-embeddings">Word2Vec embeddings<a class="anchor-link" href="#Word2Vec-embeddings">&#182;</a></h2><h3 id="word2vec-google-news-300.pkl"><code>word2vec-google-news-300.pkl</code><a class="anchor-link" href="#word2vec-google-news-300.pkl">&#182;</a></h3><p>Pre-trained vectors trained on a part of the Google News dataset (about 100 billion words). The model contains 300-dimensional vectors for 3 million words and phrases. The phrases were obtained using a simple data-driven approach described in <em>Distributed Representations of Words and Phrases and their Compositionality</em>. This dataset is available from GENSIM (<a href="https://github.com/RaRe-Technologies/gensim-data">link</a>).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s1">&#39;word2vec-google-news-300.pkl&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Download of word2vec-google-news-300.pkl dataset complete.
 </pre>
 </div>
 </div>
