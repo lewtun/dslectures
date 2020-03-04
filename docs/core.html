@@ -25,6 +25,12 @@ summary: "Helper functions used throughout the lessons."
 <div class="cell border-box-sizing code_cell rendered">
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Datasets">Datasets<a class="anchor-link" href="#Datasets">&#182;</a></h2>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -89,14 +95,14 @@ summary: "Helper functions used throughout the lessons."
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="California-Housing-Prices">California Housing Prices<a class="anchor-link" href="#California-Housing-Prices">&#182;</a></h2><p>This dataset from Kaggle (<a href="https://www.kaggle.com/camnugent/california-housing-prices">link</a>) is used in the second chapter of Aurélien Géron's recent book <em>Hands-On Machine learning with Scikit-Learn and TensorFlow</em>.</p>
+<h3 id="California-Housing-Prices">California Housing Prices<a class="anchor-link" href="#California-Housing-Prices">&#182;</a></h3><p>This dataset from Kaggle (<a href="https://www.kaggle.com/camnugent/california-housing-prices">link</a>) is used in the second chapter of Aurélien Géron's recent book <em>Hands-On Machine learning with Scikit-Learn and TensorFlow</em>.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="housing.csv"><code>housing.csv</code><a class="anchor-link" href="#housing.csv">&#182;</a></h3><p>This dataset pertains to the houses found in a given California district and some summary stats about them based on the 1990 census data.</p>
+<h4 id="housing.csv"><code>housing.csv</code><a class="anchor-link" href="#housing.csv">&#182;</a></h4><p>This dataset pertains to the houses found in a given California district and some summary stats about them based on the 1990 census data.</p>
 
 </div>
 </div>
@@ -119,7 +125,7 @@ summary: "Helper functions used throughout the lessons."
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Dataset already exists at &#39;../data/housing.csv&#39; and is not downloaded again.
+<pre>Download of housing.csv dataset complete.
 </pre>
 </div>
 </div>
@@ -130,7 +136,7 @@ summary: "Helper functions used throughout the lessons."
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="housing_gmaps_data_raw.csv"><code>housing_gmaps_data_raw.csv</code><a class="anchor-link" href="#housing_gmaps_data_raw.csv">&#182;</a></h3><p>This dataset contains the raw outputs of the addresses associated with the coordinates in the <code>housing.csv</code> dataset as retrieved with the Google Maps API.</p>
+<h4 id="housing_gmaps_data_raw.csv"><code>housing_gmaps_data_raw.csv</code><a class="anchor-link" href="#housing_gmaps_data_raw.csv">&#182;</a></h4><p>This dataset contains the raw outputs of the addresses associated with the coordinates in the <code>housing.csv</code> dataset as retrieved with the Google Maps API.</p>
 
 </div>
 </div>
@@ -153,7 +159,7 @@ summary: "Helper functions used throughout the lessons."
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Dataset already exists at &#39;../data/housing_gmaps_data_raw.csv&#39; and is not downloaded again.
+<pre>Download of housing_gmaps_data_raw.csv dataset complete.
 </pre>
 </div>
 </div>
@@ -164,7 +170,7 @@ summary: "Helper functions used throughout the lessons."
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="housing_addresses.csv"><code>housing_addresses.csv</code><a class="anchor-link" href="#housing_addresses.csv">&#182;</a></h3><p>The <code>housing_addresses.csv</code> dataset is a cleaned subset of the <code>housing_gmaps_data_raw.csv</code> dataset.</p>
+<h4 id="housing_addresses.csv"><code>housing_addresses.csv</code><a class="anchor-link" href="#housing_addresses.csv">&#182;</a></h4><p>The <code>housing_addresses.csv</code> dataset is a cleaned subset of the <code>housing_gmaps_data_raw.csv</code> dataset.</p>
 
 </div>
 </div>
@@ -187,7 +193,7 @@ summary: "Helper functions used throughout the lessons."
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Dataset already exists at &#39;../data/housing_addresses.csv&#39; and is not downloaded again.
+<pre>Download of housing_addresses.csv dataset complete.
 </pre>
 </div>
 </div>
@@ -198,7 +204,7 @@ summary: "Helper functions used throughout the lessons."
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="housing_merged.csv">housing_merged.csv<a class="anchor-link" href="#housing_merged.csv">&#182;</a></h3>
+<h4 id="housing_merged.csv">housing_merged.csv<a class="anchor-link" href="#housing_merged.csv">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -227,7 +233,7 @@ summary: "Helper functions used throughout the lessons."
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Dataset already exists at &#39;../data/housing_merged.csv&#39; and is not downloaded again.
+<pre>Download of housing_merged.csv dataset complete.
 </pre>
 </div>
 </div>
@@ -238,7 +244,13 @@ summary: "Helper functions used throughout the lessons."
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="IMDB">IMDB<a class="anchor-link" href="#IMDB">&#182;</a></h2><h3 id="imdb.csv"><code>imdb.csv</code><a class="anchor-link" href="#imdb.csv">&#182;</a></h3><p>The IMDB dataset is available on Kaggle (<a href="https://www.kaggle.com/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews">link</a>). This is a dataset for binary sentiment classification and provides a set of 25,000 highly polar movie reviews for training and 25,000 for testing.</p>
+<h3 id="IMDB">IMDB<a class="anchor-link" href="#IMDB">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="imdb.csv"><code>imdb.csv</code><a class="anchor-link" href="#imdb.csv">&#182;</a></h4><p>The IMDB dataset is available on Kaggle (<a href="https://www.kaggle.com/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews">link</a>). This is a dataset for binary sentiment classification and provides a set of 25,000 highly polar movie reviews for training and 25,000 for testing.</p>
 
 </div>
 </div>
@@ -272,7 +284,13 @@ summary: "Helper functions used throughout the lessons."
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Word2Vec-embeddings">Word2Vec embeddings<a class="anchor-link" href="#Word2Vec-embeddings">&#182;</a></h2><h3 id="word2vec-google-news-300.pkl"><code>word2vec-google-news-300.pkl</code><a class="anchor-link" href="#word2vec-google-news-300.pkl">&#182;</a></h3><p>Pre-trained vectors trained on a part of the Google News dataset (about 100 billion words). The model contains 300-dimensional vectors for 3 million words and phrases. The phrases were obtained using a simple data-driven approach described in <em>Distributed Representations of Words and Phrases and their Compositionality</em>. This dataset is available from GENSIM (<a href="https://github.com/RaRe-Technologies/gensim-data">link</a>).</p>
+<h3 id="Word2Vec-embeddings">Word2Vec embeddings<a class="anchor-link" href="#Word2Vec-embeddings">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="word2vec-google-news-300.pkl"><code>word2vec-google-news-300.pkl</code><a class="anchor-link" href="#word2vec-google-news-300.pkl">&#182;</a></h4><p>Pre-trained vectors trained on a part of the Google News dataset (about 100 billion words). The model contains 300-dimensional vectors for 3 million words and phrases. The phrases were obtained using a simple data-driven approach described in <em>Distributed Representations of Words and Phrases and their Compositionality</em>. This dataset is available from GENSIM (<a href="https://github.com/RaRe-Technologies/gensim-data">link</a>).</p>
 
 </div>
 </div>
