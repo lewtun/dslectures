@@ -21,6 +21,9 @@ entries:
     - output: web,pdf
       title: Lesson 3 - Data cleaning and feature engineering
       url: /lesson03_data-cleaning
+    - output: web,pdf
+      title: Python primer
+      url: /python-primer
     output: web
     title: dslectures
   output: web

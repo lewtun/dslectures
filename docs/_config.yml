@@ -1,7 +1,7 @@
 repository: fastai/nbdev
 output: web
-topnav_title: nbdev
-site_title: nbdev
+topnav_title: dslectures
+site_title: dslectures
 company_name: fast.ai
 description: Writing a library entirely in notebooks
 google_search: 000837339549978028235:vh0pq0omtgr
