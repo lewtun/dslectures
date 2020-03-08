@@ -19,7 +19,8 @@ def get_dataset(dataset_name: str):
         "housing.csv": "1d7oOKdDmZFx8wf0c8OfuTW1FpUyJHABh",
         "housing_gmaps_data_raw.csv": "1R1RUHAXxzrIngRJMFwyp4vZRVICd-I6T",
         "housing_addresses.csv": "1mOK0uyRz5Zs-Qo7mVMlxwtb2xn1E6N9Q",
-        "housing_merged.csv": "1bdYuBtIPrKiU-ut2MeSSsL47onPtZrRt"
+        "housing_merged.csv": "1bdYuBtIPrKiU-ut2MeSSsL47onPtZrRt",
+        "housing_processed.csv": "12PxnWhPg_Pj0yx75vD22gwfdkkx80E6_"
     }
 
     path = '../data/'
