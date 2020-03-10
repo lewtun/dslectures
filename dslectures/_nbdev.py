@@ -2,9 +2,21 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"get_dataset": "00_core.ipynb"}
+index = {"get_dataset": "00_core.ipynb",
+         "draw_tree": "01_structured.ipynb",
+         "get_sample": "01_structured.ipynb",
+         "add_datepart": "01_structured.ipynb",
+         "is_date": "01_structured.ipynb",
+         "train_cats": "01_structured.ipynb",
+         "apply_cats": "01_structured.ipynb",
+         "fix_missing": "01_structured.ipynb",
+         "numericalize": "01_structured.ipynb",
+         "scale_vars": "01_structured.ipynb",
+         "proc_df": "01_structured.ipynb",
+         "rf_feat_importance": "01_structured.ipynb"}
 
-modules = ["core.py"]
+modules = ["core.py",
+           "structured.py"]
 
 doc_url = "https://lewtun.github.io/dslectures/"
 

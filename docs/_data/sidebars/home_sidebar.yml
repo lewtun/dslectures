@@ -13,6 +13,9 @@ entries:
       title: Core library
       url: /core
     - output: web,pdf
+      title: fast.ai helper functions
+      url: /structured
+    - output: web,pdf
       title: Lesson 1 - Introduction to pandas and seaborn
       url: /lesson01_intro-to-pandas
     - output: web,pdf
