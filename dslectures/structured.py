@@ -30,6 +30,11 @@ __all__ = ['draw_tree', 'get_sample', 'add_datepart', 'is_date', 'train_cats', '
 #    - set_rf_samples
 #    - reset_rf_samples
 #    - get_nn_mappers
+#
+# Docstrings have been added to the following functions:
+#
+#    - scale_vars
+#    - rf_feat_importance
 
 # Cell
 from sklearn_pandas import DataFrameMapper
@@ -119,6 +124,8 @@ def numericalize(df, col, name, max_n_cat):
 
 # Cell
 def scale_vars(df, mapper):
+    """ Standardize numerical features by removing the mean and scaling to unit variance.
+    """
     warnings.filterwarnings('ignore', category=sklearn.exceptions.DataConversionWarning)
     if mapper is None:
         map_f = [([n],StandardScaler()) for n in df.columns if is_numeric_dtype(df[n])]
@@ -164,5 +171,7 @@ def proc_df(df, y_fld=None, skip_flds=None, ignore_flds=None, do_scale=False, na
 
 # Cell
 def rf_feat_importance(m, df):
+    """ Create a pandas.DataFrame of feature importances.
+    """
     return pd.DataFrame({'cols':df.columns, 'imp':m.feature_importances_}
                        ).sort_values('imp', ascending=False)
