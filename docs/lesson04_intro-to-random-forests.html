@@ -25,7 +25,7 @@ summary: "How to train a Random Forest model to predict housing prices and evalu
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a href="https://mybinder.org/v2/gh/lewtun/dslectures/master?urlpath=lab/tree/notebooks%2Flesson04_intro-to-random-forests.ipynb"><img src="https://mybinder.org/badge_logo.svg" alt="Binder"></a> 
-<a href="https://drive.google.com/open?id=1qif0v7ZclsCsjT1efrCAjjUTqZ_KyTIl"><img src="https://img.shields.io/static/v1?label=slides&amp;message=lesson04_intro-to-random-forests.pdf&amp;color=blue&amp;logo=Google-drive" alt="slides"></a></p>
+<a href="https://drive.google.com/open?id=18yESZldXJrdXiaOQWmiA35-8vIqOnNK8"><img src="https://img.shields.io/static/v1?label=slides&amp;message=lesson04_intro-to-random-forests.pdf&amp;color=blue&amp;logo=Google-drive" alt="slides"></a></p>
 
 </div>
 </div>
@@ -72,7 +72,7 @@ summary: "How to train a Random Forest model to predict housing prices and evalu
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Homework">Homework<a class="anchor-link" href="#Homework">&#182;</a></h2><ul>
 <li>Solve the exercises included in this notebook</li>
-<li>Read chapter 3 of <em>Data Science for Business</em> by Provost &amp; Fawcett</li>
+<li>Read chapters 6 and 7 of <em>Hands-On Machine Learning with Scikit-Learn and TensorFlow</em> by Aurèlien Geron</li>
 </ul>
 
 </div>
@@ -1314,6 +1314,8 @@ $$ \mathrm{residual} = y_\mathrm{actual} - y_\mathrm{predicted} $$<p>We can plot
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
 <h4 id="Exercise-#3">Exercise #3<a class="anchor-link" href="#Exercise-#3">&#182;</a></h4><p>Use the <code>plt.subplots()</code> functionality from lesson 3 to create a new function <code>plot_errors_and_residuals</code> that combines the above plots into a single figure. You may find the <code>ax.set_xlabel()</code>, <code>ax.set_ylabel()</code>, and <code>ax.set_title()</code> functions are useful for configuring the labels and title on each individual plot.</p>
+<h4 id="Exercise-#4">Exercise #4<a class="anchor-link" href="#Exercise-#4">&#182;</a></h4><p>Instead of using an ensemble of decision trees, scikit-learn also provides an estimator to train a <em>single</em> decision tree on the data (see documentation <a href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html#sklearn.tree.DecisionTreeRegressor">here</a>). Repeat the same 5 steps above for a decision tree regressor, using the default hyperparameters. Do you notice anything unusual in the performance metrics if you fit the model on the whole dataset?</p>
+<hr>
 
 </div>
 </div>
