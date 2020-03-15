@@ -82,7 +82,7 @@ summary: "Helper functions used throughout the lessons."
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_dataset" class="doc_header"><code>get_dataset</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L11" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_dataset</code>(<strong><code>dataset_name</code></strong>:<code>str</code>)</p>
+<h4 id="get_dataset" class="doc_header"><code>get_dataset</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L13" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_dataset</code>(<strong><code>dataset_name</code></strong>:<code>str</code>)</p>
 </blockquote>
 <p>Download datasets from Google Drive.</p>
 
@@ -357,6 +357,92 @@ summary: "Helper functions used throughout the lessons."
 <pre>Download of word2vec-google-news-300.pkl dataset complete.
 </pre>
 </div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Metrics">Metrics<a class="anchor-link" href="#Metrics">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">rmse</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">yhat</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A utility function to calculate the Root Mean Square Error (RMSE).</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        y (array): Actual values for target.</span>
+<span class="sd">        yhat (array): Predicted values for target.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        rmse (double): The RMSE.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">yhat</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="rmse" class="doc_header"><code>rmse</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L45" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>rmse</code>(<strong><code>y</code></strong>, <strong><code>yhat</code></strong>)</p>
+</blockquote>
+<p>A utility function to calculate the Root Mean Square Error (RMSE).</p>
+<p>Args:
+    y (array): Actual values for target.
+    yhat (array): Predicted values for target.</p>
+<p>Returns:
+    rmse (double): The RMSE.</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">yhat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">rmse</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">yhat</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2.0816659994661326</pre>
+</div>
+
 </div>
 
 </div>
