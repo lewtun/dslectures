@@ -28,7 +28,7 @@ entries:
       title: Lesson 4 - Introduction to Random Forests
       url: /lesson04_intro-to-random-forests
     - output: web,pdf
-      title: Lesson 5 - Random Forest Deep Dive
+      title: Lesson 5 - Random forest deep dive
       url: /lesson05_random-forest-deep-dive
     - output: web,pdf
       title: Python primer
