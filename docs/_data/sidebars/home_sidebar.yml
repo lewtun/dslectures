@@ -25,7 +25,7 @@ entries:
       title: Lesson 3 - Data cleaning and feature engineering
       url: /lesson03_data-cleaning
     - output: web,pdf
-      title: Lesson 4 - Introduction to Random Forests
+      title: Lesson 4 - Introduction to random forests
       url: /lesson04_intro-to-random-forests
     - output: web,pdf
       title: Lesson 5 - Random forest deep dive
