@@ -4,7 +4,6 @@ __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"get_dataset": "00_core.ipynb",
          "rmse": "00_core.ipynb",
-         "print_scores": "00_core.ipynb",
          "draw_tree": "01_structured.ipynb",
          "get_sample": "01_structured.ipynb",
          "add_datepart": "01_structured.ipynb",
