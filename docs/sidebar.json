@@ -8,6 +8,7 @@
     "Lesson 3 - Data cleaning and feature engineering": "/lesson03_data-cleaning",
     "Lesson 4 - Introduction to random forests": "/lesson04_intro-to-random-forests",
     "Lesson 5 - Random forest deep dive": "/lesson05_random-forest-deep-dive",
+    "Lesson 6 - Model interpretability": "/lesson06_model-interpretation",
     "Python primer": "/python-primer"
   }
 }
