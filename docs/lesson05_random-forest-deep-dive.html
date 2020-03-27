@@ -205,7 +205,7 @@ summary: "A deep dive into how Random Forests work and some tricks for making th
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Download of housing_processed.csv dataset complete.
+<pre>Dataset already exists at &#39;../data/housing_processed.csv&#39; and is not downloaded again.
 </pre>
 </div>
 </div>
@@ -240,10 +240,14 @@ summary: "A deep dive into how Random Forests work and some tricks for making th
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>housing.csv                  housing_processed.csv
-housing_addresses.csv        imdb.csv
-housing_gmaps_data_raw.csv   uc
-housing_merged.csv           word2vec-google-news-300.pkl
+<pre>housing.csv                  keep_cols.npy
+housing_addresses.csv        submission.csv
+housing_columns_to_keep.npy  submission_mean.csv
+housing_gmaps_data_raw.csv   test.csv
+housing_merged.csv           train.csv
+housing_model.pkl            uc
+housing_processed.csv        word2vec-google-news-300.pkl
+imdb.csv
 </pre>
 </div>
 </div>
@@ -488,7 +492,7 @@ housing_merged.csv           word2vec-google-news-300.pkl
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -574,10 +578,10 @@ housing_merged.csv           word2vec-google-news-300.pkl
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>RMSE on train: 19142.338
-R^2 on train: 0.961
-RMSE on valid: 19360.06
-R^2 on valid: 0.961
+<pre>RMSE on train: 19173.912
+R^2 on train: 0.96
+RMSE on valid: 46106.026
+R^2 on valid: 0.779
 </pre>
 </div>
 </div>
@@ -680,7 +684,7 @@ R^2 on valid: 0.525
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Unsurprisingly, this single tree yields worse predictions ($R^2 = 0.53$) than our baseline with 10 trees ($R^2 = 0.96$). Nevertheless, we can visualise the tree by accessing the <code>estimators_</code> attribute and making use of scikit-learn's plotting API (<a href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.plot_tree.html">link</a>):</p>
+<p>Unsurprisingly, this single tree yields worse predictions ($R^2 = 0.53$) than our baseline with 10 trees ($R^2 = 0.78$). Nevertheless, we can visualise the tree by accessing the <code>estimators_</code> attribute and making use of scikit-learn's plotting API (<a href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.plot_tree.html">link</a>):</p>
 
 </div>
 </div>
