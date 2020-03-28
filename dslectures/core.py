@@ -34,6 +34,7 @@ def get_dataset(dataset_name: str):
     }
 
     path = "../data/"
+    os.makedirs(path, exist_ok=True)
     gdrive_path = "https://docs.google.com/uc?export=download&id="
     if dataset_name in name_to_id:
         if os.path.exists(path + dataset_name):
