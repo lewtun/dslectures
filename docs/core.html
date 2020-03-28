@@ -48,17 +48,20 @@ summary: "Helper functions used throughout the lessons."
         <span class="s2">&quot;housing_gmaps_data_raw.csv&quot;</span><span class="p">:</span> <span class="s2">&quot;1R1RUHAXxzrIngRJMFwyp4vZRVICd-I6T&quot;</span><span class="p">,</span>
         <span class="s2">&quot;housing_addresses.csv&quot;</span><span class="p">:</span> <span class="s2">&quot;1mOK0uyRz5Zs-Qo7mVMlxwtb2xn1E6N9Q&quot;</span><span class="p">,</span>
         <span class="s2">&quot;housing_merged.csv&quot;</span><span class="p">:</span> <span class="s2">&quot;1bdYuBtIPrKiU-ut2MeSSsL47onPtZrRt&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;housing_processed.csv&quot;</span><span class="p">:</span> <span class="s2">&quot;12PxnWhPg_Pj0yx75vD22gwfdkkx80E6_&quot;</span>
+        <span class="s2">&quot;housing_processed.csv&quot;</span><span class="p">:</span> <span class="s2">&quot;12PxnWhPg_Pj0yx75vD22gwfdkkx80E6_&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;churn.csv&quot;</span><span class="p">:</span> <span class="s2">&quot;1-IO-JQr7tjQGIKZyo_SyupCpX2VNDQIf&quot;</span><span class="p">,</span>
     <span class="p">}</span>
 
-    <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;../data/&#39;</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;../data/&quot;</span>
     <span class="n">gdrive_path</span> <span class="o">=</span> <span class="s2">&quot;https://docs.google.com/uc?export=download&amp;id=&quot;</span>
     <span class="k">if</span> <span class="n">dataset_name</span> <span class="ow">in</span> <span class="n">name_to_id</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="n">dataset_name</span><span class="p">):</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dataset already exists at &#39;{path + dataset_name}&#39; and is not downloaded again.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Dataset already exists at &#39;{path + dataset_name}&#39; and is not downloaded again.&quot;</span>
+            <span class="p">)</span>
             <span class="k">return</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">file_url</span> <span class="o">=</span>  <span class="n">gdrive_path</span> <span class="o">+</span> <span class="n">name_to_id</span><span class="p">[</span><span class="n">dataset_name</span><span class="p">]</span>
+            <span class="n">file_url</span> <span class="o">=</span> <span class="n">gdrive_path</span> <span class="o">+</span> <span class="n">name_to_id</span><span class="p">[</span><span class="n">dataset_name</span><span class="p">]</span>
             <span class="n">wget</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">file_url</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">path</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Something went wrong during download. Try again.&quot;</span><span class="p">)</span>
@@ -82,7 +85,7 @@ summary: "Helper functions used throughout the lessons."
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_dataset" class="doc_header"><code>get_dataset</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L15" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_dataset</code>(<strong><code>dataset_name</code></strong>:<code>str</code>)</p>
+<h4 id="get_dataset" class="doc_header"><code>get_dataset</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L20" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_dataset</code>(<strong><code>dataset_name</code></strong>:<code>str</code>)</p>
 </blockquote>
 <p>Download datasets from Google Drive.</p>
 
@@ -113,7 +116,7 @@ summary: "Helper functions used throughout the lessons."
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s1">&#39;housing.csv&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s2">&quot;housing.csv&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -147,7 +150,7 @@ summary: "Helper functions used throughout the lessons."
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s1">&#39;housing_gmaps_data_raw.csv&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s2">&quot;housing_gmaps_data_raw.csv&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -181,7 +184,7 @@ summary: "Helper functions used throughout the lessons."
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s1">&#39;housing_addresses.csv&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s2">&quot;housing_addresses.csv&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -221,7 +224,7 @@ summary: "Helper functions used throughout the lessons."
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s1">&#39;housing_merged.csv&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s2">&quot;housing_merged.csv&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -261,7 +264,7 @@ summary: "Helper functions used throughout the lessons."
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s1">&#39;housing_processed.csv&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s2">&quot;housing_processed.csv&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -301,7 +304,7 @@ summary: "Helper functions used throughout the lessons."
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s1">&#39;imdb.csv&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s2">&quot;imdb.csv&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -341,7 +344,7 @@ summary: "Helper functions used throughout the lessons."
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s1">&#39;word2vec-google-news-300.pkl&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s2">&quot;word2vec-google-news-300.pkl&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -355,6 +358,52 @@ summary: "Helper functions used throughout the lessons."
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Download of word2vec-google-news-300.pkl dataset complete.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Customer-churn">Customer churn<a class="anchor-link" href="#Customer-churn">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://www.kaggle.com/blastchar/telco-customer-churn">IBM's telecommunications dataset</a> on customer churn. The dataset includes information about:</p>
+<ul>
+<li>Customers who left within the last month – the column is called <code>Churn</code></li>
+<li>Services that each customer has signed up for – phone, multiple lines, internet, online security, online backup, device protection, tech support, and streaming TV and movies</li>
+<li>Customer account information – how long they’ve been a customer (tenure), contract, payment method, paperless billing, monthly charges, and total charges</li>
+<li>Demographic info about customers – gender, whether they're a senior citizen or not, and if they have partners and dependents</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s2">&quot;churn.csv&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Download of churn.csv dataset complete.
 </pre>
 </div>
 </div>
@@ -401,7 +450,7 @@ summary: "Helper functions used throughout the lessons."
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="rmse" class="doc_header"><code>rmse</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L47" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>rmse</code>(<strong><code>y</code></strong>, <strong><code>yhat</code></strong>)</p>
+<h4 id="rmse" class="doc_header"><code>rmse</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L55" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>rmse</code>(<strong><code>y</code></strong>, <strong><code>yhat</code></strong>)</p>
 </blockquote>
 <p>A utility function to calculate the Root Mean Square Error (RMSE).</p>
 <p>Args:
@@ -423,8 +472,8 @@ summary: "Helper functions used throughout the lessons."
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
-<span class="n">yhat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">yhat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
 <span class="n">rmse</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">yhat</span><span class="p">)</span>
 </pre></div>
 
@@ -481,7 +530,7 @@ summary: "Helper functions used throughout the lessons."
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="convert_strings_to_categories" class="doc_header"><code>convert_strings_to_categories</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L60" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>convert_strings_to_categories</code>(<strong><code>df</code></strong>)</p>
+<h4 id="convert_strings_to_categories" class="doc_header"><code>convert_strings_to_categories</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L68" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>convert_strings_to_categories</code>(<strong><code>df</code></strong>)</p>
 </blockquote>
 <p>A utility function to convert all string columns to Categorical data type.</p>
 
@@ -498,7 +547,10 @@ summary: "Helper functions used throughout the lessons."
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;string_column&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span><span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">],</span> <span class="s1">&#39;numerical_column&#39;</span><span class="p">:[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">]});</span> <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span><span class="s2">&quot;string_column&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">],</span> <span class="s2">&quot;numerical_column&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]}</span>
+<span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -641,7 +693,7 @@ dtype: object</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;string_column&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">categories</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;string_column&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">categories</span>
 </pre></div>
 
     </div>
@@ -670,7 +722,7 @@ dtype: object</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;string_column&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;string_column&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span>
 </pre></div>
 
     </div>
@@ -725,7 +777,7 @@ dtype: int8</pre>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="fill_missing_values_with_median" class="doc_header"><code>fill_missing_values_with_median</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L67" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>fill_missing_values_with_median</code>(<strong><code>df</code></strong>)</p>
+<h4 id="fill_missing_values_with_median" class="doc_header"><code>fill_missing_values_with_median</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L75" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>fill_missing_values_with_median</code>(<strong><code>df</code></strong>)</p>
 </blockquote>
 <p>Replaces missing values in numerical columns with the median.</p>
 
@@ -743,12 +795,7 @@ dtype: int8</pre>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">[</span>
-        <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-        <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-        <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
-        <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-    <span class="p">],</span>
+    <span class="p">[[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],],</span>
     <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s2">&quot;ABC&quot;</span><span class="p">),</span>
 <span class="p">)</span>
 
@@ -908,6 +955,532 @@ dtype: int8</pre>
   </tbody>
 </table>
 </div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">display_large</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Displays up to 1000 columns and rows of pandas.DataFrame or pandas.Series objects.&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">pd</span><span class="o">.</span><span class="n">option_context</span><span class="p">(</span><span class="s2">&quot;display.max_rows&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="s2">&quot;display.max_columns&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">):</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="display_large" class="doc_header"><code>display_large</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L84" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>display_large</code>(<strong><code>df</code></strong>)</p>
+</blockquote>
+<p>Displays up to 1000 columns and rows of pandas.DataFrame or pandas.Series objects.</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;col_&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">):</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))}]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>col_0</th>
+      <th>col_1</th>
+      <th>col_2</th>
+      <th>col_3</th>
+      <th>col_4</th>
+      <th>col_5</th>
+      <th>col_6</th>
+      <th>col_7</th>
+      <th>col_8</th>
+      <th>col_9</th>
+      <th>...</th>
+      <th>col_90</th>
+      <th>col_91</th>
+      <th>col_92</th>
+      <th>col_93</th>
+      <th>col_94</th>
+      <th>col_95</th>
+      <th>col_96</th>
+      <th>col_97</th>
+      <th>col_98</th>
+      <th>col_99</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+      <td>9</td>
+      <td>...</td>
+      <td>90</td>
+      <td>91</td>
+      <td>92</td>
+      <td>93</td>
+      <td>94</td>
+      <td>95</td>
+      <td>96</td>
+      <td>97</td>
+      <td>98</td>
+      <td>99</td>
+    </tr>
+  </tbody>
+</table>
+<p>1 rows × 100 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display_large</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>col_0</th>
+      <th>col_1</th>
+      <th>col_2</th>
+      <th>col_3</th>
+      <th>col_4</th>
+      <th>col_5</th>
+      <th>col_6</th>
+      <th>col_7</th>
+      <th>col_8</th>
+      <th>col_9</th>
+      <th>col_10</th>
+      <th>col_11</th>
+      <th>col_12</th>
+      <th>col_13</th>
+      <th>col_14</th>
+      <th>col_15</th>
+      <th>col_16</th>
+      <th>col_17</th>
+      <th>col_18</th>
+      <th>col_19</th>
+      <th>col_20</th>
+      <th>col_21</th>
+      <th>col_22</th>
+      <th>col_23</th>
+      <th>col_24</th>
+      <th>col_25</th>
+      <th>col_26</th>
+      <th>col_27</th>
+      <th>col_28</th>
+      <th>col_29</th>
+      <th>col_30</th>
+      <th>col_31</th>
+      <th>col_32</th>
+      <th>col_33</th>
+      <th>col_34</th>
+      <th>col_35</th>
+      <th>col_36</th>
+      <th>col_37</th>
+      <th>col_38</th>
+      <th>col_39</th>
+      <th>col_40</th>
+      <th>col_41</th>
+      <th>col_42</th>
+      <th>col_43</th>
+      <th>col_44</th>
+      <th>col_45</th>
+      <th>col_46</th>
+      <th>col_47</th>
+      <th>col_48</th>
+      <th>col_49</th>
+      <th>col_50</th>
+      <th>col_51</th>
+      <th>col_52</th>
+      <th>col_53</th>
+      <th>col_54</th>
+      <th>col_55</th>
+      <th>col_56</th>
+      <th>col_57</th>
+      <th>col_58</th>
+      <th>col_59</th>
+      <th>col_60</th>
+      <th>col_61</th>
+      <th>col_62</th>
+      <th>col_63</th>
+      <th>col_64</th>
+      <th>col_65</th>
+      <th>col_66</th>
+      <th>col_67</th>
+      <th>col_68</th>
+      <th>col_69</th>
+      <th>col_70</th>
+      <th>col_71</th>
+      <th>col_72</th>
+      <th>col_73</th>
+      <th>col_74</th>
+      <th>col_75</th>
+      <th>col_76</th>
+      <th>col_77</th>
+      <th>col_78</th>
+      <th>col_79</th>
+      <th>col_80</th>
+      <th>col_81</th>
+      <th>col_82</th>
+      <th>col_83</th>
+      <th>col_84</th>
+      <th>col_85</th>
+      <th>col_86</th>
+      <th>col_87</th>
+      <th>col_88</th>
+      <th>col_89</th>
+      <th>col_90</th>
+      <th>col_91</th>
+      <th>col_92</th>
+      <th>col_93</th>
+      <th>col_94</th>
+      <th>col_95</th>
+      <th>col_96</th>
+      <th>col_97</th>
+      <th>col_98</th>
+      <th>col_99</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+      <td>12</td>
+      <td>13</td>
+      <td>14</td>
+      <td>15</td>
+      <td>16</td>
+      <td>17</td>
+      <td>18</td>
+      <td>19</td>
+      <td>20</td>
+      <td>21</td>
+      <td>22</td>
+      <td>23</td>
+      <td>24</td>
+      <td>25</td>
+      <td>26</td>
+      <td>27</td>
+      <td>28</td>
+      <td>29</td>
+      <td>30</td>
+      <td>31</td>
+      <td>32</td>
+      <td>33</td>
+      <td>34</td>
+      <td>35</td>
+      <td>36</td>
+      <td>37</td>
+      <td>38</td>
+      <td>39</td>
+      <td>40</td>
+      <td>41</td>
+      <td>42</td>
+      <td>43</td>
+      <td>44</td>
+      <td>45</td>
+      <td>46</td>
+      <td>47</td>
+      <td>48</td>
+      <td>49</td>
+      <td>50</td>
+      <td>51</td>
+      <td>52</td>
+      <td>53</td>
+      <td>54</td>
+      <td>55</td>
+      <td>56</td>
+      <td>57</td>
+      <td>58</td>
+      <td>59</td>
+      <td>60</td>
+      <td>61</td>
+      <td>62</td>
+      <td>63</td>
+      <td>64</td>
+      <td>65</td>
+      <td>66</td>
+      <td>67</td>
+      <td>68</td>
+      <td>69</td>
+      <td>70</td>
+      <td>71</td>
+      <td>72</td>
+      <td>73</td>
+      <td>74</td>
+      <td>75</td>
+      <td>76</td>
+      <td>77</td>
+      <td>78</td>
+      <td>79</td>
+      <td>80</td>
+      <td>81</td>
+      <td>82</td>
+      <td>83</td>
+      <td>84</td>
+      <td>85</td>
+      <td>86</td>
+      <td>87</td>
+      <td>88</td>
+      <td>89</td>
+      <td>90</td>
+      <td>91</td>
+      <td>92</td>
+      <td>93</td>
+      <td>94</td>
+      <td>95</td>
+      <td>96</td>
+      <td>97</td>
+      <td>98</td>
+      <td>99</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">rf_feature_importance</span><span class="p">(</span><span class="n">fitted_model</span><span class="p">,</span> <span class="n">df</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">{</span><span class="s2">&quot;Column&quot;</span><span class="p">:</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="s2">&quot;Importance&quot;</span><span class="p">:</span> <span class="n">fitted_model</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">}</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;Importance&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="rf_feature_importance" class="doc_header"><code>rf_feature_importance</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L90" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>rf_feature_importance</code>(<strong><code>fitted_model</code></strong>, <strong><code>df</code></strong>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Data-visualisation">Data visualisation<a class="anchor-link" href="#Data-visualisation">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">plot_feature_importance</span><span class="p">(</span><span class="n">feature_importance</span><span class="p">):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;Column&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Importance&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">feature_importance</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="plot_feature_importance" class="doc_header"><code>plot_feature_importance</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L96" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>plot_feature_importance</code>(<strong><code>feature_importance</code></strong>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">plot_dendogram</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Plots a dendogram to see which features are related.&quot;&quot;&quot;</span>
+    <span class="c1"># calculate correlation coefficient</span>
+    <span class="n">corr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">spearmanr</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">correlation</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="c1"># convert to distance matrix</span>
+    <span class="n">corr_condensed</span> <span class="o">=</span> <span class="n">hc</span><span class="o">.</span><span class="n">distance</span><span class="o">.</span><span class="n">squareform</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">corr</span><span class="p">)</span>
+    <span class="c1"># perform clustering</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">hc</span><span class="o">.</span><span class="n">linkage</span><span class="p">(</span><span class="n">corr_condensed</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;average&quot;</span><span class="p">)</span>
+    <span class="c1"># plot dendogram</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+    <span class="n">dendrogram</span> <span class="o">=</span> <span class="n">hc</span><span class="o">.</span><span class="n">dendrogram</span><span class="p">(</span>
+        <span class="n">z</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">leaf_font_size</span><span class="o">=</span><span class="mi">16</span>
+    <span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="plot_dendogram" class="doc_header"><code>plot_dendogram</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L101" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>plot_dendogram</code>(<strong><code>X</code></strong>)</p>
+</blockquote>
+<p>Plots a dendogram to see which features are related.</p>
+
 </div>
 
 </div>
