@@ -44,6 +44,7 @@ from sklearn.tree import export_graphviz
 import IPython, graphviz
 import re
 from nbdev.showdoc import *
+import pandas as pd
 
 # Cell
 def draw_tree(t, df, size=10, ratio=0.6, precision=0):
