@@ -53,6 +53,7 @@ summary: "Helper functions used throughout the lessons."
     <span class="p">}</span>
 
     <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;../data/&quot;</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">gdrive_path</span> <span class="o">=</span> <span class="s2">&quot;https://docs.google.com/uc?export=download&amp;id=&quot;</span>
     <span class="k">if</span> <span class="n">dataset_name</span> <span class="ow">in</span> <span class="n">name_to_id</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="n">dataset_name</span><span class="p">):</span>
@@ -450,7 +451,7 @@ summary: "Helper functions used throughout the lessons."
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="rmse" class="doc_header"><code>rmse</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L55" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>rmse</code>(<strong><code>y</code></strong>, <strong><code>yhat</code></strong>)</p>
+<h4 id="rmse" class="doc_header"><code>rmse</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L56" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>rmse</code>(<strong><code>y</code></strong>, <strong><code>yhat</code></strong>)</p>
 </blockquote>
 <p>A utility function to calculate the Root Mean Square Error (RMSE).</p>
 <p>Args:
@@ -530,7 +531,7 @@ summary: "Helper functions used throughout the lessons."
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="convert_strings_to_categories" class="doc_header"><code>convert_strings_to_categories</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L68" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>convert_strings_to_categories</code>(<strong><code>df</code></strong>)</p>
+<h4 id="convert_strings_to_categories" class="doc_header"><code>convert_strings_to_categories</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L69" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>convert_strings_to_categories</code>(<strong><code>df</code></strong>)</p>
 </blockquote>
 <p>A utility function to convert all string columns to Categorical data type.</p>
 
@@ -777,7 +778,7 @@ dtype: int8</pre>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="fill_missing_values_with_median" class="doc_header"><code>fill_missing_values_with_median</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L75" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>fill_missing_values_with_median</code>(<strong><code>df</code></strong>)</p>
+<h4 id="fill_missing_values_with_median" class="doc_header"><code>fill_missing_values_with_median</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L76" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>fill_missing_values_with_median</code>(<strong><code>df</code></strong>)</p>
 </blockquote>
 <p>Replaces missing values in numerical columns with the median.</p>
 
@@ -988,7 +989,7 @@ dtype: int8</pre>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="display_large" class="doc_header"><code>display_large</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L84" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>display_large</code>(<strong><code>df</code></strong>)</p>
+<h4 id="display_large" class="doc_header"><code>display_large</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L85" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>display_large</code>(<strong><code>df</code></strong>)</p>
 </blockquote>
 <p>Displays up to 1000 columns and rows of pandas.DataFrame or pandas.Series objects.</p>
 
@@ -1390,7 +1391,7 @@ dtype: int8</pre>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="rf_feature_importance" class="doc_header"><code>rf_feature_importance</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L90" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>rf_feature_importance</code>(<strong><code>fitted_model</code></strong>, <strong><code>df</code></strong>)</p>
+<h4 id="rf_feature_importance" class="doc_header"><code>rf_feature_importance</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L91" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>rf_feature_importance</code>(<strong><code>fitted_model</code></strong>, <strong><code>df</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -1431,7 +1432,7 @@ dtype: int8</pre>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="plot_feature_importance" class="doc_header"><code>plot_feature_importance</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L96" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>plot_feature_importance</code>(<strong><code>feature_importance</code></strong>)</p>
+<h4 id="plot_feature_importance" class="doc_header"><code>plot_feature_importance</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L97" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>plot_feature_importance</code>(<strong><code>feature_importance</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -1477,7 +1478,7 @@ dtype: int8</pre>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="plot_dendogram" class="doc_header"><code>plot_dendogram</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L101" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>plot_dendogram</code>(<strong><code>X</code></strong>)</p>
+<h4 id="plot_dendogram" class="doc_header"><code>plot_dendogram</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L102" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>plot_dendogram</code>(<strong><code>X</code></strong>)</p>
 </blockquote>
 <p>Plots a dendogram to see which features are related.</p>
 
