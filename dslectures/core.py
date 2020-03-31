@@ -31,6 +31,8 @@ def get_dataset(dataset_name: str):
         "housing_merged.csv": "1bdYuBtIPrKiU-ut2MeSSsL47onPtZrRt",
         "housing_processed.csv": "12PxnWhPg_Pj0yx75vD22gwfdkkx80E6_",
         "churn.csv": "1-IO-JQr7tjQGIKZyo_SyupCpX2VNDQIf",
+        "kaggle_housing_train.csv": "1BHiuZyMab7rPA8Rog29fIYhJmjvJLkVI",
+        "kaggle_housing_test.csv": "1KSfBhIdFlejUWAnrfFl10c-rjA4VhgkT"
     }
 
     path = "../data/"
@@ -89,6 +91,7 @@ def display_large(df):
 
 # Cell
 def rf_feature_importance(fitted_model, df):
+    "Creates a pandas.Dataframe of a Random Forest's feature importance per column."
     return pd.DataFrame(
         {"Column": df.columns, "Importance": fitted_model.feature_importances_}
     ).sort_values("Importance", ascending=False)
