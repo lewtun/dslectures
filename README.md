@@ -56,9 +56,9 @@ The module structure consists of classroom sessions, self-study tasks, and group
 | 11 | 12.03 | Introduction to random forests | [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/lewtun/dslectures/master?urlpath=lab/tree/notebooks%2Flesson04_intro-to-random-forests.ipynb)  [![notebook](https://img.shields.io/static/v1?label=notebook&message=lesson04_intro-to-random-forests.ipynb&color=red&logo=Jupyter)](https://raw.githubusercontent.com/lewtun/dslectures/master/notebooks/lesson04_intro-to-random-forests.ipynb) [![slides](https://img.shields.io/static/v1?label=slides&message=lesson04_intro-to-random-forests.pdf&color=blue&logo=Google-drive)](https://drive.google.com/open?id=18yESZldXJrdXiaOQWmiA35-8vIqOnNK8) |
 | 12 | 19.03 | Random forest deep dive | [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/lewtun/dslectures/master?urlpath=lab/tree/notebooks%2Flesson05_random-forest-deep-dive.ipynb) [![notebook](https://img.shields.io/static/v1?label=notebook&message=lesson05_random-forest-deep-dive.ipynb&color=red&logo=Jupyter)](https://raw.githubusercontent.com/lewtun/dslectures/master/notebooks/lesson05_random-forest-deep-dive.ipynb) [![slides](https://img.shields.io/static/v1?label=slides&message=lesson05_random-forest-deep-dive.pdf&color=blue&logo=Google-drive)](https://drive.google.com/open?id=1xRpRXFY_wMzHn2QgW3nDzULh8Y7G5IVt) |
 | 13 | 26.03 | Model interpretation | [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/lewtun/dslectures/master?urlpath=lab/tree/notebooks%2Flesson06_model-interpretation.ipynb) [![notebook](https://img.shields.io/static/v1?label=notebook&message=lesson06_model-interpretation.ipynb&color=red&logo=Jupyter)](https://raw.githubusercontent.com/lewtun/dslectures/master/notebooks/lesson06_model-interpretation.ipynb) [![slides](https://img.shields.io/static/v1?label=slides&message=lesson06_model-interpretation.pdf&color=blue&logo=Google-drive)](https://drive.google.com/open?id=15IIYC_MksmXI6VfSL3ee-rLm7TRF0v2U) |
-| 14 | 2.04 | Classification | |
+| 14 | 2.04 | Classification | [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/lewtun/dslectures/master?urlpath=lab/tree/notebooks%2Flesson07_classification.ipynb) [![notebook](https://img.shields.io/static/v1?label=notebook&message=lesson07_classification.ipynb&color=red&logo=Jupyter)](https://raw.githubusercontent.com/lewtun/dslectures/master/notebooks/lesson07_classification.ipynb) [![slides](https://img.shields.io/static/v1?label=slides&message=lesson07_classification.pdf&color=blue&logo=Google-drive)](https://drive.google.com/open?id=12gVqkVJ9KIaBGPCq0auFxXOPlEdo9Dik) |
 | 15 | 9.04 | **No class (Easter)** | |
-| 16 | 16.04 | **Midterm exam & define group projects** | |
+| 16 | 16.04 | **Define group projects** | |
 | 17 | 23.04 | Cross-validation and model performance | |
 | 18 | 30.04 | Neighbours and clusters I | |
 | 19 | 7.05 | Neighbours and clusters II | |
@@ -138,11 +138,12 @@ Your answers to homework, quizzes, and exams must be your own work (except for t
 
 ## Assessment
 
-The assessment for this module involves **_three_** parts whose sum is 100 points: one written mid-term test (10 points), one group project (40 points), and one final written exam (50 points). The total number of points determines the overall grade for the module.
+**Update:** Due to the COVID-19 pandemic, we have decided to remove the mid-term test from the assessment and allocate the 10 points to the group project.
 
-1. **Written mid-term test:** The mid-term test will consist of multiple choice and short-answer questions, covering content from the first seven lectures and chapters 1–4 of the module textbook Data Science for Business (see references below). This test has a maximum score of 10 points and will be held on April 16th.
-2. **Group project:** Students will be allocated into small groups and tasked to solve an end-to-end data science project. The results from the analysis must be submitted in the form of a Jupyter notebook, followed by a 15 minute oral presentation to the class. The maximum score for this assessment is 40 points, evenly distributed across the analysis code (20 points) and presentation (20 points).
-3. **Written examination:** The final written examination will consist of multiple choice and short answer questions, covering the content of the lectures and the module textbook. Students will not be required to solve any Python programming questions in the exam. The exam has a maximum score of 50 points and the final date will lie somewhere between June 29th and July 17th.
+The assessment for this module involves **_two_** parts whose sum is 100 points: one group project (50 points), and one final written exam (50 points). The total number of points determines the overall grade for the module.
+
+1. **Group project:** Students will be allocated into small groups and tasked to solve an end-to-end data science project. The results from the analysis must be submitted in the form of a Jupyter notebook, followed by a 15 minute oral presentation to the class. The maximum score for this assessment is 50 points, evenly distributed across the analysis code (25 points) and presentation (25 points).
+2. **Written examination:** The final written examination will consist of multiple choice and short answer questions, covering the content of the lectures and the module textbook. Students will not be required to solve any Python programming questions in the exam. The exam has a maximum score of 50 points and the final date will lie somewhere between June 29th and July 17th.
 
 ## Recommended references
 

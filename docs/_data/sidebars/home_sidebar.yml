@@ -34,7 +34,7 @@ entries:
       title: Lesson 6 - Model interpretability
       url: /lesson06_model-interpretation
     - output: web,pdf
-      title: Lesson 7 - Classification and Customer Churn
+      title: Lesson 7 - Classification
       url: /lesson07_classification
     - output: web,pdf
       title: Python primer
