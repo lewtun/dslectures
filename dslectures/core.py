@@ -32,7 +32,9 @@ def get_dataset(dataset_name: str):
         "housing_processed.csv": "12PxnWhPg_Pj0yx75vD22gwfdkkx80E6_",
         "churn.csv": "1-IO-JQr7tjQGIKZyo_SyupCpX2VNDQIf",
         "kaggle_housing_train.csv": "1BHiuZyMab7rPA8Rog29fIYhJmjvJLkVI",
-        "kaggle_housing_test.csv": "1KSfBhIdFlejUWAnrfFl10c-rjA4VhgkT"
+        "kaggle_housing_test.csv": "1KSfBhIdFlejUWAnrfFl10c-rjA4VhgkT",
+        "kaggle_titanic_train.csv": "1BHiuZyMab7rPA8Rog29fIYhJmjvJLkVI",
+        "kaggle_titanic_test.csv": "1NFCDTBF4dM8rllv0fP3VnPmoRLmfdOEB"
     }
 
     path = "../data/"
