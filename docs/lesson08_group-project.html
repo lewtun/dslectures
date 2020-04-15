@@ -82,6 +82,9 @@ summary: "In this lesson we introduce the group project, its evaluation criteria
 <p><strong>Grading split:</strong> The group project accounts for 50% of the final grading and is split equally between the notebook (25%) and the presentation (25%).</p>
 <p><strong>Submission deadline:</strong> Thursday, May 28, 2020 before 23:59:59 CEST (Notebook + presentation recording)</p>
 <p><strong>Presentation date:</strong> Thursday, June 4, 2020 (Discussion of group projects with questions)</p>
+<h3 id="Deliverables">Deliverables<a class="anchor-link" href="#Deliverables">&#182;</a></h3><p>The teams have to submit two deliverables before the submission deadline: 1) a notebook and 2) presentation video.</p>
+<h4 id="Notebook">Notebook<a class="anchor-link" href="#Notebook">&#182;</a></h4><p>The notebook contains all the code to explore the dataset, train the final model and documents each step clearly. If code is copied from another codebase such as Github or Stack Overflow it <strong><em>must</em></strong> be properly referenced.</p>
+<h4 id="Presentation">Presentation<a class="anchor-link" href="#Presentation">&#182;</a></h4><p>The presentation video should be 15min long and should highlight the problem you are solving, interesting things you found in the data and the step involved in building up your model. On the presentation date we will discuss the presentation and ask questions about your project and submissions.</p>
 <h3 id="Some-examples">Some examples<a class="anchor-link" href="#Some-examples">&#182;</a></h3><p>The Kaggle competitions <a href="https://www.kaggle.com/competitions">page</a> has hundreds of examples where people have applied machine learning to solve a variety of problems. Below are a few examples that you might find useful:</p>
 <ul>
 <li>Exploratory data analysis<ul>
@@ -202,7 +205,15 @@ summary: "In this lesson we introduce the group project, its evaluation criteria
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="5.-Short-list-promising-models">5. Short-list promising models<a class="anchor-link" href="#5.-Short-list-promising-models">&#182;</a></h3><p>We expect you to do some additional research and train at <strong>least one model per team member</strong> which is not a Random Forest. These additional models don't need to contribute to your final submission but there should be have an analysis section in the notebook. Each section should have the student name annotated. Each student should understand his model to the point where you can explain how it works and answer questions about it.</p>
+<h3 id="5.-Short-list-promising-models">5. Short-list promising models<a class="anchor-link" href="#5.-Short-list-promising-models">&#182;</a></h3><p>We expect you to do some additional research and train at <strong>least one model per team member</strong>. You use a Random Forest model, but each team memeber has to investigate one additional model. So you may want to investigate the following alternatives for regression:</p>
+<ul>
+<li>Linear Regression</li>
+<li>Extra Trees</li>
+<li>Histogram-based Gradient Boosting Regression Tree.</li>
+<li>Multi-layer Perceptron regressor</li>
+<li>Elastic-Net</li>
+</ul>
+<p>These additional models don't need to contribute to your final submission but there should for the individual models should be annotated with the student who created it. Each section should have the student name annotated. Each student should understand his model to the point where you can explain how it works and answer simple questions about it.</p>
 <ol>
 <li>Train mainy quick and dirty models from different categories (e.g. linear, SVM, Random Forests etc) using default parameters</li>
 <li>Measure and compare their performance</li>
@@ -230,7 +241,7 @@ summary: "In this lesson we introduce the group project, its evaluation criteria
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="7.-Present-your-solution">7. Present your solution<a class="anchor-link" href="#7.-Present-your-solution">&#182;</a></h3><ol>
 <li>Document what you have done</li>
-<li>Create a nice 15 minute oral presentation with slides<ul>
+<li>Create a nice 15 minute video presentation with slides<ul>
 <li>Make sure you highlight the big picture first</li>
 </ul>
 </li>
@@ -602,7 +613,7 @@ summary: "In this lesson we introduce the group project, its evaluation criteria
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">median</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">submission</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">datapath</span><span class="o">/</span><span class="s1">&#39;sample_submission.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -615,36 +626,7 @@ summary: "In this lesson we introduce the group project, its evaluation criteria
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>(122541, 21)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">submission</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -676,153 +658,129 @@ summary: "In this lesson we introduce the group project, its evaluation criteria
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>carId</th>
-      <th>dateCrawled</th>
-      <th>name</th>
-      <th>seller</th>
-      <th>offerType</th>
-      <th>abtest</th>
-      <th>vehicleType</th>
-      <th>yearOfRegistration</th>
-      <th>gearbox</th>
-      <th>powerPS</th>
-      <th>...</th>
-      <th>kilometer</th>
-      <th>monthOfRegistration</th>
-      <th>fuelType</th>
-      <th>brand</th>
-      <th>notRepairedDamage</th>
-      <th>dateCreated</th>
-      <th>nrOfPictures</th>
-      <th>postalCode</th>
-      <th>lastSeen</th>
-      <th>price</th>
+      <th>Id</th>
+      <th>Predicted</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
       <td>248923</td>
-      <td>2016-03-09 15:54:45</td>
-      <td>Merzedes_A140_Top_Zustand_8mal_bereift</td>
-      <td>privat</td>
-      <td>Angebot</td>
-      <td>control</td>
-      <td>limousine</td>
-      <td>1999</td>
-      <td>manuell</td>
-      <td>82</td>
-      <td>...</td>
-      <td>150000</td>
-      <td>7</td>
-      <td>benzin</td>
-      <td>mercedes_benz</td>
-      <td>NaN</td>
-      <td>2016-03-09 00:00:00</td>
       <td>0</td>
-      <td>90443</td>
-      <td>2016-03-10 23:17:37</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>248924</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>248925</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>248926</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>248927</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">submission</span><span class="p">[</span><span class="s1">&#39;Predicted&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">median</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">submission</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Id</th>
+      <th>Predicted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>248923</td>
       <td>2950.0</td>
     </tr>
     <tr>
       <th>1</th>
       <td>248924</td>
-      <td>2016-03-07 20:43:01</td>
-      <td>Mercedes_Benz_w203_c200_cdi_limousine_limo_gru...</td>
-      <td>privat</td>
-      <td>Angebot</td>
-      <td>test</td>
-      <td>NaN</td>
-      <td>2016</td>
-      <td>manuell</td>
-      <td>122</td>
-      <td>...</td>
-      <td>150000</td>
-      <td>4</td>
-      <td>NaN</td>
-      <td>mercedes_benz</td>
-      <td>NaN</td>
-      <td>2016-03-07 00:00:00</td>
-      <td>0</td>
-      <td>73525</td>
-      <td>2016-03-11 03:45:55</td>
       <td>2950.0</td>
     </tr>
     <tr>
       <th>2</th>
       <td>248925</td>
-      <td>2016-03-11 01:36:17</td>
-      <td>Toyota_Corolla_Verso_2.2_D_4D_7Sitzer_Start/St...</td>
-      <td>privat</td>
-      <td>Angebot</td>
-      <td>test</td>
-      <td>bus</td>
-      <td>2008</td>
-      <td>manuell</td>
-      <td>136</td>
-      <td>...</td>
-      <td>125000</td>
-      <td>1</td>
-      <td>diesel</td>
-      <td>toyota</td>
-      <td>nein</td>
-      <td>2016-03-11 00:00:00</td>
-      <td>0</td>
-      <td>36093</td>
-      <td>2016-03-11 01:36:17</td>
       <td>2950.0</td>
     </tr>
     <tr>
       <th>3</th>
       <td>248926</td>
-      <td>2016-04-01 16:49:13</td>
-      <td>Audi_A6_Avant_2.7_TDI_DPF_multitronic_Xenon_/_AHK</td>
-      <td>privat</td>
-      <td>Angebot</td>
-      <td>control</td>
-      <td>kombi</td>
-      <td>2009</td>
-      <td>automatik</td>
-      <td>190</td>
-      <td>...</td>
-      <td>150000</td>
-      <td>6</td>
-      <td>diesel</td>
-      <td>audi</td>
-      <td>nein</td>
-      <td>2016-04-01 00:00:00</td>
-      <td>0</td>
-      <td>52445</td>
-      <td>2016-04-01 16:49:13</td>
       <td>2950.0</td>
     </tr>
     <tr>
       <th>4</th>
       <td>248927</td>
-      <td>2016-04-01 19:56:45</td>
-      <td>Volkswagen_Golf</td>
-      <td>privat</td>
-      <td>Angebot</td>
-      <td>control</td>
-      <td>limousine</td>
-      <td>2008</td>
-      <td>automatik</td>
-      <td>122</td>
-      <td>...</td>
-      <td>125000</td>
-      <td>2</td>
-      <td>benzin</td>
-      <td>volkswagen</td>
-      <td>nein</td>
-      <td>2016-04-01 00:00:00</td>
-      <td>0</td>
-      <td>14532</td>
-      <td>2016-04-05 16:45:49</td>
       <td>2950.0</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 21 columns</p>
 </div>
 </div>
 
@@ -844,237 +802,6 @@ summary: "In this lesson we introduce the group project, its evaluation criteria
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>122541</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">submission</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">datapath</span><span class="o">/</span><span class="s1">&#39;sample_submission.csv&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The submission file should have two columns named <code>Id</code> and <code>Predicted</code>. We rename the columns in the DataFrame accordingly.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">submission</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Id</th>
-      <th>Predicted</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>248923</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>248924</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>248925</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>248926</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>248927</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">submission</span><span class="p">[</span><span class="s1">&#39;Predicted&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_pred</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">submission</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Id</th>
-      <th>Predicted</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>248923</td>
-      <td>2950.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>248924</td>
-      <td>2950.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>248925</td>
-      <td>2950.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>248926</td>
-      <td>2950.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>248927</td>
-      <td>2950.0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">submission</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">datapath</span><span class="o">/</span><span class="s1">&#39;median_submission.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 
@@ -1085,7 +812,19 @@ summary: "In this lesson we introduce the group project, its evaluation criteria
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>You can now upload this file on the Kaggle competition webpage under <code>Submit Prediction</code>.</p>
+<p>You can now upload this file on the Kaggle competition webpage under <code>Submit Prediction</code>.
+The general procedure to fit a <code>scikit-learn</code> model and make a submission looks as follows:</p>
+<div class="highlight"><pre><span></span><span class="c1"># train model</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">train</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span>
+<span class="n">my_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># predict on test set</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">my_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+
+<span class="c1"># create submission</span>
+<span class="n">submission</span><span class="p">[</span><span class="s1">&#39;Prediction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_pred</span>
+<span class="n">submission</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">datapath</span><span class="o">/</span><span class="s1">&#39;median_submission.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
 
 </div>
 </div>
