@@ -1119,12 +1119,12 @@ dtype: int8</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_polynomial_data</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">make_polynomial_data</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Creates noisy polynomial data.</span>
 <span class="sd">    </span>
 <span class="sd">    Args:</span>
-<span class="sd">        w (array): polynomial weights in descending order</span>
+<span class="sd">        weight (array): polynomial weights in descending order</span>
 <span class="sd">        n_samples (int): number of samples</span>
 <span class="sd">        seed (int): random seed</span>
 <span class="sd">    </span>
@@ -1142,13 +1142,13 @@ dtype: int8</pre>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     
     <span class="c1"># evalute polynomial with weight w at positions x</span>
-    <span class="n">y_true</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">y_true</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 
     <span class="c1"># add noise samples from the normal gaussian</span>
     <span class="c1"># distribution to the data.</span>
-    <span class="n">y_data</span> <span class="o">=</span> <span class="n">y_true</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">y_true</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)</span>
     
-    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y_data</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
 </pre></div>
 
     </div>
@@ -1165,11 +1165,11 @@ dtype: int8</pre>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_polynomial_data" class="doc_header"><code>get_polynomial_data</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L91" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_polynomial_data</code>(<strong><code>w</code></strong>, <strong><code>n_samples</code></strong>=<em><code>100</code></em>, <strong><code>seed</code></strong>=<em><code>42</code></em>)</p>
+<h4 id="make_polynomial_data" class="doc_header"><code>make_polynomial_data</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L91" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>make_polynomial_data</code>(<strong><code>weight</code></strong>, <strong><code>n_samples</code></strong>=<em><code>100</code></em>, <strong><code>seed</code></strong>=<em><code>42</code></em>)</p>
 </blockquote>
 <p>Creates noisy polynomial data.</p>
 <p>Args:
-    w (array): polynomial weights in descending order
+    weight (array): polynomial weights in descending order
     n_samples (int): number of samples
     seed (int): random seed</p>
 <p>returns:
@@ -1189,7 +1189,7 @@ dtype: int8</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">get_polynomial_data</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_polynomial_data</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
 </pre></div>
 
     </div>
@@ -1217,7 +1217,7 @@ dtype: int8</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;matplotlib.lines.Line2D at 0x11bbea470&gt;]</pre>
+<pre>[&lt;matplotlib.lines.Line2D at 0x11eebe358&gt;]</pre>
 </div>
 
 </div>
@@ -1243,7 +1243,7 @@ dtype: int8</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">PolyFit</span><span class="p">:</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">PolynomialRegressor</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Scikit-like interface to fit polynomials.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1299,7 +1299,7 @@ dtype: int8</pre>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="PolyFit" class="doc_header"><code>class</code> <code>PolyFit</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L124" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>PolyFit</code>(<strong><code>degree</code></strong>=<em><code>0</code></em>, <strong><code>w_hat</code></strong>=<em><code>None</code></em>)</p>
+<h2 id="PolynomialRegressor" class="doc_header"><code>class</code> <code>PolynomialRegressor</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L124" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>PolynomialRegressor</code>(<strong><code>degree</code></strong>=<em><code>0</code></em>, <strong><code>w_hat</code></strong>=<em><code>None</code></em>)</p>
 </blockquote>
 <p>Scikit-like interface to fit polynomials.</p>
 
@@ -1316,7 +1316,7 @@ dtype: int8</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pf</span> <span class="o">=</span> <span class="n">PolyFit</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pf</span> <span class="o">=</span> <span class="n">PolynomialRegressor</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">pf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="n">x_lin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">y_hat</span> <span class="o">=</span><span class="n">pf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_lin</span><span class="p">)</span>
@@ -1336,6 +1336,7 @@ dtype: int8</pre>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_lin</span><span class="p">,</span> <span class="n">y_hat</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;fit&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_lin</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">x_lin</span><span class="p">),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;ground truth&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -1344,16 +1345,6 @@ dtype: int8</pre>
 
 <div class="output_wrapper">
 <div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.legend.Legend at 0x11d22f828&gt;</pre>
-</div>
-
-</div>
 
 <div class="output_area">
 
