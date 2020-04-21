@@ -41,7 +41,7 @@ entries:
       url: /lesson08_group-project
     - output: web,pdf
       title: Lesson 9 - Overfitting
-      url: /lesson09-overfitting
+      url: /lesson09_overfitting
     - output: web,pdf
       title: Python primer
       url: /python-primer
