@@ -6,6 +6,7 @@ keywords: fastai
 sidebar: home_sidebar
 
 summary: "An overview of the basics of Python as well as Jupyter notebooks and how they can be a useful tool for data science."
+description: "An overview of the basics of Python as well as Jupyter notebooks and how they can be a useful tool for data science."
 ---
 <!--
 
@@ -18,10 +19,14 @@ summary: "An overview of the basics of Python as well as Jupyter notebooks and h
 -->
 
 <div class="container" id="notebook-container">
+        
+    {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a href="https://mybinder.org/v2/gh/lewtun/dslectures/master?urlpath=lab/tree/notebooks%2Fpython-primer.ipynb"><img src="https://mybinder.org/badge_logo.svg" alt="Binder"></a></p>
@@ -31,7 +36,7 @@ summary: "An overview of the basics of Python as well as Jupyter notebooks and h
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="References">References<a class="anchor-link" href="#References">&#182;</a></h2><p>This primer draws heavily on materials from Stanford's CS231n Convolutional Neural Networks for Visual Recognition:</p>
+<h2 id="References">References<a class="anchor-link" href="#References"> </a></h2><p>This primer draws heavily on materials from Stanford's CS231n Convolutional Neural Networks for Visual Recognition:</p>
 <ul>
 <li><a href="http://cs231n.github.io/python-numpy-tutorial/">Python Numpy Tutorial</a></li>
 </ul>
@@ -42,15 +47,15 @@ summary: "An overview of the basics of Python as well as Jupyter notebooks and h
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Why-Python-for-Data-Analysis?">Why Python for Data Analysis?<a class="anchor-link" href="#Why-Python-for-Data-Analysis?">&#182;</a></h2><div style="text-align: center">
+<h2 id="Why-Python-for-Data-Analysis?">Why Python for Data Analysis?<a class="anchor-link" href="#Why-Python-for-Data-Analysis?"> </a></h2><div style="text-align: center">
 {% include image.html max-width="700" file="/dslectures/./images/python_growth.png" %}
 </div><p>Python is currently one of the <a href="https://stackoverflow.blog/2017/09/06/incredible-growth-python/">fastest growing programming languages</a> in the world. There are many reasons for this trend, but it largely comes down to the fact that Python is easy to learn, has a library or framework for almost everything, and has a large and active community of developers in scientific computing and data analysis. (This last point is very important: if you get stuck, there's a good chance that somebody has already asked your question on <a href="https://stackoverflow.com/">StackOverflow</a>!)</p>
 <p>These features have led Python to become one of the most important languages in data science, machine learning, and general software development in academia and industry. Thus, if you're going to learn a new programming language in 2020, then Python is a great choice!</p>
-<h3 id="But-I-don't-know-how-to-program!">But I don't know how to program!<a class="anchor-link" href="#But-I-don't-know-how-to-program!">&#182;</a></h3><div style="text-align: center">
+<h3 id="But-I-don't-know-how-to-program!">But I don't know how to program!<a class="anchor-link" href="#But-I-don't-know-how-to-program!"> </a></h3><div style="text-align: center">
 {% include image.html file="/dslectures/./images/dog.png" %}
 </div><p>Don't worry, we will help you!</p>
 <p>Since this is a course on <em>practical</em> data science, we believe that the most effective way to learn data science is to actually <em>do</em> it on a recurring basis. By analogy, you do not need to know the theoretical basis for music in order to learn how to play an instrument! Thus the main goal throughout this semester is to spend the majority of our time working directly with data and code; by the end the semantics of Python and its data analysis libraries will be almost second-nature.</p>
-<h3 id="Essential-Python-libraries">Essential Python libraries<a class="anchor-link" href="#Essential-Python-libraries">&#182;</a></h3><p>In this course we will be introducing several core libraries that underpin much of the work done in data science and machine learning. We will provide more details later in the course, but for now a summary is produced below.</p>
+<h3 id="Essential-Python-libraries">Essential Python libraries<a class="anchor-link" href="#Essential-Python-libraries"> </a></h3><p>In this course we will be introducing several core libraries that underpin much of the work done in data science and machine learning. We will provide more details later in the course, but for now a summary is produced below.</p>
 <p><strong>NumPy</strong></p>
 <p>NumPy (short for Numerical Python) provides the data structures, algorithms, and glue needed for most scientific applications involving numerical data. It provides blazing fast array-processing capabilities and the ability to do linear algebra operations with ease. (The latter aspect is in part why NumPy underpins much of machine and deep learning applications.)</p>
 <p><strong>pandas</strong></p>
@@ -77,8 +82,8 @@ summary: "An overview of the basics of Python as well as Jupyter notebooks and h
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Jupyter-notebooks">Jupyter notebooks<a class="anchor-link" href="#Jupyter-notebooks">&#182;</a></h2><p>Jupyter notebooks are an essential tool for any data science project.  As described on Jupyter's <a href="https://jupyter.org/">website</a>:</p>
-<blockquote><p>The Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text. Uses include: data cleaning and transformation, numerical simulation, statistical modeling, data visualization, machine learning, and much more.
+<h2 id="Jupyter-notebooks">Jupyter notebooks<a class="anchor-link" href="#Jupyter-notebooks"> </a></h2><p>Jupyter notebooks are an essential tool for any data science project.  As described on Jupyter's <a href="https://jupyter.org/">website</a>:</p>
+<blockquote><p>The Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text. Uses include:data cleaning and transformation, numerical simulation, statistical modeling, data visualization, machine learning, and much more.
 Jupyter notebooks are made of <em>cells</em> and there are two basic types of cell that you'll encounter:</p>
 </blockquote>
 <ul>
@@ -86,11 +91,13 @@ Jupyter notebooks are made of <em>cells</em> and there are two basic types of ce
 <li>Code cells for executing Python commands.</li>
 </ul>
 <p>You can edit a cell by double-clicking on it and you can execute the code in it by either clicking on the "play" button ▶ or simply pressing <code>Shift + Enter</code>. You can also stop a running cell by pressing the "stop" button ◼︎.</p>
-<h3 id="Tab-completion">Tab completion<a class="anchor-link" href="#Tab-completion">&#182;</a></h3><p>One of the very cool things about Jupyter notebooks is that they provide <em>tab completion</em>, similar to many IDEs. If you enter an expression in a cell, the <code>Tab</code> key will search the namespace for any vairable that match the characters you've typed:</p>
+<h3 id="Tab-completion">Tab completion<a class="anchor-link" href="#Tab-completion"> </a></h3><p>One of the very cool things about Jupyter notebooks is that they provide <em>tab completion</em>, similar to many IDEs. If you enter an expression in a cell, the <code>Tab</code> key will search the namespace for any vairable that match the characters you've typed:</p>
 
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -105,6 +112,10 @@ Jupyter notebooks are made of <em>cells</em> and there are two basic types of ce
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -135,13 +146,17 @@ Jupyter notebooks are made of <em>cells</em> and there are two basic types of ce
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Introspection">Introspection<a class="anchor-link" href="#Introspection">&#182;</a></h3><p>Using a question mark <code>?</code> before or after a variable will display some general information:</p>
+<h3 id="Introspection">Introspection<a class="anchor-link" href="#Introspection"> </a></h3><p>Using a question mark <code>?</code> before or after a variable will display some general information:</p>
 
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -179,6 +194,8 @@ The argument must be an iterable if specified.
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Introspection can also be used to access the docstring of a function, e.g.</p>
@@ -186,6 +203,8 @@ The argument must be an iterable if specified.
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -206,6 +225,8 @@ The argument must be an iterable if specified.
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Then using <code>?</code> or pressing <code>Shift + Tab</code> will show us the docstring</p>
@@ -213,6 +234,8 @@ The argument must be an iterable if specified.
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -250,6 +273,8 @@ Returns:
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Using <code>??</code> will also show the source code if possible:</p>
@@ -257,6 +282,8 @@ Returns:
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -298,9 +325,11 @@ Returns:
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Basic-data-types">Basic data types<a class="anchor-link" href="#Basic-data-types">&#182;</a></h2><p>This section is based on Stanford's excellent NumPy <a href="http://cs231n.github.io/python-numpy-tutorial/">tutorial</a> and Wes McKinney's <em>Python for Data Analysis</em> book - go check them out for more details! Like most languages, Python has a number of basic data types including:</p>
+<h2 id="Basic-data-types">Basic data types<a class="anchor-link" href="#Basic-data-types"> </a></h2><p>This section is based on Stanford's excellent NumPy <a href="http://cs231n.github.io/python-numpy-tutorial/">tutorial</a> and Wes McKinney's <em>Python for Data Analysis</em> book - go check them out for more details! Like most languages, Python has a number of basic data types including:</p>
 <ul>
 <li>Integers</li>
 <li>Floats (double-precision 64-bit floating point number)</li>
@@ -337,11 +366,13 @@ x = "four"; // FAILS!</code></pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Numbers">Numbers<a class="anchor-link" href="#Numbers">&#182;</a></h3><p>Integers and floats work as you'd expect from other programming languages. Let's create two variables:</p>
+<h3 id="Numbers">Numbers<a class="anchor-link" href="#Numbers"> </a></h3><p>Integers and floats work as you'd expect from other programming languages. Let's create two variables:</p>
 
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -356,6 +387,8 @@ x = "four"; // FAILS!</code></pre>
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We can print out these variables and their types as follows:</p>
@@ -363,6 +396,8 @@ x = "four"; // FAILS!</code></pre>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -392,6 +427,8 @@ x = "four"; // FAILS!</code></pre>
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>What if you want to print some text and then some numbers? One way to do this is to <em>cast</em> the number as a string and then print it:</p>
@@ -399,6 +436,8 @@ x = "four"; // FAILS!</code></pre>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -428,6 +467,8 @@ My float was 3.14159
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>However I often find it more convenient to use the <code>print</code> statement with comma separated values:</p>
@@ -435,6 +476,8 @@ My float was 3.14159
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -464,6 +507,8 @@ My float was 3.14159
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>A natural thing to want to do with numbers is perform arithmetic. We've seen the <code>+</code> operator for addition, and the <code>*</code> operator for multiplication (of a sort). Python also has us covered for the rest of the basic binary operations we might be interested in:</p>
@@ -522,6 +567,8 @@ My float was 3.14159
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -555,6 +602,8 @@ Power: 1000000000000000000000000000000000000000000000000000000000000000000000000
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We can also store the result from math operations in new variables, e.g.</p>
@@ -562,6 +611,8 @@ Power: 1000000000000000000000000000000000000000000000000000000000000000000000000
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -590,6 +641,8 @@ Power: 1000000000000000000000000000000000000000000000000000000000000000000000000
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Warning!</strong></p>
@@ -598,6 +651,8 @@ Power: 1000000000000000000000000000000000000000000000000000000000000000000000000
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -627,6 +682,8 @@ Power: 1000000000000000000000000000000000000000000000000000000000000000000000000
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>while the floor division operator drops the fractional part</p>
@@ -634,6 +691,8 @@ Power: 1000000000000000000000000000000000000000000000000000000000000000000000000
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -663,13 +722,17 @@ Power: 1000000000000000000000000000000000000000000000000000000000000000000000000
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Booleans">Booleans<a class="anchor-link" href="#Booleans">&#182;</a></h3><p>Python implements all of the usual operators for Boolean logic, but uses English words rather than symbols like <code>&amp;&amp;</code>, <code>||</code>, etc that are found in other languages:</p>
+<h3 id="Booleans">Booleans<a class="anchor-link" href="#Booleans"> </a></h3><p>Python implements all of the usual operators for Boolean logic, but uses English words rather than symbols like <code>&amp;&amp;</code>, <code>||</code>, etc that are found in other languages:</p>
 
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -711,13 +774,17 @@ True
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Strings">Strings<a class="anchor-link" href="#Strings">&#182;</a></h3><p>Python has powerful and flexible string processing capabilities. You can write <em>string literals</em> using either single quote <code>'</code> of double quotes <code>"</code>:</p>
+<h3 id="Strings">Strings<a class="anchor-link" href="#Strings"> </a></h3><p>Python has powerful and flexible string processing capabilities. You can write <em>string literals</em> using either single quote <code>'</code> of double quotes <code>"</code>:</p>
 
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -732,6 +799,8 @@ True
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We can also get the number of elements in a string sequence as follows</p>
@@ -739,6 +808,8 @@ True
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -769,6 +840,8 @@ True
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We can also access each character in a string and print it's value:</p>
@@ -776,6 +849,8 @@ True
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -808,6 +883,8 @@ o
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Adding two strings together concatenates them and produces a new string</p>
@@ -815,6 +892,8 @@ o
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -845,6 +924,8 @@ o
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>String objects also come with a range of built-in functions to convert them into various forms:</p>
@@ -852,6 +933,8 @@ o
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -881,6 +964,10 @@ o
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -910,6 +997,10 @@ o
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -941,9 +1032,11 @@ o
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Containers">Containers<a class="anchor-link" href="#Containers">&#182;</a></h2><p>Python includes several built-in container types:</p>
+<h2 id="Containers">Containers<a class="anchor-link" href="#Containers"> </a></h2><p>Python includes several built-in container types:</p>
 <ul>
 <li>Lists</li>
 <li>Dictionaries</li>
@@ -956,11 +1049,13 @@ o
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Lists">Lists<a class="anchor-link" href="#Lists">&#182;</a></h3><p>A list is the Python equivalent of an array, but is <em>resizeable</em> and can contain elements of <em>different types</em>:</p>
+<h3 id="Lists">Lists<a class="anchor-link" href="#Lists"> </a></h3><p>A list is the Python equivalent of an array, but is <em>resizeable</em> and can contain elements of <em>different types</em>:</p>
 
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -989,6 +1084,8 @@ o
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>How do we access the individual elements in a list? In Python, the index of elements in a list starts at zero. Thus we should look at the zeroth index to get the first element:</p>
@@ -996,6 +1093,8 @@ o
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1023,6 +1122,8 @@ o
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>To get elements at the end of a list, we use <em>negative indices</em>, e.g.</p>
@@ -1030,6 +1131,8 @@ o
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1057,6 +1160,8 @@ o
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>As noted above, Python lists can contain elements of different types. Let's add a new element to the end of the list:</p>
@@ -1064,6 +1169,8 @@ o
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1092,6 +1199,8 @@ o
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We can also replace values in a list based on their index, e.g.</p>
@@ -1099,6 +1208,8 @@ o
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1127,6 +1238,8 @@ o
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Finally we can use the <code>pop</code> method to remove and return the last element of a list:</p>
@@ -1134,6 +1247,8 @@ o
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1162,13 +1277,17 @@ o
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Slicing">Slicing<a class="anchor-link" href="#Slicing">&#182;</a></h4><p>In addition to accessing list elements one at a time, Python provides concise syntax to access sublists; this is known as <em>slicing</em>. Let's begin by using Python's built-in <code>range</code> function to create a list of integers:</p>
+<h4 id="Slicing">Slicing<a class="anchor-link" href="#Slicing"> </a></h4><p>In addition to accessing list elements one at a time, Python provides concise syntax to access sublists; this is known as <em>slicing</em>. Let's begin by using Python's built-in <code>range</code> function to create a list of integers:</p>
 
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1199,6 +1318,8 @@ o
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>To get a slice from $[2,4)$ we run</p>
@@ -1206,6 +1327,8 @@ o
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1235,6 +1358,8 @@ o
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>while to get a slice from index 2 to the end of the list we run</p>
@@ -1242,6 +1367,8 @@ o
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1271,6 +1398,8 @@ o
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>To get a slice from the start to index 5 (exclusive) we run</p>
@@ -1278,6 +1407,8 @@ o
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1307,6 +1438,8 @@ o
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>To get a slice of the whole list:</p>
@@ -1314,6 +1447,8 @@ o
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1343,6 +1478,8 @@ o
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Slices can also be negative</p>
@@ -1350,6 +1487,8 @@ o
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1379,6 +1518,10 @@ o
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1409,12 +1552,16 @@ o
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Loops">Loops<a class="anchor-link" href="#Loops">&#182;</a></h4>
+<h4 id="Loops">Loops<a class="anchor-link" href="#Loops"> </a></h4>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1446,12 +1593,16 @@ monkey
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="List-comprehension">List comprehension<a class="anchor-link" href="#List-comprehension">&#182;</a></h4>
+<h4 id="List-comprehension">List comprehension<a class="anchor-link" href="#List-comprehension"> </a></h4>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1486,6 +1637,10 @@ monkey
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1516,6 +1671,10 @@ monkey
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1546,13 +1705,17 @@ monkey
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="enumerate">enumerate<a class="anchor-link" href="#enumerate">&#182;</a></h4><p>It's common when iterating to want to keep track of the index when iterating over a sequence. Python has a built-in function called <code>enumerate</code> just for this:</p>
+<h4 id="enumerate">enumerate<a class="anchor-link" href="#enumerate"> </a></h4><p>It's common when iterating to want to keep track of the index when iterating over a sequence. Python has a built-in function called <code>enumerate</code> just for this:</p>
 
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1583,13 +1746,17 @@ monkey
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="zip">zip<a class="anchor-link" href="#zip">&#182;</a></h4><p><code>zip</code> is a useful function to pair elements of a lists, tuples or other sequences to create a list of tuples:</p>
+<h4 id="zip">zip<a class="anchor-link" href="#zip"> </a></h4><p><code>zip</code> is a useful function to pair elements of a lists, tuples or other sequences to create a list of tuples:</p>
 
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1624,13 +1791,17 @@ monkey
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Dictionaries">Dictionaries<a class="anchor-link" href="#Dictionaries">&#182;</a></h3><p>A dictionary is known as the <code>dict</code> data structure and are extremely handy. It is a collection of <em>key-value</em> pairs, where <em>key</em> and <em>value</em> are Python objects. The simplest way to create a dictionary is with curly braces <code>{}</code>:</p>
+<h3 id="Dictionaries">Dictionaries<a class="anchor-link" href="#Dictionaries"> </a></h3><p>A dictionary is known as the <code>dict</code> data structure and are extremely handy. It is a collection of <em>key-value</em> pairs, where <em>key</em> and <em>value</em> are Python objects. The simplest way to create a dictionary is with curly braces <code>{}</code>:</p>
 
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1644,6 +1815,10 @@ monkey
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1673,6 +1848,8 @@ monkey
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We can access, insert, or set elements using the same approach as for lists:</p>
@@ -1680,6 +1857,8 @@ monkey
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1709,6 +1888,10 @@ monkey
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1738,6 +1921,8 @@ monkey
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>You can check if a key exists as follows</p>
@@ -1745,6 +1930,8 @@ monkey
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1774,6 +1961,8 @@ monkey
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Finally, you can delete values using the <code>del</code> keyword</p>
@@ -1781,6 +1970,8 @@ monkey
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1810,12 +2001,16 @@ monkey
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Loops">Loops<a class="anchor-link" href="#Loops">&#182;</a></h4>
+<h4 id="Loops">Loops<a class="anchor-link" href="#Loops"> </a></h4>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1848,6 +2043,10 @@ A spider has 8 legs
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1879,12 +2078,16 @@ A spider has 8 legs
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Dictionary-comprehensions">Dictionary comprehensions<a class="anchor-link" href="#Dictionary-comprehensions">&#182;</a></h4>
+<h4 id="Dictionary-comprehensions">Dictionary comprehensions<a class="anchor-link" href="#Dictionary-comprehensions"> </a></h4>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1914,13 +2117,17 @@ A spider has 8 legs
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Sets">Sets<a class="anchor-link" href="#Sets">&#182;</a></h3><p>A set is an unordered collection of unique element. They are similar to dicts, but with just keys (no values). The simplest way to create a set is as follows</p>
+<h3 id="Sets">Sets<a class="anchor-link" href="#Sets"> </a></h3><p>A set is an unordered collection of unique element. They are similar to dicts, but with just keys (no values). The simplest way to create a set is as follows</p>
 
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1950,6 +2157,8 @@ A spider has 8 legs
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Sets allow us to perform the standard set operation like union, intersection, difference and symmetric difference. For example</p>
@@ -1957,6 +2166,8 @@ A spider has 8 legs
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1970,6 +2181,10 @@ A spider has 8 legs
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1999,6 +2214,10 @@ A spider has 8 legs
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -2028,13 +2247,17 @@ A spider has 8 legs
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Tuples">Tuples<a class="anchor-link" href="#Tuples">&#182;</a></h3><p>A tuple is an (immutable) ordered list of values. The simplest way to create one is with a comma-separated sequence of values</p>
+<h3 id="Tuples">Tuples<a class="anchor-link" href="#Tuples"> </a></h3><p>A tuple is an (immutable) ordered list of values. The simplest way to create one is with a comma-separated sequence of values</p>
 
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -2064,6 +2287,10 @@ A spider has 8 legs
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -2093,6 +2320,8 @@ A spider has 8 legs
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Multiplying a tuple by an integer has the effect of concatenating together copies of the tuple:</p>
@@ -2100,6 +2329,8 @@ A spider has 8 legs
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -2129,14 +2360,18 @@ A spider has 8 legs
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Functions">Functions<a class="anchor-link" href="#Functions">&#182;</a></h2><p>Function are a very important method of code reuse in Python. In general, if you find yourself repeating the same code more than once, it can be useful to port it to a reusable function. Doing so also makes your code more readable, which is very important when collaborating with others (or even your future self!).</p>
+<h2 id="Functions">Functions<a class="anchor-link" href="#Functions"> </a></h2><p>Function are a very important method of code reuse in Python. In general, if you find yourself repeating the same code more than once, it can be useful to port it to a reusable function. Doing so also makes your code more readable, which is very important when collaborating with others (or even your future self!).</p>
 <p>Functions are declare with the <code>def</code> keyword and returned from the <code>return</code> keyword, e.g.</p>
 
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -2152,6 +2387,10 @@ A spider has 8 legs
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -2181,6 +2420,8 @@ A spider has 8 legs
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Note that we can have multiple return statements, e.g. based on the result of some conditional statements:</p>
@@ -2188,6 +2429,8 @@ A spider has 8 legs
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -2226,6 +2469,8 @@ positive
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In addition to <em>positional</em> arguments, functions can have <em>keyword</em> arguments that are typically used to specify default values:</p>
@@ -2233,6 +2478,8 @@ positive
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -2268,6 +2515,8 @@ G&#39;day, FRED!
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Finally, it is quite common to write functions that return <em>multiple</em> objects as a tuple. For example we can write something like</p>
@@ -2275,6 +2524,8 @@ G&#39;day, FRED!
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -2292,6 +2543,10 @@ G&#39;day, FRED!
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -2321,6 +2576,10 @@ G&#39;day, FRED!
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -2350,6 +2609,8 @@ G&#39;day, FRED!
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>One cool aspect of such functions is that the returned objects can be unpacked in two different ways:</p>
@@ -2357,6 +2618,8 @@ G&#39;day, FRED!
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -2386,6 +2649,10 @@ G&#39;day, FRED!
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -2417,19 +2684,23 @@ G&#39;day, FRED!
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Exercises">Exercises<a class="anchor-link" href="#Exercises">&#182;</a></h2>
+<h2 id="Exercises">Exercises<a class="anchor-link" href="#Exercises"> </a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Ordered-pairs">Ordered pairs<a class="anchor-link" href="#Ordered-pairs">&#182;</a></h3><p>You are given three integers $x, y$ and $z$. You need to find the ordered pairs $(i, j )$ , such that $( i + j )$ is equal to $z$ and print them in <a href="https://en.wikipedia.org/wiki/Lexicographical_order">lexicographic order</a>. Here $i$ and $j$ are constrained to lie in the intervals $ 0 \leq i \leq x $ and $ 0 \leq j \leq y $. Below is a solution if we <strong><em>do not use list comprehension</em></strong> - can you find a solution that does?</p>
+<h3 id="Ordered-pairs">Ordered pairs<a class="anchor-link" href="#Ordered-pairs"> </a></h3><p>You are given three integers $x, y$ and $z$. You need to find the ordered pairs $(i, j )$ , such that $( i + j )$ is equal to $z$ and print them in <a href="https://en.wikipedia.org/wiki/Lexicographical_order">lexicographic order</a>. Here $i$ and $j$ are constrained to lie in the intervals $ 0 \leq i \leq x $ and $ 0 \leq j \leq y $. Below is a solution if we <strong><em>do not use list comprehension</em></strong> - can you find a solution that does?</p>
 
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -2473,9 +2744,11 @@ G&#39;day, FRED!
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Squirrel-cigar-party!">Squirrel cigar party!<a class="anchor-link" href="#Squirrel-cigar-party!">&#182;</a></h3><p><img src="/dslectures/./images/cigar.jpeg" alt=""></p>
+<h3 id="Squirrel-cigar-party!">Squirrel cigar party!<a class="anchor-link" href="#Squirrel-cigar-party!"> </a></h3><p><img src="/dslectures/./images/cigar.jpeg" alt=""></p>
 <p>When squirrels get together for a party, they like to have cigars. A squirrel party is successful when the number of cigars is between 40 and 60, inclusive. Unless it is the weekend, in which case the squirrels go wild and there is no upper bound on the number of cigars. Complete the function below to return <code>True</code> if the party with the given values is successful, or <code>False</code> otherwise. Example output is shown below:</p>
 
 <pre><code>cigar_party(30, False) → False

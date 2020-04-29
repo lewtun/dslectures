@@ -6,6 +6,7 @@ keywords: fastai
 sidebar: home_sidebar
 
 summary: "Use distance measures to classify and cluster data."
+description: "Use distance measures to classify and cluster data."
 ---
 <!--
 
@@ -18,10 +19,14 @@ summary: "Use distance measures to classify and cluster data."
 -->
 
 <div class="container" id="notebook-container">
+        
+    {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a href="https://mybinder.org/v2/gh/lewtun/dslectures/master?filepath=notebooks%2Flesson10-k-.ipynb"><img src="https://mybinder.org/badge_logo.svg" alt="Binder"></a></p>
@@ -31,7 +36,7 @@ summary: "Use distance measures to classify and cluster data."
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Learning-Objectives">Learning Objectives<a class="anchor-link" href="#Learning-Objectives">&#182;</a></h2><p>In this lesson we will have a look at a property of data and two of its applications: distance and similarity measures. If one can determine the distance between data samples (e.g. between rows in a table, different texts or images) one has access to a range of tools to investigate data and to model it. In this lesson we will have a look at two of them, namely k-nearest neighbour classification and k-means clustering.</p>
+<h2 id="Learning-Objectives">Learning Objectives<a class="anchor-link" href="#Learning-Objectives"> </a></h2><p>In this lesson we will have a look at a property of data and two of its applications: distance and similarity measures. If one can determine the distance between data samples (e.g. between rows in a table, different texts or images) one has access to a range of tools to investigate data and to model it. In this lesson we will have a look at two of them, namely k-nearest neighbour classification and k-means clustering.</p>
 <p><strong>k-nearest neighbour</strong> classification falls in the category of supervised algorithms, which we already encountered with Decision Trees and Random Forests.</p>
 <p><strong>k-means</strong> clustering on the other hand is an unsupervised method and therefore forms a new class of algorithms. We will investigate how these algorithms can be used.</p>
 <p>This notebook is split according to three learning goals:</p>
@@ -40,10 +45,10 @@ summary: "Use distance measures to classify and cluster data."
 <li>How the nearest neighbours can be used to build a classifier in scikit-learn.</li>
 <li>Explore a dataset with the unsupervised k-means method.</li>
 </ol>
-<h2 id="References">References<a class="anchor-link" href="#References">&#182;</a></h2><ul>
+<h2 id="References">References<a class="anchor-link" href="#References"> </a></h2><ul>
 <li>Chapter 6: Similarity, Neighbors, and Clusters of <em>Data Science for Business</em> by F. Provost and P. Fawcett</li>
 </ul>
-<h2 id="Homework">Homework<a class="anchor-link" href="#Homework">&#182;</a></h2><p>Work through the notebook and solve the exercises.</p>
+<h2 id="Homework">Homework<a class="anchor-link" href="#Homework"> </a></h2><p>Work through the notebook and solve the exercises.</p>
 
 </div>
 </div>
@@ -59,7 +64,7 @@ summary: "Use distance measures to classify and cluster data."
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Part-1:-Similarity-and-distance-measures">Part 1: Similarity and distance measures<a class="anchor-link" href="#Part-1:-Similarity-and-distance-measures">&#182;</a></h2><p>Similarity and distance measures are fundamental tools in machine learning. Often we want to know how far apart or similar two datapoints are. Some examples:</p>
+<h2 id="Part-1:-Similarity-and-distance-measures">Part 1: Similarity and distance measures<a class="anchor-link" href="#Part-1:-Similarity-and-distance-measures"> </a></h2><p>Similarity and distance measures are fundamental tools in machine learning. Often we want to know how far apart or similar two datapoints are. Some examples:</p>
 <ul>
 <li>How similar are two customers?</li>
 <li>How close is a search query to a webpage?</li>
@@ -73,10 +78,12 @@ summary: "Use distance measures to classify and cluster data."
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Imports">Imports<a class="anchor-link" href="#Imports">&#182;</a></h3>
+<h3 id="Imports">Imports<a class="anchor-link" href="#Imports"> </a></h3>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -101,12 +108,16 @@ summary: "Use distance measures to classify and cluster data."
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Helper-functions">Helper functions<a class="anchor-link" href="#Helper-functions">&#182;</a></h3>
+<h3 id="Helper-functions">Helper functions<a class="anchor-link" href="#Helper-functions"> </a></h3>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -136,6 +147,8 @@ summary: "Use distance measures to classify and cluster data."
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="text-align: center">
@@ -154,6 +167,8 @@ summary: "Use distance measures to classify and cluster data."
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -187,6 +202,8 @@ summary: "Use distance measures to classify and cluster data."
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Now we create pairs of random vectors with dimensionality ranging from 1 to 10000. For each dimension, we calculate the distance between the two vectors and store them in a list:</p>
@@ -194,6 +211,8 @@ summary: "Use distance measures to classify and cluster data."
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -219,6 +238,8 @@ summary: "Use distance measures to classify and cluster data."
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This distance can be plotted in a graph:</p>
@@ -226,6 +247,8 @@ summary: "Use distance measures to classify and cluster data."
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -266,9 +289,11 @@ summary: "Use distance measures to classify and cluster data."
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Exercise-1">Exercise 1<a class="anchor-link" href="#Exercise-1">&#182;</a></h3><p>Implement the Manhatten-metric and add it to the scaling plot.</p>
+<h3 id="Exercise-1">Exercise 1<a class="anchor-link" href="#Exercise-1"> </a></h3><p>Implement the Manhatten-metric and add it to the scaling plot.</p>
 <ul>
 <li>How does it behave compared to the other two metrics? </li>
 <li>What do you observe when you plot the y axise on a linear scale (comment the line <code>plt.yscale('log')</code>)?</li>
@@ -279,13 +304,13 @@ summary: "Use distance measures to classify and cluster data."
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Part-2:-k-nearest-neighbours">Part 2: k-nearest neighbours<a class="anchor-link" href="#Part-2:-k-nearest-neighbours">&#182;</a></h2>
+<h2 id="Part-2:-k-nearest-neighbours">Part 2: k-nearest neighbours<a class="anchor-link" href="#Part-2:-k-nearest-neighbours"> </a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Iris-dataset">Iris dataset<a class="anchor-link" href="#Iris-dataset">&#182;</a></h3>
+<h3 id="Iris-dataset">Iris dataset<a class="anchor-link" href="#Iris-dataset"> </a></h3>
 </div>
 </div>
 </div>
@@ -299,6 +324,8 @@ summary: "Use distance measures to classify and cluster data."
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -314,27 +341,31 @@ summary: "Use distance measures to classify and cluster data."
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="k-nearest-neighbours-classifier">k-nearest neighbours classifier<a class="anchor-link" href="#k-nearest-neighbours-classifier">&#182;</a></h3><p>The k-nearest neighbours classifier uses the neighbours of a sample to classify it. Given a new point, it searches the k samples in the training set that are closest to the new point. Then the majority class of the neighbours is used to classify the new point.</p>
-<h4 id="Example">Example<a class="anchor-link" href="#Example">&#182;</a></h4><p>Let's assume you are given a new flower and want to classify it using the iris dataset. You measure the petal and sepal width of your flower and compare it to the dataset. You decide to do a k=8 nearest neighbour search. You find that the nearest samples are:</p>
+<h3 id="k-nearest-neighbours-classifier">k-nearest neighbours classifier<a class="anchor-link" href="#k-nearest-neighbours-classifier"> </a></h3><p>The k-nearest neighbours classifier uses the neighbours of a sample to classify it. Given a new point, it searches the k samples in the training set that are closest to the new point. Then the majority class of the neighbours is used to classify the new point.</p>
+<h4 id="Example">Example<a class="anchor-link" href="#Example"> </a></h4><p>Let's assume you are given a new flower and want to classify it using the iris dataset. You measure the petal and sepal width of your flower and compare it to the dataset. You decide to do a k=8 nearest neighbour search. You find that the nearest samples are:</p>
 <ul>
 <li>5 Iris setosa</li>
 <li>2 Iris versicolor</li>
 <li>1 Iris virginica
 Based on that observation you decide that your flower is a <strong>Iris setosa</strong>.</li>
 </ul>
-<h4 id="Tips-&amp;-tricks">Tips &amp; tricks<a class="anchor-link" href="#Tips-&amp;-tricks">&#182;</a></h4><ul>
+<h4 id="Tips-&amp;-tricks">Tips &amp; tricks<a class="anchor-link" href="#Tips-&amp;-tricks"> </a></h4><ul>
 <li>Make sure all features are scaled properly (e.g. see <code>sklearn.preprocessing.StandardScaler</code>)</li>
 <li>Use odd number for k to avoid ties</li>
 <li>Voting can be weighted by distance</li>
 </ul>
-<h4 id="Usage">Usage<a class="anchor-link" href="#Usage">&#182;</a></h4><p>The <code>KNeighborsClassifier</code> interface is the same as the one we have already seen for the Decision Tree and Random Forest classifiers. When initializing the classifier one has to pass the number of neighbours <code>k</code> and can then use the known <code>.fit()</code> and <code>.predict()</code> procedure. We introduce the <a href="/dslectures/core#plot_classifier_boundaries"><code>plot_classifier_boundaries</code></a> to study the behaviour of the classifier more closely. 
-{% include note.html content="The <a href="/dslectures/core#plot_classifier_boundaries"><code>plot_classifier_boundaries</code></a> function only works in two dimensions." %}</p>
+<h4 id="Usage">Usage<a class="anchor-link" href="#Usage"> </a></h4><p>The <code>KNeighborsClassifier</code> interface is the same as the one we have already seen for the Decision Tree and Random Forest classifiers. When initializing the classifier one has to pass the number of neighbours <code>k</code> and can then use the known <code>.fit()</code> and <code>.predict()</code> procedure. We introduce the <a href="/dslectures/core#plot_classifier_boundaries"><code>plot_classifier_boundaries</code></a> to study the behaviour of the classifier more closely. 
+{% include note.html content='The <a href="/dslectures/core#plot_classifier_boundaries"><code>plot_classifier_boundaries</code></a> function only works in two dimensions.' %}</p>
 
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -409,20 +440,24 @@ Based on that observation you decide that your flower is a <strong>Iris setosa</
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Excercise-2">Excercise 2<a class="anchor-link" href="#Excercise-2">&#182;</a></h3><p>Create the fitting graph for the <code>kNeighborsClassifier</code> on the iris dataset with cross-validation. Run it for the following values of k: <code>np.linspace(1, 120, 120,).astype(int)</code>. What is the best value for <code>k</code>? And how do you interpre k=1 and k=n_samples? When are you most likely to overfit the data?</p>
+<h3 id="Excercise-2">Excercise 2<a class="anchor-link" href="#Excercise-2"> </a></h3><p>Create the fitting graph for the <code>kNeighborsClassifier</code> on the iris dataset with cross-validation. Run it for the following values of k: <code>np.linspace(1, 120, 120,).astype(int)</code>. What is the best value for <code>k</code>? And how do you interpre k=1 and k=n_samples? When are you most likely to overfit the data?</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Solution">Solution<a class="anchor-link" href="#Solution">&#182;</a></h4><p>Like in the last lecture, we want to investigate the performance of the classifier with respect to the free parameter <code>n_neighbours</code>. To do this we run cross-validation for different values of <code>n_neighbours</code>:</p>
+<h4 id="Solution">Solution<a class="anchor-link" href="#Solution"> </a></h4><p>Like in the last lecture, we want to investigate the performance of the classifier with respect to the free parameter <code>n_neighbours</code>. To do this we run cross-validation for different values of <code>n_neighbours</code>:</p>
 
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -458,6 +493,10 @@ Based on that observation you decide that your flower is a <strong>Iris setosa</
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -489,6 +528,8 @@ Based on that observation you decide that your flower is a <strong>Iris setosa</
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We see that we get the best validation performance with 35 neighbours:</p>
@@ -496,6 +537,8 @@ Based on that observation you decide that your flower is a <strong>Iris setosa</
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -525,9 +568,11 @@ Based on that observation you decide that your flower is a <strong>Iris setosa</
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Excercise-3">Excercise 3<a class="anchor-link" href="#Excercise-3">&#182;</a></h3><p>Use the <a href="/dslectures/core#plot_classifier_boundaries"><code>plot_classifier_boundaries</code></a> to plot the classifier boundaries with the following settings:</p>
+<h3 id="Excercise-3">Excercise 3<a class="anchor-link" href="#Excercise-3"> </a></h3><p>Use the <a href="/dslectures/core#plot_classifier_boundaries"><code>plot_classifier_boundaries</code></a> to plot the classifier boundaries with the following settings:</p>
 <ul>
 <li><code>RandomForestClassifier(n_estimators=1, max_depth=1)</code></li>
 <li><code>RandomForestClassifier(n_estimators=1, max_depth=2)</code> </li>
@@ -538,6 +583,8 @@ Based on that observation you decide that your flower is a <strong>Iris setosa</
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -571,6 +618,10 @@ Based on that observation you decide that your flower is a <strong>Iris setosa</
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -604,6 +655,10 @@ Based on that observation you decide that your flower is a <strong>Iris setosa</
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -637,6 +692,8 @@ Based on that observation you decide that your flower is a <strong>Iris setosa</
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We see that a Random Forest with one estimator and a depth of one can only draw a linear boundary. As one adds more estimators and builds deeper trees the boundaries get more complex.</p>
@@ -646,11 +703,13 @@ Based on that observation you decide that your flower is a <strong>Iris setosa</
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Part-3:-k-means-clustering">Part 3: k-means clustering<a class="anchor-link" href="#Part-3:-k-means-clustering">&#182;</a></h2><p>We now turn to k-means clustering, an unsupervised approach. The goal is to automatically identify clusters in the data without having access to the labels. We will see that even without knowledge about the data we will be able to make statements about the shape of it.</p>
+<h2 id="Part-3:-k-means-clustering">Part 3: k-means clustering<a class="anchor-link" href="#Part-3:-k-means-clustering"> </a></h2><p>We now turn to k-means clustering, an unsupervised approach. The goal is to automatically identify clusters in the data without having access to the labels. We will see that even without knowledge about the data we will be able to make statements about the shape of it.</p>
 
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -680,6 +739,8 @@ Based on that observation you decide that your flower is a <strong>Iris setosa</
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The interface of k-mean provided in scikit-learn is very similar to that of a classifier.</p>
@@ -713,6 +774,8 @@ We make predictions to which cluster each datapoint belongs.</p>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -749,6 +812,8 @@ We make predictions to which cluster each datapoint belongs.</p>
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We can also have a look at other values for k:</p>
@@ -756,6 +821,8 @@ We make predictions to which cluster each datapoint belongs.</p>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -879,9 +946,11 @@ We make predictions to which cluster each datapoint belongs.</p>
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="The-elbow-rule">The elbow rule<a class="anchor-link" href="#The-elbow-rule">&#182;</a></h3><p>Looking at the results above it seems that the hardest part of k-means is to select the right number for k, which can be any positive integer. How can we find a good value for k?</p>
+<h3 id="The-elbow-rule">The elbow rule<a class="anchor-link" href="#The-elbow-rule"> </a></h3><p>Looking at the results above it seems that the hardest part of k-means is to select the right number for k, which can be any positive integer. How can we find a good value for k?</p>
 <p>There are several approaches, one of which is the so called <strong>elbow rule</strong>: Plot the inertia for different values of k. This yields an asymptotic curve that moves at first fast towards zero and then slows down. Imagine the curve is an arm. The spot where the elbow of that arm would be is usually a good value for k.</p>
 
 </div>
@@ -889,11 +958,13 @@ We make predictions to which cluster each datapoint belongs.</p>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Excercise-4">Excercise 4<a class="anchor-link" href="#Excercise-4">&#182;</a></h3><p>Run k-means for values for k between 1 and 8 and store the values of the inertia. Make a graph that plots the k's on the x-axis and the inertia on the y-axis. Applying the elbow rule, which value for k do you think would be a good fit?</p>
+<h3 id="Excercise-4">Excercise 4<a class="anchor-link" href="#Excercise-4"> </a></h3><p>Run k-means for values for k between 1 and 8 and store the values of the inertia. Make a graph that plots the k's on the x-axis and the inertia on the y-axis. Applying the elbow rule, which value for k do you think would be a good fit?</p>
 
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -912,6 +983,10 @@ We make predictions to which cluster each datapoint belongs.</p>
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -947,6 +1022,8 @@ We make predictions to which cluster each datapoint belongs.</p>
 </div>
 
 </div>
+    {% endraw %}
+
 </div>
  
 
