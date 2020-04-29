@@ -43,7 +43,7 @@ entries:
       title: Lesson 9 - Overfitting
       url: /lesson09_overfitting
     - output: web,pdf
-      title: Lesson 10 - Neighbours and clustering
+      title: Lesson 10 - Neighbours and clusters
       url: /lesson10_clusters
     - output: web,pdf
       title: Python primer
