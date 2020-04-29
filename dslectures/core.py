@@ -213,7 +213,7 @@ def plot_classifier_boundaries(X, y, clf):
     """
     Given features X and labels y along with classifier, plot decision boundaries in two dimensions.
 
-    args:
+    Args:
         X: feature array of shape (n_samples, n_features)
         y: label array of shape (n_samples)
     """
