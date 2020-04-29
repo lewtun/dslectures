@@ -6,6 +6,7 @@ keywords: fastai
 sidebar: home_sidebar
 
 summary: "How to train a Random Forest model to predict housing prices and evaluate the quality of the model's predictions."
+description: "How to train a Random Forest model to predict housing prices and evaluate the quality of the model's predictions."
 ---
 <!--
 
@@ -18,10 +19,14 @@ summary: "How to train a Random Forest model to predict housing prices and evalu
 -->
 
 <div class="container" id="notebook-container">
+        
+    {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a href="https://mybinder.org/v2/gh/lewtun/dslectures/master?urlpath=lab/tree/notebooks%2Flesson04_intro-to-random-forests.ipynb"><img src="https://mybinder.org/badge_logo.svg" alt="Binder"></a> 
@@ -32,7 +37,7 @@ summary: "How to train a Random Forest model to predict housing prices and evalu
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Learning-objectives">Learning objectives<a class="anchor-link" href="#Learning-objectives">&#182;</a></h2>
+<h2 id="Learning-objectives">Learning objectives<a class="anchor-link" href="#Learning-objectives"> </a></h2>
 </div>
 </div>
 </div>
@@ -49,7 +54,7 @@ summary: "How to train a Random Forest model to predict housing prices and evalu
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="References">References<a class="anchor-link" href="#References">&#182;</a></h2>
+<h2 id="References">References<a class="anchor-link" href="#References"> </a></h2>
 </div>
 </div>
 </div>
@@ -70,7 +75,7 @@ summary: "How to train a Random Forest model to predict housing prices and evalu
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Homework">Homework<a class="anchor-link" href="#Homework">&#182;</a></h2><ul>
+<h2 id="Homework">Homework<a class="anchor-link" href="#Homework"> </a></h2><ul>
 <li>Solve the exercises included in this notebook</li>
 <li>Read chapters 6 and 7 of <em>Hands-On Machine Learning with Scikit-Learn and TensorFlow</em> by Aurèlien Geron</li>
 </ul>
@@ -80,7 +85,7 @@ summary: "How to train a Random Forest model to predict housing prices and evalu
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="The-data">The data<a class="anchor-link" href="#The-data">&#182;</a></h2>
+<h2 id="The-data">The data<a class="anchor-link" href="#The-data"> </a></h2>
 </div>
 </div>
 </div>
@@ -96,7 +101,7 @@ summary: "How to train a Random Forest model to predict housing prices and evalu
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="What-is-a-machine-learning-model?">What is a machine learning model?<a class="anchor-link" href="#What-is-a-machine-learning-model?">&#182;</a></h2>
+<h2 id="What-is-a-machine-learning-model?">What is a machine learning model?<a class="anchor-link" href="#What-is-a-machine-learning-model?"> </a></h2>
 </div>
 </div>
 </div>
@@ -120,10 +125,12 @@ summary: "How to train a Random Forest model to predict housing prices and evalu
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Import-libraries">Import libraries<a class="anchor-link" href="#Import-libraries">&#182;</a></h2>
+<h2 id="Import-libraries">Import libraries<a class="anchor-link" href="#Import-libraries"> </a></h2>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -142,6 +149,10 @@ summary: "How to train a Random Forest model to predict housing prices and evalu
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -170,9 +181,11 @@ summary: "How to train a Random Forest model to predict housing prices and evalu
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Load-the-data">Load the data<a class="anchor-link" href="#Load-the-data">&#182;</a></h2>
+<h2 id="Load-the-data">Load the data<a class="anchor-link" href="#Load-the-data"> </a></h2>
 </div>
 </div>
 </div>
@@ -183,6 +196,8 @@ summary: "How to train a Random Forest model to predict housing prices and evalu
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -210,6 +225,8 @@ summary: "How to train a Random Forest model to predict housing prices and evalu
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We also make use of the <code>pathlib</code> library to handle our filepaths:</p>
@@ -217,6 +234,8 @@ summary: "How to train a Random Forest model to predict housing prices and evalu
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -248,6 +267,10 @@ housing_merged.csv           word2vec-google-news-300.pkl
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -434,13 +457,17 @@ housing_merged.csv           word2vec-google-news-300.pkl
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>{% include tip.html content="We often use <code>DataFrame.head()</code> to peek at the first 5 rows of a <code>pandas.DataFrame</code>. When you have a lot of columns, you may find it is simpler to peek at the <em>transpose</em> with <code>DataFrame.head().T</code>" %}</p>
+<p>{% include tip.html content='We often use <code>DataFrame.head()</code> to peek at the first 5 rows of a <code>pandas.DataFrame</code>. When you have a lot of columns, you may find it is simpler to peek at the <em>transpose</em> with <code>DataFrame.head().T</code>' %}</p>
 
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -657,10 +684,12 @@ housing_merged.csv           word2vec-google-news-300.pkl
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<h4 id="Exercise-#1">Exercise #1<a class="anchor-link" href="#Exercise-#1">&#182;</a></h4><p>Even though you may be told a dataset has been cleaned and prepared for training a model, you should always perform some sanity checks!</p>
+<h4 id="Exercise-#1">Exercise #1<a class="anchor-link" href="#Exercise-#1"> </a></h4><p>Even though you may be told a dataset has been cleaned and prepared for training a model, you should always perform some sanity checks!</p>
 <ul>
 <li>Check that <code>housing_data</code> is free of missing values</li>
 <li>Check that all columns are numerical</li>
@@ -672,7 +701,7 @@ housing_merged.csv           word2vec-google-news-300.pkl
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Select-a-performance-measure">Select a performance measure<a class="anchor-link" href="#Select-a-performance-measure">&#182;</a></h2>
+<h2 id="Select-a-performance-measure">Select a performance measure<a class="anchor-link" href="#Select-a-performance-measure"> </a></h2>
 </div>
 </div>
 </div>
@@ -685,7 +714,7 @@ housing_merged.csv           word2vec-google-news-300.pkl
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>{% include note.html content="In general, lower values of RMSE indicate a better fit to the data." %}</p>
+<p>{% include note.html content='In general, lower values of RMSE indicate a better fit to the data.' %}</p>
 
 </div>
 </div>
@@ -693,11 +722,16 @@ housing_merged.csv           word2vec-google-news-300.pkl
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Mathematically, the formula for RMSE is:</p>
-$$ \mathrm{RMSE} = \sqrt{\frac{1}{m}\sum_{i=1}^m \left(\hat{y}_i - y_i\right)^2}$$<p>where $m$ is the number of instances in the dataset you are measuring the RMSE on, $\hat{y}_i$ is the model's prediction for the $i^{th}$ instance, and $y_i$ is the actual label. Let's create a simple function that uses scitkit-learn's <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html">mean_squared_error function</a> (which is just RMSE$^2$):</p>
+<p>{% raw %}
+$$ \mathrm{RMSE} = \sqrt{\frac{1}{m}\sum_{i=1}^m \left(\hat{y}_i - y_i\right)^2}$$
+{% endraw %}</p>
+<p>where $m$ is the number of instances in the dataset you are measuring the RMSE on, $\hat{y}_i$ is the model's prediction for the $i^{th}$ instance, and $y_i$ is the actual label. Let's create a simple function that uses scitkit-learn's <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html">mean_squared_error function</a> (which is just RMSE$^2$):</p>
 
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -721,10 +755,12 @@ $$ \mathrm{RMSE} = \sqrt{\frac{1}{m}\sum_{i=1}^m \left(\hat{y}_i - y_i\right)^2}
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<h4 id="Exercise-#2">Exercise #2<a class="anchor-link" href="#Exercise-#2">&#182;</a></h4><p>Whenever you create a Python function it is a good idea to test that it behaves as you expect on some dummy data. Given the two NumPy arrays:</p>
+<h4 id="Exercise-#2">Exercise #2<a class="anchor-link" href="#Exercise-#2"> </a></h4><p>Whenever you create a Python function it is a good idea to test that it behaves as you expect on some dummy data. Given the two NumPy arrays:</p>
 <div class="highlight"><pre><span></span><span class="n">y_dummy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 <span class="n">yhat_dummy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
 </pre></div>
@@ -736,14 +772,14 @@ $$ \mathrm{RMSE} = \sqrt{\frac{1}{m}\sum_{i=1}^m \left(\hat{y}_i - y_i\right)^2}
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>{% include note.html content="Another common metric for evaluating regression models is the coefficient of determination $R^2 = 1 - u/v$, where $u = \sum_i (y_{i} - \hat{y}_{i})^2$ is the residual sum of squares and $v=\sum_i(y_{i} - \bar{y}_{i})^2$ is the total sum of squares. Better models have $R^2$ values closer to 1." %}</p>
+<p>{% include note.html content='Another common metric for evaluating regression models is the coefficient of determination $R^2 = 1 - u/v$, where $u = \sum_i (y_{i} - \hat{y}_{i})^2$ is the residual sum of squares and $v=\sum_i(y_{i} - \bar{y}_{i})^2$ is the total sum of squares. Better models have $R^2$ values closer to 1.' %}</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Introducing-scikit-learn">Introducing scikit-learn<a class="anchor-link" href="#Introducing-scikit-learn">&#182;</a></h2>
+<h2 id="Introducing-scikit-learn">Introducing scikit-learn<a class="anchor-link" href="#Introducing-scikit-learn"> </a></h2>
 </div>
 </div>
 </div>
@@ -771,7 +807,7 @@ $$ \mathrm{RMSE} = \sqrt{\frac{1}{m}\sum_{i=1}^m \left(\hat{y}_i - y_i\right)^2}
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Choose-a-model">Choose a model<a class="anchor-link" href="#Choose-a-model">&#182;</a></h3>
+<h3 id="Choose-a-model">Choose a model<a class="anchor-link" href="#Choose-a-model"> </a></h3>
 </div>
 </div>
 </div>
@@ -782,6 +818,8 @@ $$ \mathrm{RMSE} = \sqrt{\frac{1}{m}\sum_{i=1}^m \left(\hat{y}_i - y_i\right)^2}
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -795,9 +833,11 @@ $$ \mathrm{RMSE} = \sqrt{\frac{1}{m}\sum_{i=1}^m \left(\hat{y}_i - y_i\right)^2}
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Choose-hyperparameters">Choose hyperparameters<a class="anchor-link" href="#Choose-hyperparameters">&#182;</a></h3>
+<h3 id="Choose-hyperparameters">Choose hyperparameters<a class="anchor-link" href="#Choose-hyperparameters"> </a></h3>
 </div>
 </div>
 </div>
@@ -813,6 +853,8 @@ $$ \mathrm{RMSE} = \sqrt{\frac{1}{m}\sum_{i=1}^m \left(\hat{y}_i - y_i\right)^2}
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -826,16 +868,18 @@ $$ \mathrm{RMSE} = \sqrt{\frac{1}{m}\sum_{i=1}^m \left(\hat{y}_i - y_i\right)^2}
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>{% include note.html content="You will often see the function argument <code>random_state</code> in scikit-learn and other libraries in the PyData stack. This parameter usually controls the random seed used to generate the function's output and setting is explicitly allows us to have reproducible results." %}</p>
+<p>{% include note.html content='You will often see the function argument <code>random_state</code> in scikit-learn and other libraries in the PyData stack. This parameter usually controls the random seed used to generate the function&#8217;s output and setting is explicitly allows us to have reproducible results.' %}</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Arrange-data-into-a-feature-matrix-and-target-vector">Arrange data into a feature matrix and target vector<a class="anchor-link" href="#Arrange-data-into-a-feature-matrix-and-target-vector">&#182;</a></h3>
+<h3 id="Arrange-data-into-a-feature-matrix-and-target-vector">Arrange data into a feature matrix and target vector<a class="anchor-link" href="#Arrange-data-into-a-feature-matrix-and-target-vector"> </a></h3>
 </div>
 </div>
 </div>
@@ -853,7 +897,7 @@ $$ \mathrm{RMSE} = \sqrt{\frac{1}{m}\sum_{i=1}^m \left(\hat{y}_i - y_i\right)^2}
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<h4 id="Exercise-#3">Exercise #3<a class="anchor-link" href="#Exercise-#3">&#182;</a></h4><p>Create the feature matrix <code>X</code> and target vector <code>y</code> from <code>housing_data</code>.</p>
+<h4 id="Exercise-#3">Exercise #3<a class="anchor-link" href="#Exercise-#3"> </a></h4><p>Create the feature matrix <code>X</code> and target vector <code>y</code> from <code>housing_data</code>.</p>
 <hr>
 
 </div>
@@ -861,7 +905,7 @@ $$ \mathrm{RMSE} = \sqrt{\frac{1}{m}\sum_{i=1}^m \left(\hat{y}_i - y_i\right)^2}
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Fit-the-model-to-your-data">Fit the model to your data<a class="anchor-link" href="#Fit-the-model-to-your-data">&#182;</a></h3>
+<h3 id="Fit-the-model-to-your-data">Fit the model to your data<a class="anchor-link" href="#Fit-the-model-to-your-data"> </a></h3>
 </div>
 </div>
 </div>
@@ -872,6 +916,8 @@ $$ \mathrm{RMSE} = \sqrt{\frac{1}{m}\sum_{i=1}^m \left(\hat{y}_i - y_i\right)^2}
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -907,9 +953,11 @@ $$ \mathrm{RMSE} = \sqrt{\frac{1}{m}\sum_{i=1}^m \left(\hat{y}_i - y_i\right)^2}
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Evaluate-the-predictions">Evaluate the predictions<a class="anchor-link" href="#Evaluate-the-predictions">&#182;</a></h3>
+<h3 id="Evaluate-the-predictions">Evaluate the predictions<a class="anchor-link" href="#Evaluate-the-predictions"> </a></h3>
 </div>
 </div>
 </div>
@@ -920,6 +968,8 @@ $$ \mathrm{RMSE} = \sqrt{\frac{1}{m}\sum_{i=1}^m \left(\hat{y}_i - y_i\right)^2}
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -933,6 +983,10 @@ $$ \mathrm{RMSE} = \sqrt{\frac{1}{m}\sum_{i=1}^m \left(\hat{y}_i - y_i\right)^2}
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -962,6 +1016,8 @@ $$ \mathrm{RMSE} = \sqrt{\frac{1}{m}\sum_{i=1}^m \left(\hat{y}_i - y_i\right)^2}
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This is not a bad score since the majority of the house prices fall in the range of $115,000-250,000</p>
@@ -969,6 +1025,8 @@ $$ \mathrm{RMSE} = \sqrt{\frac{1}{m}\sum_{i=1}^m \left(\hat{y}_i - y_i\right)^2}
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1006,6 +1064,8 @@ Name: median_house_value, dtype: float64</pre>
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>and thus we are looking at roughly a 10-20% error in our predictions.</p>
@@ -1015,14 +1075,14 @@ Name: median_house_value, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>{% include warning.html content="Evaluating our model's predictions on the same data it was trained on is usually a recipe for disaster! Why? The problem is that the model may memorise the structure of the data it sees and fail to provide good predictions when shown new data." %}</p>
+<p>{% include warning.html content='Evaluating our model&#8217;s predictions on the same data it was trained on is usually a recipe for disaster! Why? The problem is that the model may memorise the structure of the data it sees and fail to provide good predictions when shown new data.' %}</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Better-evaluation-using-training-and-validation-splits">Better evaluation using training and validation splits<a class="anchor-link" href="#Better-evaluation-using-training-and-validation-splits">&#182;</a></h2>
+<h2 id="Better-evaluation-using-training-and-validation-splits">Better evaluation using training and validation splits<a class="anchor-link" href="#Better-evaluation-using-training-and-validation-splits"> </a></h2>
 </div>
 </div>
 </div>
@@ -1034,6 +1094,8 @@ Name: median_house_value, dtype: float64</pre>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1063,6 +1125,8 @@ Name: median_house_value, dtype: float64</pre>
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>With these two datasets, we first fit on the training set and evaluate the prediction on the validation one:</p>
@@ -1070,6 +1134,8 @@ Name: median_house_value, dtype: float64</pre>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1106,6 +1172,10 @@ Name: median_house_value, dtype: float64</pre>
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1136,9 +1206,11 @@ Name: median_house_value, dtype: float64</pre>
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Visualising-the-model-errors">Visualising the model errors<a class="anchor-link" href="#Visualising-the-model-errors">&#182;</a></h2>
+<h2 id="Visualising-the-model-errors">Visualising the model errors<a class="anchor-link" href="#Visualising-the-model-errors"> </a></h2>
 </div>
 </div>
 </div>
@@ -1151,7 +1223,7 @@ Name: median_house_value, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Prediction-errors">Prediction errors<a class="anchor-link" href="#Prediction-errors">&#182;</a></h3>
+<h3 id="Prediction-errors">Prediction errors<a class="anchor-link" href="#Prediction-errors"> </a></h3>
 </div>
 </div>
 </div>
@@ -1162,6 +1234,8 @@ Name: median_house_value, dtype: float64</pre>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1191,6 +1265,10 @@ Name: median_house_value, dtype: float64</pre>
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1222,6 +1300,8 @@ Name: median_house_value, dtype: float64</pre>
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>What we’re looking for here is a clear, linear relationship between the predicted and actual values. The red line denotes what could be considered an "optimal" model, so we want our points to be bunched around this line. We can see the apart from a few outliers, the random forest performs fairly well. (In fact those outliers might suggest something is fishy with the data or that these houses are special for reasons not reflected in the data.)</p>
@@ -1231,18 +1311,23 @@ Name: median_house_value, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Residual-plots">Residual plots<a class="anchor-link" href="#Residual-plots">&#182;</a></h3>
+<h3 id="Residual-plots">Residual plots<a class="anchor-link" href="#Residual-plots"> </a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>A residual is the difference between the labeled value and the predicted value for each instance in our dataset:</p>
-$$ \mathrm{residual} = y_\mathrm{actual} - y_\mathrm{predicted} $$<p>We can plot residuals to visualize the extent to which our model has captured the behavior of the data. By plotting the residuals for a series of instances, we can check whether they’re consistent with random error; we should not be able to predict the error for any given instance. If the data points appear to be evenly (randomly) dispersed around the plotted line, our model is performing well. In some sense, the resulting plot is a rotated version of our prediction error one above:</p>
+<p>{% raw %}
+$$ \mathrm{residual} = y_\mathrm{actual} - y_\mathrm{predicted} $$
+{% endraw %}</p>
+<p>We can plot residuals to visualize the extent to which our model has captured the behavior of the data. By plotting the residuals for a series of instances, we can check whether they’re consistent with random error; we should not be able to predict the error for any given instance. If the data points appear to be evenly (randomly) dispersed around the plotted line, our model is performing well. In some sense, the resulting plot is a rotated version of our prediction error one above:</p>
 
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1271,6 +1356,10 @@ $$ \mathrm{residual} = y_\mathrm{actual} - y_\mathrm{predicted} $$<p>We can plot
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1302,6 +1391,8 @@ $$ \mathrm{residual} = y_\mathrm{actual} - y_\mathrm{predicted} $$<p>We can plot
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>What we’re looking for is a mostly symmetrical distribution with points that tend to cluster towards the middle of the plot, ideally around smaller numbers of the y-axis. If we observe some kind of structure that does not coincide with the plotted line, we have failed to capture the behavior of the data and should either consider some feature engineering, selecting a new model, or an exploration of the hyperparameters.</p>
@@ -1313,8 +1404,8 @@ $$ \mathrm{residual} = y_\mathrm{actual} - y_\mathrm{predicted} $$<p>We can plot
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<h4 id="Exercise-#3">Exercise #3<a class="anchor-link" href="#Exercise-#3">&#182;</a></h4><p>Use the <code>plt.subplots()</code> functionality from lesson 3 to create a new function <code>plot_errors_and_residuals</code> that combines the above plots into a single figure. You may find the <code>ax.set_xlabel()</code>, <code>ax.set_ylabel()</code>, and <code>ax.set_title()</code> functions are useful for configuring the labels and title on each individual plot.</p>
-<h4 id="Exercise-#4">Exercise #4<a class="anchor-link" href="#Exercise-#4">&#182;</a></h4><p>Instead of using an ensemble of decision trees, scikit-learn also provides an estimator to train a <em>single</em> decision tree on the data (see documentation <a href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html#sklearn.tree.DecisionTreeRegressor">here</a>). Repeat the same 5 steps above for a decision tree regressor, using the default hyperparameters. Do you notice anything unusual in the performance metrics if you fit the model on the whole dataset?</p>
+<h4 id="Exercise-#3">Exercise #3<a class="anchor-link" href="#Exercise-#3"> </a></h4><p>Use the <code>plt.subplots()</code> functionality from lesson 3 to create a new function <code>plot_errors_and_residuals</code> that combines the above plots into a single figure. You may find the <code>ax.set_xlabel()</code>, <code>ax.set_ylabel()</code>, and <code>ax.set_title()</code> functions are useful for configuring the labels and title on each individual plot.</p>
+<h4 id="Exercise-#4">Exercise #4<a class="anchor-link" href="#Exercise-#4"> </a></h4><p>Instead of using an ensemble of decision trees, scikit-learn also provides an estimator to train a <em>single</em> decision tree on the data (see documentation <a href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html#sklearn.tree.DecisionTreeRegressor">here</a>). Repeat the same 5 steps above for a decision tree regressor, using the default hyperparameters. Do you notice anything unusual in the performance metrics if you fit the model on the whole dataset?</p>
 <hr>
 
 </div>

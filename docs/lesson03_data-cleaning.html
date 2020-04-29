@@ -6,6 +6,7 @@ keywords: fastai
 sidebar: home_sidebar
 
 summary: "How to prepare data for machine learning algorithms and create new, informative features"
+description: "How to prepare data for machine learning algorithms and create new, informative features"
 ---
 <!--
 
@@ -18,10 +19,14 @@ summary: "How to prepare data for machine learning algorithms and create new, in
 -->
 
 <div class="container" id="notebook-container">
+        
+    {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a href="https://mybinder.org/v2/gh/lewtun/dslectures/master?urlpath=lab/tree/notebooks%2Flesson03_data-cleaning.ipynb"><img src="https://mybinder.org/badge_logo.svg" alt="Binder"></a> 
@@ -32,7 +37,7 @@ summary: "How to prepare data for machine learning algorithms and create new, in
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Learning-objectives">Learning objectives<a class="anchor-link" href="#Learning-objectives">&#182;</a></h2>
+<h2 id="Learning-objectives">Learning objectives<a class="anchor-link" href="#Learning-objectives"> </a></h2>
 </div>
 </div>
 </div>
@@ -49,7 +54,7 @@ summary: "How to prepare data for machine learning algorithms and create new, in
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="References">References<a class="anchor-link" href="#References">&#182;</a></h2>
+<h2 id="References">References<a class="anchor-link" href="#References"> </a></h2>
 </div>
 </div>
 </div>
@@ -71,7 +76,7 @@ summary: "How to prepare data for machine learning algorithms and create new, in
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Homework">Homework<a class="anchor-link" href="#Homework">&#182;</a></h2><ul>
+<h2 id="Homework">Homework<a class="anchor-link" href="#Homework"> </a></h2><ul>
 <li>Solve the exercises included in this notebook</li>
 <li>Read chapter 3 of <em>Data Science for Business</em> by Provost &amp; Fawcett</li>
 </ul>
@@ -81,7 +86,7 @@ summary: "How to prepare data for machine learning algorithms and create new, in
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="What-is-data-cleaning?">What is data cleaning?<a class="anchor-link" href="#What-is-data-cleaning?">&#182;</a></h2>
+<h2 id="What-is-data-cleaning?">What is data cleaning?<a class="anchor-link" href="#What-is-data-cleaning?"> </a></h2>
 </div>
 </div>
 </div>
@@ -107,7 +112,7 @@ summary: "How to prepare data for machine learning algorithms and create new, in
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="The-data">The data<a class="anchor-link" href="#The-data">&#182;</a></h2>
+<h2 id="The-data">The data<a class="anchor-link" href="#The-data"> </a></h2>
 </div>
 </div>
 </div>
@@ -123,7 +128,7 @@ summary: "How to prepare data for machine learning algorithms and create new, in
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Import-libraries">Import libraries<a class="anchor-link" href="#Import-libraries">&#182;</a></h2>
+<h2 id="Import-libraries">Import libraries<a class="anchor-link" href="#Import-libraries"> </a></h2>
 </div>
 </div>
 </div>
@@ -134,6 +139,8 @@ summary: "How to prepare data for machine learning algorithms and create new, in
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -152,6 +159,10 @@ summary: "How to prepare data for machine learning algorithms and create new, in
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -178,9 +189,11 @@ summary: "How to prepare data for machine learning algorithms and create new, in
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Load-the-data">Load the data<a class="anchor-link" href="#Load-the-data">&#182;</a></h2>
+<h2 id="Load-the-data">Load the data<a class="anchor-link" href="#Load-the-data"> </a></h2>
 </div>
 </div>
 </div>
@@ -191,6 +204,8 @@ summary: "How to prepare data for machine learning algorithms and create new, in
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -218,6 +233,8 @@ summary: "How to prepare data for machine learning algorithms and create new, in
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We also make use of the <code>pathlib</code> library to handle our filepaths:</p>
@@ -225,6 +242,8 @@ summary: "How to prepare data for machine learning algorithms and create new, in
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -256,6 +275,10 @@ housing_gmaps_data_raw.csv uc
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -406,9 +429,11 @@ housing_gmaps_data_raw.csv uc
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Feature-engineering">Feature engineering<a class="anchor-link" href="#Feature-engineering">&#182;</a></h2>
+<h2 id="Feature-engineering">Feature engineering<a class="anchor-link" href="#Feature-engineering"> </a></h2>
 </div>
 </div>
 </div>
@@ -419,6 +444,8 @@ housing_gmaps_data_raw.csv uc
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -505,10 +532,12 @@ housing_gmaps_data_raw.csv uc
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<h4 id="Exercise-#1">Exercise #1<a class="anchor-link" href="#Exercise-#1">&#182;</a></h4><ul>
+<h4 id="Exercise-#1">Exercise #1<a class="anchor-link" href="#Exercise-#1"> </a></h4><ul>
 <li>Create a new feature called <code>bedrooms_per_household</code> from the <code>total_bedrooms</code> and <code>households</code> features</li>
 <li>Create a new feature called <code>bedrooms_per_room</code> from the <code>total_bedrooms</code> and <code>total_rooms</code> features</li>
 <li>Create a new feature called <code>population_per_household</code> from the <code>population</code> and <code>households</code> features</li>
@@ -521,7 +550,7 @@ housing_gmaps_data_raw.csv uc
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Remove-the-housing-price-cap">Remove the housing price cap<a class="anchor-link" href="#Remove-the-housing-price-cap">&#182;</a></h2>
+<h2 id="Remove-the-housing-price-cap">Remove the housing price cap<a class="anchor-link" href="#Remove-the-housing-price-cap"> </a></h2>
 </div>
 </div>
 </div>
@@ -532,6 +561,8 @@ housing_gmaps_data_raw.csv uc
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -570,9 +601,11 @@ housing_gmaps_data_raw.csv uc
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>{% include tip.html content="Up until now, we have always made individual plots to visualise the data. The example above shows how matplotlib can be used to show two plots on the same figure! See the <em>Effectively Using Matplotlib</em> link in the references for more information." %}</p>
+<p>{% include tip.html content='Up until now, we have always made individual plots to visualise the data. The example above shows how matplotlib can be used to show two plots on the same figure! See the <em>Effectively Using Matplotlib</em> link in the references for more information.' %}</p>
 
 </div>
 </div>
@@ -587,7 +620,7 @@ housing_gmaps_data_raw.csv uc
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<h4 id="Exercise-#2">Exercise #2<a class="anchor-link" href="#Exercise-#2">&#182;</a></h4><ul>
+<h4 id="Exercise-#2">Exercise #2<a class="anchor-link" href="#Exercise-#2"> </a></h4><ul>
 <li>Store the number of rows in <code>housing_data</code> in a variable called <code>n_rows_raw</code></li>
 <li>Use the <code>DataFrame.loc[]</code> method to remove all rows where <code>median_house_value</code> is greater than or equal to $500,000</li>
 <li>Calculate the fraction of data that has been removed by this filter.</li>
@@ -600,7 +633,7 @@ housing_gmaps_data_raw.csv uc
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Convert-strings-to-categories">Convert strings to categories<a class="anchor-link" href="#Convert-strings-to-categories">&#182;</a></h2>
+<h2 id="Convert-strings-to-categories">Convert strings to categories<a class="anchor-link" href="#Convert-strings-to-categories"> </a></h2>
 </div>
 </div>
 </div>
@@ -611,6 +644,8 @@ housing_gmaps_data_raw.csv uc
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -658,6 +693,8 @@ dtype: object</pre>
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>we see that in addition to numerical features, we have features of <code>object</code> data type, which pandas denotes with the string <code>O</code>:</p>
@@ -665,6 +702,8 @@ dtype: object</pre>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -694,6 +733,10 @@ dtype: object</pre>
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -724,6 +767,8 @@ dtype: object</pre>
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>pandas has a handy set of functions to test the data type of each column. For example, to check whether a column is of object or numeric type we can import the following functions</p>
@@ -731,6 +776,8 @@ dtype: object</pre>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -744,6 +791,8 @@ dtype: object</pre>
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>and then test them against some columns:</p>
@@ -751,6 +800,8 @@ dtype: object</pre>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -780,6 +831,10 @@ dtype: object</pre>
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -809,6 +864,10 @@ dtype: object</pre>
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -838,6 +897,8 @@ dtype: object</pre>
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In this case, we know these columns are <em>strings</em> and some step is needed to convert them to numerical form because most machine learning algorithms are best suited for doing computations on arrays of numbers, not strings.</p>
@@ -846,6 +907,8 @@ dtype: object</pre>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -859,6 +922,8 @@ dtype: object</pre>
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The resulting <code>Categorical</code> object has <code>categories</code> and <code>codes</code> attributes that can be accessed as follows:</p>
@@ -866,6 +931,8 @@ dtype: object</pre>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -895,6 +962,10 @@ dtype: object</pre>
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -935,9 +1006,11 @@ Length: 19648, dtype: int8</pre>
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>{% include note.html content="pandas will display <code>Categorical</code> features as text and treat them internally as numerical." %}</p>
+<p>{% include note.html content='pandas will display <code>Categorical</code> features as text and treat them internally as numerical.' %}</p>
 
 </div>
 </div>
@@ -949,6 +1022,8 @@ Length: 19648, dtype: int8</pre>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -964,9 +1039,11 @@ Length: 19648, dtype: int8</pre>
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>{% include tip.html content="Instead of doing each data cleaning step manually, it is a good idea to write functions that automate the process. The main benefits from doing so is that you will be able to reproduce your results at a later date and can reuse the functions in future projects. The exercise below is desiged to help you create your first data cleaning function!" %}</p>
+<p>{% include tip.html content='Instead of doing each data cleaning step manually, it is a good idea to write functions that automate the process. The main benefits from doing so is that you will be able to reproduce your results at a later date and can reuse the functions in future projects. The exercise below is desiged to help you create your first data cleaning function!' %}</p>
 
 </div>
 </div>
@@ -974,7 +1051,7 @@ Length: 19648, dtype: int8</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<h4 id="Exercise-#3">Exercise #3<a class="anchor-link" href="#Exercise-#3">&#182;</a></h4><ul>
+<h4 id="Exercise-#3">Exercise #3<a class="anchor-link" href="#Exercise-#3"> </a></h4><ul>
 <li>Create a function called <a href="/dslectures/core#convert_strings_to_categories"><code>convert_strings_to_categories</code></a> that takes a <code>pandas.DataFrame</code> as an argument and converts all columns of <code>object</code> type into <code>Categorical</code>. Note that the operation can be done in-place and thus your function should not return any objects. You may find the commands <code>DataFrame.columns</code> and <code>is_numeric_dtype</code> are useful.</li>
 <li>Check that the transformed <code>housing_data</code> has the expected data types.</li>
 </ul>
@@ -985,7 +1062,7 @@ Length: 19648, dtype: int8</pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Dealing-with-missing-values">Dealing with missing values<a class="anchor-link" href="#Dealing-with-missing-values">&#182;</a></h2>
+<h2 id="Dealing-with-missing-values">Dealing with missing values<a class="anchor-link" href="#Dealing-with-missing-values"> </a></h2>
 </div>
 </div>
 </div>
@@ -1002,6 +1079,8 @@ Length: 19648, dtype: int8</pre>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1053,6 +1132,8 @@ memory usage: 3.2 MB
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Since <code>housing_data</code> has 20,640 rows we see that the following columns are missing values:</p>
@@ -1076,6 +1157,8 @@ memory usage: 3.2 MB
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1123,10 +1206,12 @@ dtype: int64</pre>
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<h4 id="Exercise-#4">Exercise #4<a class="anchor-link" href="#Exercise-#4">&#182;</a></h4><p>It is often more informative to know the fraction or percentage of missing values in a <code>pandas.DataFrame</code>.</p>
+<h4 id="Exercise-#4">Exercise #4<a class="anchor-link" href="#Exercise-#4"> </a></h4><p>It is often more informative to know the fraction or percentage of missing values in a <code>pandas.DataFrame</code>.</p>
 <ul>
 <li>Calculate the <em>fraction</em> of missing values in <code>housing_data</code> and sort them in descending order.</li>
 <li>Use seaborn to create a bar plot that shows the fraction of missing data that you calculated above.</li>
@@ -1138,7 +1223,7 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Getting-rid-of-rows">Getting rid of rows<a class="anchor-link" href="#Getting-rid-of-rows">&#182;</a></h3>
+<h3 id="Getting-rid-of-rows">Getting rid of rows<a class="anchor-link" href="#Getting-rid-of-rows"> </a></h3>
 </div>
 </div>
 </div>
@@ -1149,6 +1234,8 @@ dtype: int64</pre>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1180,10 +1267,12 @@ dtype: int64</pre>
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<h4 id="Exercise-#5">Exercise #5<a class="anchor-link" href="#Exercise-#5">&#182;</a></h4><ul>
+<h4 id="Exercise-#5">Exercise #5<a class="anchor-link" href="#Exercise-#5"> </a></h4><ul>
 <li>Use the same technique as above to remove the rows whether the <code>postal_code</code> values are missing</li>
 <li>Use the <code>Series.astype()</code> method to convert the <code>postal_code</code> to <code>int</code> type</li>
 </ul>
@@ -1194,7 +1283,7 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Getting-rid-of-whole-features">Getting rid of whole features<a class="anchor-link" href="#Getting-rid-of-whole-features">&#182;</a></h3>
+<h3 id="Getting-rid-of-whole-features">Getting rid of whole features<a class="anchor-link" href="#Getting-rid-of-whole-features"> </a></h3>
 </div>
 </div>
 </div>
@@ -1209,7 +1298,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<h4 id="Exercise-#6">Exercise #6<a class="anchor-link" href="#Exercise-#6">&#182;</a></h4><p>Drop the <code>street_number</code>, <code>street_name</code> and <code>postal_code</code> columns from <code>housing_data</code></p>
+<h4 id="Exercise-#6">Exercise #6<a class="anchor-link" href="#Exercise-#6"> </a></h4><p>Drop the <code>street_number</code>, <code>street_name</code> and <code>postal_code</code> columns from <code>housing_data</code></p>
 <hr>
 
 </div>
@@ -1217,7 +1306,7 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Fill-missing-values">Fill missing values<a class="anchor-link" href="#Fill-missing-values">&#182;</a></h3>
+<h3 id="Fill-missing-values">Fill missing values<a class="anchor-link" href="#Fill-missing-values"> </a></h3>
 </div>
 </div>
 </div>
@@ -1230,7 +1319,7 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>{% include note.html content="We choose the median since it is more robust to outliers than the mean, but in general one should experiment with different combinations." %}</p>
+<p>{% include note.html content='We choose the median since it is more robust to outliers than the mean, but in general one should experiment with different combinations.' %}</p>
 
 </div>
 </div>
@@ -1242,6 +1331,8 @@ dtype: int64</pre>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1276,6 +1367,8 @@ dtype: int64</pre>
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Although doing this replacement manually for each numerical column is feasible for this small dataset, it would be much better to have a function that automates this process.</p>
@@ -1286,7 +1379,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<h4 id="Exercise-#7">Exercise #7<a class="anchor-link" href="#Exercise-#7">&#182;</a></h4><ul>
+<h4 id="Exercise-#7">Exercise #7<a class="anchor-link" href="#Exercise-#7"> </a></h4><ul>
 <li>Create a function called <a href="/dslectures/core#fill_missing_values_with_median"><code>fill_missing_values_with_median</code></a> that takes a <code>pandas.DataFrame</code> as an argument and replaces missing values in each column with the median. Note that the operation can be don in-place, so your function should not return any objects. You may find the command <code>is_numeric_dtype</code> to be useful.</li>
 <li>Check that missing values are filled in the transformed <code>pandas.DataFrame</code>.</li>
 </ul>
@@ -1297,7 +1390,7 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Convert-categories-to-numbers">Convert categories to numbers<a class="anchor-link" href="#Convert-categories-to-numbers">&#182;</a></h2>
+<h2 id="Convert-categories-to-numbers">Convert categories to numbers<a class="anchor-link" href="#Convert-categories-to-numbers"> </a></h2>
 </div>
 </div>
 </div>
@@ -1308,6 +1401,8 @@ dtype: int64</pre>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1397,6 +1492,8 @@ dtype: int64</pre>
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>One potential problem with the above representation is that machine learning algorithms will treat two cities that are numerically close to each other as being similar. Thus an alternative approach is to apply a technique known as <em>one-hot encoding</em>, where we create a binary feature per category. In pandas we can do this by simply running <code>pandas.get_dummies()</code>:</p>
@@ -1404,6 +1501,8 @@ dtype: int64</pre>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1591,6 +1690,8 @@ dtype: int64</pre>
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Note that the above has converted our <code>ocean_proximity</code> column into one new column per category!</p>
@@ -1600,11 +1701,13 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>{% include note.html content="For columns with hundreds or thousands of categories, one-hot encoding may not be ideal as it will create a large number of columns and slow down the training phase of your analysis. For this reason we did not one-hot encode the <code>city</code> or <code>post_code</code> columns, even though they are strictly categorical." %}</p>
+<p>{% include note.html content='For columns with hundreds or thousands of categories, one-hot encoding may not be ideal as it will create a large number of columns and slow down the training phase of your analysis. For this reason we did not one-hot encode the <code>city</code> or <code>post_code</code> columns, even though they are strictly categorical.' %}</p>
 
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1659,12 +1762,16 @@ memory usage: 2.4 MB
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Save-processed-data-to-disk">Save processed data to disk<a class="anchor-link" href="#Save-processed-data-to-disk">&#182;</a></h2>
+<h2 id="Save-processed-data-to-disk">Save processed data to disk<a class="anchor-link" href="#Save-processed-data-to-disk"> </a></h2>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1678,6 +1785,8 @@ memory usage: 2.4 MB
 </div>
 
 </div>
+    {% endraw %}
+
 </div>
  
 

@@ -6,6 +6,7 @@ keywords: fastai
 sidebar: home_sidebar
 
 summary: "How to interpret the predictions from Random Forest models and use these insights to prune the feature space."
+description: "How to interpret the predictions from Random Forest models and use these insights to prune the feature space."
 ---
 <!--
 
@@ -18,10 +19,14 @@ summary: "How to interpret the predictions from Random Forest models and use the
 -->
 
 <div class="container" id="notebook-container">
+        
+    {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a href="https://mybinder.org/v2/gh/lewtun/dslectures/master?urlpath=lab/tree/notebooks%2Flesson06_model-interpretation.ipynb"><img src="https://mybinder.org/badge_logo.svg" alt="Binder"></a> 
@@ -32,7 +37,7 @@ summary: "How to interpret the predictions from Random Forest models and use the
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Learning-objectives">Learning objectives<a class="anchor-link" href="#Learning-objectives">&#182;</a></h2>
+<h2 id="Learning-objectives">Learning objectives<a class="anchor-link" href="#Learning-objectives"> </a></h2>
 </div>
 </div>
 </div>
@@ -48,7 +53,7 @@ summary: "How to interpret the predictions from Random Forest models and use the
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="References">References<a class="anchor-link" href="#References">&#182;</a></h2>
+<h2 id="References">References<a class="anchor-link" href="#References"> </a></h2>
 </div>
 </div>
 </div>
@@ -72,7 +77,7 @@ summary: "How to interpret the predictions from Random Forest models and use the
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Homework">Homework<a class="anchor-link" href="#Homework">&#182;</a></h2><ul>
+<h2 id="Homework">Homework<a class="anchor-link" href="#Homework"> </a></h2><ul>
 <li>Solve the exercises included in this notebook</li>
 </ul>
 
@@ -81,7 +86,7 @@ summary: "How to interpret the predictions from Random Forest models and use the
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="The-data">The data<a class="anchor-link" href="#The-data">&#182;</a></h2>
+<h2 id="The-data">The data<a class="anchor-link" href="#The-data"> </a></h2>
 </div>
 </div>
 </div>
@@ -97,7 +102,7 @@ summary: "How to interpret the predictions from Random Forest models and use the
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="What-is-model-interpretability?">What is model interpretability?<a class="anchor-link" href="#What-is-model-interpretability?">&#182;</a></h2>
+<h2 id="What-is-model-interpretability?">What is model interpretability?<a class="anchor-link" href="#What-is-model-interpretability?"> </a></h2>
 </div>
 </div>
 </div>
@@ -122,10 +127,12 @@ summary: "How to interpret the predictions from Random Forest models and use the
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Import-libraries">Import libraries<a class="anchor-link" href="#Import-libraries">&#182;</a></h2>
+<h2 id="Import-libraries">Import libraries<a class="anchor-link" href="#Import-libraries"> </a></h2>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -144,6 +151,10 @@ summary: "How to interpret the predictions from Random Forest models and use the
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -158,6 +169,10 @@ summary: "How to interpret the predictions from Random Forest models and use the
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -189,9 +204,11 @@ summary: "How to interpret the predictions from Random Forest models and use the
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Load-the-data">Load the data<a class="anchor-link" href="#Load-the-data">&#182;</a></h2>
+<h2 id="Load-the-data">Load the data<a class="anchor-link" href="#Load-the-data"> </a></h2>
 </div>
 </div>
 </div>
@@ -202,6 +219,8 @@ summary: "How to interpret the predictions from Random Forest models and use the
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -229,6 +248,8 @@ summary: "How to interpret the predictions from Random Forest models and use the
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We also make use of the <code>pathlib</code> library to handle our filepaths:</p>
@@ -236,6 +257,8 @@ summary: "How to interpret the predictions from Random Forest models and use the
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -270,6 +293,10 @@ housing_processed.csv        word2vec-google-news-300.pkl
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -456,6 +483,8 @@ housing_processed.csv        word2vec-google-news-300.pkl
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>With the data loaded, we can recreate our train/validation splits as before:</p>
@@ -463,6 +492,8 @@ housing_processed.csv        word2vec-google-news-300.pkl
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -477,6 +508,10 @@ housing_processed.csv        word2vec-google-news-300.pkl
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -505,6 +540,8 @@ housing_processed.csv        word2vec-google-news-300.pkl
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>To simplify the evaluation of our models, we'll reuse our scoring function from lesson 5:</p>
@@ -512,6 +549,8 @@ housing_processed.csv        word2vec-google-news-300.pkl
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -543,9 +582,11 @@ housing_processed.csv        word2vec-google-news-300.pkl
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Confidence-intervals">Confidence intervals<a class="anchor-link" href="#Confidence-intervals">&#182;</a></h2>
+<h2 id="Confidence-intervals">Confidence intervals<a class="anchor-link" href="#Confidence-intervals"> </a></h2>
 </div>
 </div>
 </div>
@@ -558,6 +599,8 @@ housing_processed.csv        word2vec-google-news-300.pkl
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -591,6 +634,8 @@ OOB R^2: 0.791
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>As before, we concatenate all the predictions from each tree into a single array:</p>
@@ -598,6 +643,8 @@ OOB R^2: 0.791
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -629,6 +676,10 @@ OOB R^2: 0.791
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -658,6 +709,8 @@ OOB R^2: 0.791
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Next, let's create a copy of the validation dataset and add the mean predictions and their standard deviation as new columns.</p>
@@ -668,7 +721,7 @@ OOB R^2: 0.791
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<h4 id="Exercise-#1">Exercise #1<a class="anchor-link" href="#Exercise-#1">&#182;</a></h4><ul>
+<h4 id="Exercise-#1">Exercise #1<a class="anchor-link" href="#Exercise-#1"> </a></h4><ul>
 <li>Combine <code>X_valid</code> and <code>y_valid</code> into a single array called <code>valid_copy</code>. You may find the <code>DataFrame.join(DataFrame)</code> method from pandas useful here.</li>
 <li>Create two new columns <code>preds_mean</code> and <code>preds_std</code> that are the mean and standard deviation of the predictions for each tree in <code>preds</code></li>
 </ul>
@@ -684,6 +737,8 @@ OOB R^2: 0.791
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -715,6 +770,8 @@ OOB R^2: 0.791
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We can calculate the predictions and standard deviation per category by applying a <em><strong>group by</strong></em> operation in pandas, followed by taking the mean.</p>
@@ -722,6 +779,8 @@ OOB R^2: 0.791
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -793,6 +852,8 @@ OOB R^2: 0.791
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>From the table, we can see that the predictions and ground truth are close to each other on average, while the standard deviation varies somewhat for each category. We can visualise this table in terms of bar plots as follows:</p>
@@ -800,6 +861,8 @@ OOB R^2: 0.791
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -844,6 +907,8 @@ OOB R^2: 0.791
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The error bars in the plot indicate how confident the model is at predicting each category.  Alternatively, we can compare the <em>distribution</em> of values to inspect how close the predictions match the ground truth. For example, for housing districts where <code>ocean_proximity_INLAND</code> is 0 we have:</p>
@@ -851,6 +916,8 @@ OOB R^2: 0.791
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -913,6 +980,8 @@ OOB R^2: 0.791
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In general, we expect our models to perform best on categories that are most frequent in the data. One way to validate this hypothesis is by calculating the ratio of the standard deviation of the predictions to the predictions themselves:</p>
@@ -920,6 +989,8 @@ OOB R^2: 0.791
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -953,6 +1024,8 @@ dtype: float64</pre>
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>What the above tells us is that our predictions are less confident (i.e. higher variance) for housing districts that are inland - indeed looking at our bar plot we see these categories are under-represented in the data!</p>
@@ -967,7 +1040,7 @@ dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Feature-importance">Feature importance<a class="anchor-link" href="#Feature-importance">&#182;</a></h2>
+<h2 id="Feature-importance">Feature importance<a class="anchor-link" href="#Feature-importance"> </a></h2>
 </div>
 </div>
 </div>
@@ -978,6 +1051,8 @@ dtype: float64</pre>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -994,6 +1069,8 @@ dtype: float64</pre>
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Let's use this function to calculate the feature importance for our fitted model:</p>
@@ -1001,6 +1078,8 @@ dtype: float64</pre>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1108,6 +1187,8 @@ dtype: float64</pre>
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>From the table we see that <code>median_income</code>, <code>ocean_proximity_INLAND</code>, and <code>population_per_household</code> are the most important features - this is not entirely surprising since income and house location seem to be good indicators of house value. We can also plot the feature importance to gain a visual understanding:</p>
@@ -1115,6 +1196,8 @@ dtype: float64</pre>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1129,6 +1212,10 @@ dtype: float64</pre>
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1160,6 +1247,8 @@ dtype: float64</pre>
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In nearly every real-world dataset, this is what the feature importance looks like: a handful of columns are very important, while most are not. The powerful aspect of this approach is that is <em>focuses our attention</em> on which features we should investigate further and which ones we can safely ignore.</p>
@@ -1169,14 +1258,14 @@ dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>{% include warning.html content="The feature importance analysis above can be biased and has a tendency to inflate the importance of continuous features or  categorical features with high cardinality (i.e. many unique categories). See the Beware Default Random Forest Importances article in the references for more information." %}</p>
+<p>{% include warning.html content='The feature importance analysis above can be biased and has a tendency to inflate the importance of continuous features or  categorical features with high cardinality (i.e. many unique categories). See the Beware Default Random Forest Importances article in the references for more information.' %}</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Drop-uninformative-features">Drop uninformative features<a class="anchor-link" href="#Drop-uninformative-features">&#182;</a></h2>
+<h2 id="Drop-uninformative-features">Drop uninformative features<a class="anchor-link" href="#Drop-uninformative-features"> </a></h2>
 </div>
 </div>
 </div>
@@ -1187,6 +1276,8 @@ dtype: float64</pre>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1221,6 +1312,10 @@ dtype: float64</pre>
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1236,6 +1331,10 @@ dtype: float64</pre>
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1356,6 +1455,8 @@ dtype: float64</pre>
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>As a sanity check, let's ensure the model's prediction have not gotten worse with the reduced data (recall we had $R^2 = 0.91$ on the validation set):</p>
@@ -1363,6 +1464,8 @@ dtype: float64</pre>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1398,6 +1501,10 @@ OOB R^2: 0.789
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1430,6 +1537,8 @@ OOB R^2: 0.789
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We've now got a model that isn't really more predictive than our baseline, but it's much simpler - it has just 9 features instead of 19 and we now know that <code>median_income</code> and <code>ocean_proximity_INLAND</code> are particularly important features to focus on.</p>
@@ -1440,7 +1549,7 @@ OOB R^2: 0.789
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<h4 id="Exercise-#2">Exercise #2<a class="anchor-link" href="#Exercise-#2">&#182;</a></h4><p>Go through the top 3 features and use plots with <code>seaborn</code> to gain insights into things like the following:</p>
+<h4 id="Exercise-#2">Exercise #2<a class="anchor-link" href="#Exercise-#2"> </a></h4><p>Go through the top 3 features and use plots with <code>seaborn</code> to gain insights into things like the following:</p>
 <ul>
 <li>What is the relationship between each feature and the target <code>median_house_value</code>?</li>
 <li>What do the distribution / bar plots look like for continuous / categorical columns?</li>
@@ -1452,7 +1561,7 @@ OOB R^2: 0.789
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Removing-redundant-features">Removing redundant features<a class="anchor-link" href="#Removing-redundant-features">&#182;</a></h2>
+<h2 id="Removing-redundant-features">Removing redundant features<a class="anchor-link" href="#Removing-redundant-features"> </a></h2>
 </div>
 </div>
 </div>
@@ -1463,6 +1572,8 @@ OOB R^2: 0.789
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1489,6 +1600,10 @@ OOB R^2: 0.789
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1520,6 +1635,8 @@ OOB R^2: 0.789
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>From the plot we see that quantities like <code>latitude</code> and <code>postal_code</code> are grouped together and similar (as we might expect). Note that we used Spearman's rank correlation coefficient to calculate notions of similarity - this is useful for finding non-linear correlations that may be missed by Pearson's correlation coefficient.</p>
@@ -1528,6 +1645,8 @@ OOB R^2: 0.789
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1547,6 +1666,10 @@ OOB R^2: 0.789
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1577,6 +1700,10 @@ OOB R^2: 0.789
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1621,6 +1748,8 @@ median_income 0.7947438916177811
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Here we're looking for columns where the OOB score did not drop much, say around the third decimal place. Let's see what happens to our OOB score when we drop these candidate columns:</p>
@@ -1628,6 +1757,8 @@ median_income 0.7947438916177811
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1661,6 +1792,8 @@ median_income 0.7947438916177811
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The OOB score increases fractionally which is good since we're looking for a simpler model - let's drop these columns and run the full model again:</p>
@@ -1668,6 +1801,8 @@ median_income 0.7947438916177811
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1682,6 +1817,10 @@ median_income 0.7947438916177811
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1715,6 +1854,10 @@ OOB R^2: 0.806
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1747,9 +1890,11 @@ OOB R^2: 0.806
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Our-final-model">Our final model<a class="anchor-link" href="#Our-final-model">&#182;</a></h2>
+<h2 id="Our-final-model">Our final model<a class="anchor-link" href="#Our-final-model"> </a></h2>
 </div>
 </div>
 </div>
@@ -1760,6 +1905,8 @@ OOB R^2: 0.806
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1795,6 +1942,8 @@ OOB R^2: 0.823
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Our final model achieves around 5% better performance compared to our naive model with 10 trees from lesson 4, but it is <em>much simpler</em> - we've reduced the features from 19 down to 7! Moreover we've identified which features are most important, let's plot them out for the final visual comparison:</p>
@@ -1802,6 +1951,8 @@ OOB R^2: 0.823
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1834,9 +1985,11 @@ OOB R^2: 0.823
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Save-model-to-disk">Save model to disk<a class="anchor-link" href="#Save-model-to-disk">&#182;</a></h3>
+<h3 id="Save-model-to-disk">Save model to disk<a class="anchor-link" href="#Save-model-to-disk"> </a></h3>
 </div>
 </div>
 </div>
@@ -1847,6 +2000,8 @@ OOB R^2: 0.823
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1863,6 +2018,10 @@ OOB R^2: 0.823
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1878,6 +2037,10 @@ OOB R^2: 0.823
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1909,9 +2072,11 @@ OOB R^2: 0.823
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>{% include note.html content="We often use the <code>with</code> statement to read or write data in Python as this automatically takes care of closing the file once we have finished with it. The <code>mode</code> argument controls how we want to open the file, where <code>'rb'</code> (read) and <code>'wb'</code> (write) correspond to opening in binary mode." %}</p>
+<p>{% include note.html content='We often use the <code>with</code> statement to read or write data in Python as this automatically takes care of closing the file once we have finished with it. The <code>mode</code> argument controls how we want to open the file, where <code>&amp;#8217;rb&amp;#8217;</code> (read) and <code>&amp;#8217;wb&amp;#8217;</code> (write) correspond to opening in binary mode.' %}</p>
 
 </div>
 </div>
@@ -1919,7 +2084,7 @@ OOB R^2: 0.823
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<h4 id="Exercise-#3">Exercise #3<a class="anchor-link" href="#Exercise-#3">&#182;</a></h4><p>By this stage you've now learned all the key steps needed to clean data, train a machine learning model, and interpret the results! Try applying the techniques you have learned to Kaggle's <a href="https://www.kaggle.com/c/house-prices-advanced-regression-techniques">House Prices: Advanced Regression Techniques</a> competition. Don't spend too much time trying to build a perfect model - the purpose of this exercise is to get familiar with downloading a new dataset, understanding the evaluation metric, and submitting your predictions to the Kaggle platform. To get started:</p>
+<h4 id="Exercise-#3">Exercise #3<a class="anchor-link" href="#Exercise-#3"> </a></h4><p>By this stage you've now learned all the key steps needed to clean data, train a machine learning model, and interpret the results! Try applying the techniques you have learned to Kaggle's <a href="https://www.kaggle.com/c/house-prices-advanced-regression-techniques">House Prices: Advanced Regression Techniques</a> competition. Don't spend too much time trying to build a perfect model - the purpose of this exercise is to get familiar with downloading a new dataset, understanding the evaluation metric, and submitting your predictions to the Kaggle platform. To get started:</p>
 <ul>
 <li>Create an account on <a href="https://www.kaggle.com/">Kaggle</a></li>
 <li>Download the data from <a href="https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data">here</a></li>
@@ -1929,7 +2094,7 @@ OOB R^2: 0.823
 <p>Hint #2: A closer look at Kaggle's evaluation metric shows that we actually want the RMSE between the <em>logarithms</em> of the predicted and actual house prices:</p>
 <blockquote><p>Submissions are evaluated on Root-Mean-Squared-Error (RMSE) between the logarithm of the predicted value and the logarithm of the observed sales price. (Taking logs means that errors in predicting expensive houses and cheap houses will affect the result equally.)</p>
 </blockquote>
-<p>How might you handle this? You may find NumPy's <a href="https: //docs.scipy.org/doc/numpy/reference/generated/numpy.log.html">log function</a> to be useful here.
+<p>How might you handle this? You may find NumPy's <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.log.html">log function</a> to be useful here.
 Hint #3: You may find the <a href="/dslectures/core#convert_strings_to_categories"><code>convert_strings_to_categories</code></a> function from lesson 3 to be useful. You can import it from the <code>dslectures</code> library as follows</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dslectures.core</span> <span class="kn">import</span> <span class="n">convert_strings_to_categories</span>
 </pre></div>

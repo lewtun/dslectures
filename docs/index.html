@@ -6,6 +6,7 @@ keywords: fastai
 sidebar: home_sidebar
 
 summary: "Welcome to the course materials for BTW2401 - Data Science and Visualisation!"
+description: "Welcome to the course materials for BTW2401 - Data Science and Visualisation!"
 ---
 <!--
 
@@ -18,13 +19,17 @@ summary: "Welcome to the course materials for BTW2401 - Data Science and Visuali
 -->
 
 <div class="container" id="notebook-container">
+        
+    {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="What-is-this-thing-called-data-science?">What is this thing called data science?<a class="anchor-link" href="#What-is-this-thing-called-data-science?">&#182;</a></h2><p>Data science is a big deal in business these days, and with good reasons. Amongst them (Loukides, 2010):</p>
+<h2 id="What-is-this-thing-called-data-science?">What is this thing called data science?<a class="anchor-link" href="#What-is-this-thing-called-data-science?"> </a></h2><p>Data science is a big deal in business these days, and with good reasons. Amongst them (Loukides, 2010):</p>
 <ul>
 <li>Almost every aspect of a business is open to data collection, be it web server logs, tweet streams, IoT sensors, online transactions, or some other source. Data science provides techniques to extract useful information from this data and thus generate added value;</li>
 <li>The question facing every company, startup, and non-profit that wants to attract a community in the modern era is how to use data <em>effectively.</em> Using data effectively requires something different from traditional statistics; namely an interdisciplinary approach that involves elements of statistics, computer science, and domain expertise. Data science is the methodology that synthesises these three domains.</li>
@@ -47,7 +52,7 @@ large volumes of data, in order to improve business decision-making (Provost &am
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Learning-objectives-of-the-course">Learning objectives of the course<a class="anchor-link" href="#Learning-objectives-of-the-course">&#182;</a></h2><p>This module provides students with a <em>hands-on</em> introduction to the methods of data science, with an emphasis on applying these methods to solve business problems. By the end of this course, it is expected that students will:</p>
+<h2 id="Learning-objectives-of-the-course">Learning objectives of the course<a class="anchor-link" href="#Learning-objectives-of-the-course"> </a></h2><p>This module provides students with a <em>hands-on</em> introduction to the methods of data science, with an emphasis on applying these methods to solve business problems. By the end of this course, it is expected that students will:</p>
 <ul>
 <li>Know how to approach business problems from a data science perspective;</li>
 <li>Understand the fundamental principles behind extracting useful knowledge from data; </li>
@@ -68,7 +73,7 @@ large volumes of data, in order to improve business decision-making (Provost &am
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Structure-of-the-module">Structure of the module<a class="anchor-link" href="#Structure-of-the-module">&#182;</a></h2><p>The module structure consists of classroom sessions, self-study tasks, and group work. The classroom sessions will involve a mix of theoretical and practical (programming) work, with an emphasis on the latter. The self-study tasks will be used to read selected chapters from the module textbook. The outline for the module is shown in the table below.</p>
+<h2 id="Structure-of-the-module">Structure of the module<a class="anchor-link" href="#Structure-of-the-module"> </a></h2><p>The module structure consists of classroom sessions, self-study tasks, and group work. The classroom sessions will involve a mix of theoretical and practical (programming) work, with an emphasis on the latter. The self-study tasks will be used to read selected chapters from the module textbook. The outline for the module is shown in the table below.</p>
 <table>
 <thead><tr>
 <th style="text-align:left">CW</th>
@@ -141,13 +146,13 @@ large volumes of data, in order to improve business decision-making (Provost &am
 <tr>
 <td style="text-align:left">18</td>
 <td style="text-align:left">30.04</td>
-<td style="text-align:left">Neighbours and clusters I</td>
-<td style="text-align:left"></td>
+<td style="text-align:left">Neighbours and clusters</td>
+<td style="text-align:left"><a href="https://mybinder.org/v2/gh/lewtun/dslectures/master?urlpath=lab/tree/notebooks%2Flesson10-clusters.ipynb"><img src="https://mybinder.org/badge_logo.svg" alt="Binder"></a> <a href="https://raw.githubusercontent.com/lewtun/dslectures/master/notebooks/lesson10_clusters.ipynb"><img src="https://img.shields.io/static/v1?label=notebook&amp;message=lesson10_clusters.ipynb&amp;color=red&amp;logo=Jupyter" alt="notebook"></a> <a href="https://drive.google.com/open?id=1PZ_Yh3nK1qLVJoLBAc5nMpd2wyFQKKX8"><img src="https://img.shields.io/static/v1?label=slides&amp;message=lesson10_clusters.pdf&amp;color=blue&amp;logo=Google-drive" alt="slides"></a></td>
 </tr>
 <tr>
 <td style="text-align:left">19</td>
 <td style="text-align:left">7.05</td>
-<td style="text-align:left">Neighbours and clusters II</td>
+<td style="text-align:left">Dimensions and visualisation</td>
 <td style="text-align:left"></td>
 </tr>
 <tr>
@@ -213,7 +218,7 @@ large volumes of data, in order to improve business decision-making (Provost &am
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Cloud-environment">Cloud environment<a class="anchor-link" href="#Cloud-environment">&#182;</a></h2><p>We will be teaching most of the class via Jupyter notebooks in Python. The notebooks for each class will be made available from links on this website. Note that some parts of the notebooks are removed for you to fill in as you follow along in class. You can open and run them directly on Binder by clicking on the Binder badge (see example below) at the top of each lecture notebook. We highly encourage the use of Binder, since it requires no local installation and runs for free.</p>
+<h2 id="Cloud-environment">Cloud environment<a class="anchor-link" href="#Cloud-environment"> </a></h2><p>We will be teaching most of the class via Jupyter notebooks in Python. The notebooks for each class will be made available from links on this website. Note that some parts of the notebooks are removed for you to fill in as you follow along in class. You can open and run them directly on Binder by clicking on the Binder badge (see example below) at the top of each lecture notebook. We highly encourage the use of Binder, since it requires no local installation and runs for free.</p>
 <p>Binder badge:  <img src="https://mybinder.org/badge_logo.svg" alt="Binder"></p>
 <p>A few remarks about Binder:</p>
 <ol>
@@ -222,7 +227,7 @@ large volumes of data, in order to improve business decision-making (Provost &am
 <li>Binder will automatically shut down user sessions that have more than 10 minutes of inactivity (if you leave your browser window open, this will be counted as “activity”).</li>
 <li>Binder aims to provide at least 12 hours of session time per user session. Beyond that, it is not guaranteed that the session will remain running.</li>
 </ol>
-<h3 id="Downloading-and-uploading-files">Downloading and uploading files<a class="anchor-link" href="#Downloading-and-uploading-files">&#182;</a></h3><p>Since Binder does not save your changes permanently, you should download the notebooks you worked on at the end of your session. If you want to continue your session later on you can re-upload them to Binder. See the image below for instructions how to upload and download files.</p>
+<h3 id="Downloading-and-uploading-files">Downloading and uploading files<a class="anchor-link" href="#Downloading-and-uploading-files"> </a></h3><p>Since Binder does not save your changes permanently, you should download the notebooks you worked on at the end of your session. If you want to continue your session later on you can re-upload them to Binder. See the image below for instructions how to upload and download files.</p>
 <div style="text-align: center">
 {% include image.html max-width="800" file="/dslectures/images/binder-download-upload.png" %}
 <p style="text-align: center;"> <b>Figure:</b> Download and upload buttons on JupyterLab as seen in the binder environment. </p>
@@ -232,7 +237,7 @@ large volumes of data, in order to improve business decision-making (Provost &am
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Local-environment">Local environment<a class="anchor-link" href="#Local-environment">&#182;</a></h2><p>You can also install the data science lecture material locally on your laptop. In general, when working with Python it is recommended to use <a href="https://docs.python.org/3/tutorial/venv.html">virtual environments</a>. This makes sure that the packages you install don't interfere with the packages you already installed in other projects.</p>
+<h2 id="Local-environment">Local environment<a class="anchor-link" href="#Local-environment"> </a></h2><p>You can also install the data science lecture material locally on your laptop. In general, when working with Python it is recommended to use <a href="https://docs.python.org/3/tutorial/venv.html">virtual environments</a>. This makes sure that the packages you install don't interfere with the packages you already installed in other projects.</p>
 <p>To install the data science lectures library run the following command:</p>
 <div class="highlight"><pre><span></span>pip install dslectures
 </pre></div>
@@ -243,7 +248,7 @@ large volumes of data, in order to improve business decision-making (Provost &am
 <p>Finally, to start JuypterLab run:</p>
 <div class="highlight"><pre><span></span>jupyter-lab
 </pre></div>
-<h3 id="Updating-the-local-environment">Updating the local environment<a class="anchor-link" href="#Updating-the-local-environment">&#182;</a></h3><p>Since we are developing the materials throughout the course you will need to update your local environment every time we move on to the next lesson. To do so just run the following command before you start JupyterLab</p>
+<h3 id="Updating-the-local-environment">Updating the local environment<a class="anchor-link" href="#Updating-the-local-environment"> </a></h3><p>Since we are developing the materials throughout the course you will need to update your local environment every time we move on to the next lesson. To do so just run the following command before you start JupyterLab</p>
 <div class="highlight"><pre><span></span>pip install --upgrade dslectures
 </pre></div>
 
@@ -252,7 +257,7 @@ large volumes of data, in order to improve business decision-making (Provost &am
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Module-policies">Module policies<a class="anchor-link" href="#Module-policies">&#182;</a></h2><p><strong>Before class</strong></p>
+<h2 id="Module-policies">Module policies<a class="anchor-link" href="#Module-policies"> </a></h2><p><strong>Before class</strong></p>
 <p>We expect students to prepare for each class by completing the self-study tasks in advance.</p>
 <p><strong>During class</strong></p>
 <p>Please refrain from using your phone or social media (Facebook, Twitter, etc) during class; we do however encourage you to use the class Slack group! We also expect students to take an active role during the class by asking questions and contributing to the discussions.</p>
@@ -264,7 +269,7 @@ large volumes of data, in order to improve business decision-making (Provost &am
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Assessment">Assessment<a class="anchor-link" href="#Assessment">&#182;</a></h2><p><strong>Update:</strong> Due to the COVID-19 pandemic, we have decided to remove the mid-term test from the assessment and allocate the 10 points to the group project.</p>
+<h2 id="Assessment">Assessment<a class="anchor-link" href="#Assessment"> </a></h2><p><strong>Update:</strong> Due to the COVID-19 pandemic, we have decided to remove the mid-term test from the assessment and allocate the 10 points to the group project.</p>
 <p>The assessment for this module involves <strong><em>two</em></strong> parts whose sum is 100 points: one group project (50 points), and one final written exam (50 points). The total number of points determines the overall grade for the module.</p>
 <ol>
 <li><strong>Group project:</strong> Students will be allocated into small groups and tasked to solve an end-to-end data science project. The results from the analysis must be submitted in the form of a Jupyter notebook, followed by a 15 minute oral presentation to the class. The maximum score for this assessment is 50 points, evenly distributed across the analysis code (25 points) and presentation (25 points).</li>
@@ -276,7 +281,7 @@ large volumes of data, in order to improve business decision-making (Provost &am
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Recommended-references">Recommended references<a class="anchor-link" href="#Recommended-references">&#182;</a></h2><p><strong>Data Science</strong></p>
+<h2 id="Recommended-references">Recommended references<a class="anchor-link" href="#Recommended-references"> </a></h2><p><strong>Data Science</strong></p>
 <ul>
 <li>F. Provost and T. Fawcett, <em>Data Science for Business,</em> (O’Reilly Media 2013). </li>
 <li>J. VanderPlas, <a href="https://jakevdp.github.io/PythonDataScienceHandbook/"><em>Python for Data Science Handbook,</em></a> (O’Reilly Media 2016).</li>
@@ -304,7 +309,7 @@ large volumes of data, in order to improve business decision-making (Provost &am
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Sources-used-for-this-syllabus">Sources used for this syllabus<a class="anchor-link" href="#Sources-used-for-this-syllabus">&#182;</a></h2><ul>
+<h2 id="Sources-used-for-this-syllabus">Sources used for this syllabus<a class="anchor-link" href="#Sources-used-for-this-syllabus"> </a></h2><ul>
 <li>M. Loukides, <em>What is Data Science?,</em> (O’Reilly 2010). Retrieved from <a href="https://www.oreilly.com/ideas/what-is-data-science">https://www.oreilly.com/ideas/what-is-data-science</a></li>
 <li>D. Conway, <em>The Data Science Venn Diagram,</em> (2010). Retrieved from <a href="http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram">http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram</a></li>
 </ul>

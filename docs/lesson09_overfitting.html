@@ -6,6 +6,7 @@ keywords: fastai
 sidebar: home_sidebar
 
 summary: "What is overfitting and how can it be avoided?"
+description: "What is overfitting and how can it be avoided?"
 ---
 <!--
 
@@ -18,10 +19,14 @@ summary: "What is overfitting and how can it be avoided?"
 -->
 
 <div class="container" id="notebook-container">
+        
+    {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a href="https://mybinder.org/v2/gh/lewtun/dslectures/master?urlpath=lab/tree/notebooks%2Flesson09_overfitting.ipynb"><img src="https://mybinder.org/badge_logo.svg" alt="Binder"></a> <a href="https://drive.google.com/open?id=1xH2FnIzrrub1ZJmyJAhYrUOyhJ5ov13x"><img src="https://img.shields.io/static/v1?label=slides&amp;message=lesson09_overfitting.pdf&amp;color=blue&amp;logo=Google-drive" alt="slides"></a></p>
@@ -31,16 +36,16 @@ summary: "What is overfitting and how can it be avoided?"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Learning-Objectives">Learning Objectives<a class="anchor-link" href="#Learning-Objectives">&#182;</a></h2><p>Overfitting is a phenomena that can always occur when a model is fitted to data. Therefore, it is important to understand what it entails and how it can be avoided. In this notebook we will address these three questions related to overfitting:</p>
+<h2 id="Learning-Objectives">Learning Objectives<a class="anchor-link" href="#Learning-Objectives"> </a></h2><p>Overfitting is a phenomena that can always occur when a model is fitted to data. Therefore, it is important to understand what it entails and how it can be avoided. In this notebook we will address these three questions related to overfitting:</p>
 <ol>
 <li>What is overfitting?</li>
 <li>How can we measure overfitting?</li>
 <li>How can overfitting be avoided?</li>
 </ol>
-<h2 id="References">References<a class="anchor-link" href="#References">&#182;</a></h2><ul>
+<h2 id="References">References<a class="anchor-link" href="#References"> </a></h2><ul>
 <li>Chapter 5: Overfitting and its avoidance of <em>Data Science for Business</em> by F. Provost and P. Fawcett</li>
 </ul>
-<h2 id="Homework">Homework<a class="anchor-link" href="#Homework">&#182;</a></h2><ul>
+<h2 id="Homework">Homework<a class="anchor-link" href="#Homework"> </a></h2><ul>
 <li>Work through part 2 of the notebook concerning the housing dataset.</li>
 <li>Solve exercises in the notebook. In particular, tune a random forest for the churn dataset in part 3.</li>
 </ul>
@@ -50,11 +55,11 @@ summary: "What is overfitting and how can it be avoided?"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="What-is-overfitting?">What is overfitting?<a class="anchor-link" href="#What-is-overfitting?">&#182;</a></h2><p>Already John von Neumann, one of the founding fathers of computing, knew that fitting complex models to data is a tricky business:</p>
+<h2 id="What-is-overfitting?">What is overfitting?<a class="anchor-link" href="#What-is-overfitting?"> </a></h2><p>Already John von Neumann, one of the founding fathers of computing, knew that fitting complex models to data is a tricky business:</p>
 <blockquote><p>With four parameters I can fit an elephant, and with five I can make him wiggle his trunk.</p>
 <p>- John von Neumann</p>
 </blockquote>
-<div style="text-align: center">{% include image.html max-width="300" file="/dslectures/images/elephant.jpg" %}
+<div style="text-align:center">{% include image.html max-width="300" file="/dslectures/images/elephant.jpg" %}
     <p style="text-align: center;"> <b>Figure reference:</b>Irrelevant image. </p>
 </div><p>When we fit a model to data we always have to be careful not to overfit. If we overfit the model this means that the model learned specific aspects of the training data and does not <em>generalise</em> to new, unseen data. Instead of learning useful relations between the input feature and the target the model has memorised the training samples. If this happens the model we perform very poorly on new data and therefore we want to make sure this does not happen.</p>
 <p>Fortunately, there are tools that can help detect and avoid overfitting. One tool we already used: splitting the data into two sets. Measuring the performance difference between the training and validation set already helps identifying when we are overfitting. In this lecture we will see an even more systematic way of splitting the data namely <em>cross-validation</em>.</p>
@@ -64,10 +69,12 @@ summary: "What is overfitting and how can it be avoided?"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Load-libraries">Load libraries<a class="anchor-link" href="#Load-libraries">&#182;</a></h2>
+<h2 id="Load-libraries">Load libraries<a class="anchor-link" href="#Load-libraries"> </a></h2>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -86,6 +93,10 @@ summary: "What is overfitting and how can it be avoided?"
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -113,13 +124,17 @@ summary: "What is overfitting and how can it be avoided?"
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Part-0:-tqdm">Part 0: tqdm<a class="anchor-link" href="#Part-0:-tqdm">&#182;</a></h2><p>Before starting with overfitting we introduce the tqdm library. In this notebook we will make extensive use of for-loops and tqdm is a very handy addition to them. With just one expression you can add a progress bar to your for loop. Let say you have a for-loop that does some computation:</p>
+<h2 id="Part-0:-tqdm">Part 0: tqdm<a class="anchor-link" href="#Part-0:-tqdm"> </a></h2><p>Before starting with overfitting we introduce the tqdm library. In this notebook we will make extensive use of for-loops and tqdm is a very handy addition to them. With just one expression you can add a progress bar to your for loop. Let say you have a for-loop that does some computation:</p>
 
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -136,6 +151,10 @@ summary: "What is overfitting and how can it be avoided?"
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -166,6 +185,10 @@ summary: "What is overfitting and how can it be avoided?"
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -212,9 +235,11 @@ summary: "What is overfitting and how can it be avoided?"
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Installation">Installation<a class="anchor-link" href="#Installation">&#182;</a></h3><p>If you run tqdm in Jupyter notebooks locally you might need to run the following in the terminal:</p>
+<h3 id="Installation">Installation<a class="anchor-link" href="#Installation"> </a></h3><p>If you run tqdm in Jupyter notebooks locally you might need to run the following in the terminal:</p>
 
 <pre><code>jupyter nbextension enable --py --sys-prefix widgetsnbextension</code></pre>
 <p>For Jupyterlab run additionally this command:</p>
@@ -226,22 +251,28 @@ summary: "What is overfitting and how can it be avoided?"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Part-1:-Overfitting-Polynomials">Part 1: Overfitting Polynomials<a class="anchor-link" href="#Part-1:-Overfitting-Polynomials">&#182;</a></h2><h3 id="Polynomials">Polynomials<a class="anchor-link" href="#Polynomials">&#182;</a></h3><p>To study the nature of overfitting we start looking at a the toy example of a polynomials. Later we will see our findings are not specific to polynomials and can be extended to other <em>supervised</em> machine learning methods such as linear regressors, tree classifiers or random forests.</p>
+<h2 id="Part-1:-Overfitting-Polynomials">Part 1: Overfitting Polynomials<a class="anchor-link" href="#Part-1:-Overfitting-Polynomials"> </a></h2><h3 id="Polynomials">Polynomials<a class="anchor-link" href="#Polynomials"> </a></h3><p>To study the nature of overfitting we start looking at a the toy example of a polynomials. Later we will see our findings are not specific to polynomials and can be extended to other <em>supervised</em> machine learning methods such as linear regressors, tree classifiers or random forests.</p>
 <p>A polynomial of degree $n$ has the form:
-$$f(x) = w_0 + w_1\cdot x + w_2\cdot x^2 +\ldots+w_n\cdot x^n$$</p>
+{% raw %}
+$$f(x) = w_0 + w_1\cdot x + w_2\cdot x^2 +\ldots+w_n\cdot x^n$$
+{% endraw %}</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Generate-data">Generate data<a class="anchor-link" href="#Generate-data">&#182;</a></h3><p>In this block we generate a random polynomial of degree 3 With the helper function <code>get_polynomial_data</code>. The polynomial has the form:
+<h3 id="Generate-data">Generate data<a class="anchor-link" href="#Generate-data"> </a></h3><p>In this block we generate a random polynomial of degree 3 With the helper function <code>get_polynomial_data</code>. The polynomial has the form:
+{% raw %}
 $$f(x) = 10 \cdot x^3 -5 \cdot x $$
+{% endraw %}
 If you are interested in creating or fitting polynomial data check out the functions <code>numpy.polyval</code> and <code>numpy.polyfit</code>. In this lesson we will use wrapper functions around them. The function <code>get_polynomial_data(w, n_samples=100)</code> evaluates the polymial defined by <code>w</code> on <code>n_samples</code> random points and adds some noise to it.</p>
 
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -256,6 +287,8 @@ If you are interested in creating or fitting polynomial data check out the funct
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We can plot the polynomial data in a scatter plot:</p>
@@ -263,6 +296,8 @@ If you are interested in creating or fitting polynomial data check out the funct
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -282,6 +317,10 @@ If you are interested in creating or fitting polynomial data check out the funct
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -314,13 +353,17 @@ If you are interested in creating or fitting polynomial data check out the funct
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Train-and-validation-sets">Train and validation sets<a class="anchor-link" href="#Train-and-validation-sets">&#182;</a></h3><p>We have already discussed in previous lessons that a validation set helps us investigate overfitting. The model is trained with the training set and its performance is measured using the validation set. We will do the same here.</p>
+<h3 id="Train-and-validation-sets">Train and validation sets<a class="anchor-link" href="#Train-and-validation-sets"> </a></h3><p>We have already discussed in previous lessons that a validation set helps us investigate overfitting. The model is trained with the training set and its performance is measured using the validation set. We will do the same here.</p>
 
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -334,6 +377,10 @@ If you are interested in creating or fitting polynomial data check out the funct
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -366,6 +413,8 @@ If you are interested in creating or fitting polynomial data check out the funct
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Now lets fit a polynomial to the generated data. We can use <code>PolyFit</code> class to fit a polynomial to the data. We can pass the the degree as an argument and then use the same functions <code>fit</code>, <code>predict</code> and <code>evaluate</code> functions known from <code>scikit-learn</code>.</p>
@@ -373,6 +422,8 @@ If you are interested in creating or fitting polynomial data check out the funct
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -403,6 +454,8 @@ If you are interested in creating or fitting polynomial data check out the funct
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Now we want to see how that polynomial looks like on a range from [-1, 1]:</p>
@@ -410,6 +463,8 @@ If you are interested in creating or fitting polynomial data check out the funct
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -424,6 +479,10 @@ If you are interested in creating or fitting polynomial data check out the funct
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -458,9 +517,11 @@ If you are interested in creating or fitting polynomial data check out the funct
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="From-underfitting-to-overfitting">From underfitting to overfitting<a class="anchor-link" href="#From-underfitting-to-overfitting">&#182;</a></h3>
+<h3 id="From-underfitting-to-overfitting">From underfitting to overfitting<a class="anchor-link" href="#From-underfitting-to-overfitting"> </a></h3>
 </div>
 </div>
 </div>
@@ -471,6 +532,8 @@ If you are interested in creating or fitting polynomial data check out the funct
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -585,6 +648,8 @@ If you are interested in creating or fitting polynomial data check out the funct
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>By just looking at the curves we can observe <strong>3 regimes</strong>:</p>
@@ -600,11 +665,13 @@ The model starts fitting the noise in the dataset. While the fit for the trainin
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Fitting-graph">Fitting graph<a class="anchor-link" href="#Fitting-graph">&#182;</a></h3><p>In the next step we want to quantify the previous observation. To do this we calculate the training and and validation error for each degree and plot them in a single graph. The resulting graph is called the <strong>fitting graph</strong>.</p>
+<h3 id="Fitting-graph">Fitting graph<a class="anchor-link" href="#Fitting-graph"> </a></h3><p>In the next step we want to quantify the previous observation. To do this we calculate the training and and validation error for each degree and plot them in a single graph. The resulting graph is called the <strong>fitting graph</strong>.</p>
 
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -640,6 +707,10 @@ The model starts fitting the noise in the dataset. While the fit for the trainin
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -661,6 +732,10 @@ The model starts fitting the noise in the dataset. While the fit for the trainin
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -692,6 +767,8 @@ The model starts fitting the noise in the dataset. While the fit for the trainin
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We can make a few observations:</p>
@@ -706,7 +783,7 @@ The model starts fitting the noise in the dataset. While the fit for the trainin
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Cross-validation">Cross-validation<a class="anchor-link" href="#Cross-validation">&#182;</a></h3><p>The idea behind cross validation is to split the data into k equally sized parts, called folds. Each fold gets to be the validation set once while the other folds play the training set part. That means we run k experiments and aggregate the training and validation metrics by averaging them. This is a more robust approach to monitoring overfitting and thanks to <code>scikit-learn</code> we only have to adjust one line by adding the <code>cross_validate</code> function!</p>
+<h3 id="Cross-validation">Cross-validation<a class="anchor-link" href="#Cross-validation"> </a></h3><p>The idea behind cross validation is to split the data into k equally sized parts, called folds. Each fold gets to be the validation set once while the other folds play the training set part. That means we run k experiments and aggregate the training and validation metrics by averaging them. This is a more robust approach to monitoring overfitting and thanks to <code>scikit-learn</code> we only have to adjust one line by adding the <code>cross_validate</code> function!</p>
 <div style="text-align: center">
 {% include image.html max-width="400" file="/dslectures/images/cross-val.png" %}
     <p style="text-align: center;"> <b>Figure reference:</b> https://scikit-learn.org/stable/modules/cross_validation.html </p>
@@ -721,6 +798,8 @@ The model starts fitting the noise in the dataset. While the fit for the trainin
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -760,6 +839,10 @@ The model starts fitting the noise in the dataset. While the fit for the trainin
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -791,6 +874,8 @@ The model starts fitting the noise in the dataset. While the fit for the trainin
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We can use <code>np.argmin</code> to find the element with the minimum validation error. The function returns the index in the array with the minimum value.</p>
@@ -798,6 +883,8 @@ The model starts fitting the noise in the dataset. While the fit for the trainin
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -827,6 +914,8 @@ The model starts fitting the noise in the dataset. While the fit for the trainin
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Since we start counting from 0 in programming this means we are looking for the fourth element in the degrees list:</p>
@@ -834,6 +923,8 @@ The model starts fitting the noise in the dataset. While the fit for the trainin
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -863,6 +954,10 @@ The model starts fitting the noise in the dataset. While the fit for the trainin
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -892,9 +987,11 @@ The model starts fitting the noise in the dataset. While the fit for the trainin
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Findings">Findings<a class="anchor-link" href="#Findings">&#182;</a></h3>
+<h3 id="Findings">Findings<a class="anchor-link" href="#Findings"> </a></h3>
 </div>
 </div>
 </div>
@@ -916,7 +1013,7 @@ The model starts fitting the noise in the dataset. While the fit for the trainin
 <p>We can also create fitting graphs for classification tasks. Instead of looking at RMSE we can look at the accuracy. The difference is that the graph will look inverted in the y-axis; instead of looking for the lowest validation error we will look for the highest validation accuracy.</p>
 <p><strong>More data</strong></p>
 <p>There is another way to reduce overfitting: get more data! In the following exercise you explore how more data influences the fitting graph.</p>
-<h3 id="Exercise-#1">Exercise #1<a class="anchor-link" href="#Exercise-#1">&#182;</a></h3><p>Use the <code>get_polynomial_data</code> and generate <code>100_000</code> samples. Create another fitting graph with cross-validation and compare it to the one with <code>100</code> samples.</p>
+<h3 id="Exercise-#1">Exercise #1<a class="anchor-link" href="#Exercise-#1"> </a></h3><p>Use the <code>get_polynomial_data</code> and generate <code>100_000</code> samples. Create another fitting graph with cross-validation and compare it to the one with <code>100</code> samples.</p>
 <p>In the following section we will investigate overfitting in Random Forests.</p>
 
 </div>
@@ -924,7 +1021,7 @@ The model starts fitting the noise in the dataset. While the fit for the trainin
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Train/validation/test-set">Train/validation/test set<a class="anchor-link" href="#Train/validation/test-set">&#182;</a></h3><p>Before we move to RandomForests we want to clarify some ambiguity about the terms train, validation and test set. So far we have concentrated on the train and validation set: We train a model on the train set and we evaluate the metrics on the validation set. However, sometimes we also come across the term test set. For example the function we used to split the dataset in to sets: <code>train_test_split</code>.</p>
+<h3 id="Train/validation/test-set">Train/validation/test set<a class="anchor-link" href="#Train/validation/test-set"> </a></h3><p>Before we move to RandomForests we want to clarify some ambiguity about the terms train, validation and test set. So far we have concentrated on the train and validation set: We train a model on the train set and we evaluate the metrics on the validation set. However, sometimes we also come across the term test set. For example the function we used to split the dataset in to sets: <code>train_test_split</code>.</p>
 <p>In machine learning each of these sets has a distinct function:</p>
 <ul>
 <li>The <strong>train set</strong> is used to train a model.</li>
@@ -939,7 +1036,7 @@ The model starts fitting the noise in the dataset. While the fit for the trainin
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Part-2:-Housing-dataset">Part 2: Housing dataset<a class="anchor-link" href="#Part-2:-Housing-dataset">&#182;</a></h2><p>In this section we want to use cross-validation to sytematically tune the parameters of the Random Forest without overfitting. We do it in a linear fashion and tune one parameter after another. This does not guarantee that we find the best global parameters, but runs much faster than a global grid search. We will tune the following parameters:</p>
+<h2 id="Part-2:-Housing-dataset">Part 2: Housing dataset<a class="anchor-link" href="#Part-2:-Housing-dataset"> </a></h2><p>In this section we want to use cross-validation to sytematically tune the parameters of the Random Forest without overfitting. We do it in a linear fashion and tune one parameter after another. This does not guarantee that we find the best global parameters, but runs much faster than a global grid search. We will tune the following parameters:</p>
 <ul>
 <li>n_estimators</li>
 <li>max_depth</li>
@@ -951,6 +1048,8 @@ The model starts fitting the noise in the dataset. While the fit for the trainin
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -978,6 +1077,10 @@ The model starts fitting the noise in the dataset. While the fit for the trainin
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1012,6 +1115,10 @@ imdb.csv                     zero_submission.csv
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1199,6 +1306,10 @@ imdb.csv                     zero_submission.csv
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1213,13 +1324,17 @@ imdb.csv                     zero_submission.csv
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Untuned-model">Untuned model<a class="anchor-link" href="#Untuned-model">&#182;</a></h3><p>We want to first evaluate the untuned model to get a baseline:</p>
+<h3 id="Untuned-model">Untuned model<a class="anchor-link" href="#Untuned-model"> </a></h3><p>We want to first evaluate the untuned model to get a baseline:</p>
 
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1254,6 +1369,8 @@ Validation score: 60426.9
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Now we tune one parameter after another and always choose the best one of the round based on the fitting curve.</p>
@@ -1263,10 +1380,12 @@ Validation score: 60426.9
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="n_estimators">n_estimators<a class="anchor-link" href="#n_estimators">&#182;</a></h3>
+<h3 id="n_estimators">n_estimators<a class="anchor-link" href="#n_estimators"> </a></h3>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1307,6 +1426,10 @@ Validation score: 60426.9
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1338,6 +1461,8 @@ Validation score: 60426.9
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We can zoom in a little bit further to get a better picture of how the validation error behaves:</p>
@@ -1355,10 +1480,12 @@ Validation score: 60426.9
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="tree_depth">tree_depth<a class="anchor-link" href="#tree_depth">&#182;</a></h3>
+<h3 id="tree_depth">tree_depth<a class="anchor-link" href="#tree_depth"> </a></h3>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1399,6 +1526,10 @@ Validation score: 60426.9
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1430,6 +1561,10 @@ Validation score: 60426.9
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1459,12 +1594,16 @@ Validation score: 60426.9
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="min_samples_leaf">min_samples_leaf<a class="anchor-link" href="#min_samples_leaf">&#182;</a></h3>
+<h3 id="min_samples_leaf">min_samples_leaf<a class="anchor-link" href="#min_samples_leaf"> </a></h3>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1505,6 +1644,10 @@ Validation score: 60426.9
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1536,6 +1679,10 @@ Validation score: 60426.9
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1565,12 +1712,16 @@ Validation score: 60426.9
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="max_features">max_features<a class="anchor-link" href="#max_features">&#182;</a></h3>
+<h3 id="max_features">max_features<a class="anchor-link" href="#max_features"> </a></h3>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1611,6 +1762,10 @@ Validation score: 60426.9
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1642,6 +1797,10 @@ Validation score: 60426.9
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1671,6 +1830,10 @@ Validation score: 60426.9
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1688,6 +1851,10 @@ Validation score: 60426.9
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1717,6 +1884,8 @@ Validation score: 58935.2
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We see that we improved the RMSE on the validation set by more than $2000 which corresponds to 3-4% improvement!</p>
@@ -1726,7 +1895,7 @@ Validation score: 58935.2
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Part-3:-Churn">Part 3: Churn<a class="anchor-link" href="#Part-3:-Churn">&#182;</a></h2><p>Now we want to follow the same procedure to optimise the parameters of the Random Forest classifier on the churn dataset. Since this is a classification task there are two things we need to change in our code:</p>
+<h2 id="Part-3:-Churn">Part 3: Churn<a class="anchor-link" href="#Part-3:-Churn"> </a></h2><p>Now we want to follow the same procedure to optimise the parameters of the Random Forest classifier on the churn dataset. Since this is a classification task there are two things we need to change in our code:</p>
 <ol>
 <li>We replace the <code>RandomForestRegressor</code> with the `RandomForestClassifier``</li>
 <li>During cross-validation we want to measure the accuracy instead of the RMSE.</li>
@@ -1735,6 +1904,8 @@ Validation score: 58935.2
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1762,6 +1933,10 @@ Validation score: 58935.2
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1775,6 +1950,10 @@ Validation score: 58935.2
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1788,6 +1967,10 @@ Validation score: 58935.2
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1822,6 +2005,8 @@ Validation score: 0.794
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We see that we have about 79% accuracy on the validation set. Let's see if we can improve on that.</p>
@@ -1831,10 +2016,12 @@ Validation score: 0.794
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="n_estimators">n_estimators<a class="anchor-link" href="#n_estimators">&#182;</a></h3>
+<h3 id="n_estimators">n_estimators<a class="anchor-link" href="#n_estimators"> </a></h3>
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1875,6 +2062,10 @@ Validation score: 0.794
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1906,6 +2097,8 @@ Validation score: 0.794
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Note: since we want to maximise the accuracy we need to change <code>np.argmin</code> to <code>np.argmax</code>:</p>
@@ -1913,6 +2106,8 @@ Validation score: 0.794
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1942,6 +2137,8 @@ Validation score: 0.794
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Following the same argument as with the housing dataset we will stick to <code>n_estimators=100</code> for now but you can experiment with more estimators if you want.</p>
@@ -1951,7 +2148,7 @@ Validation score: 0.794
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Exercise-2">Exercise 2<a class="anchor-link" href="#Exercise-2">&#182;</a></h3><p>Run the same optimisation steps as we did with housing dataset to tune the Random Forest for churn classification.</p>
+<h3 id="Exercise-2">Exercise 2<a class="anchor-link" href="#Exercise-2"> </a></h3><p>Run the same optimisation steps as we did with housing dataset to tune the Random Forest for churn classification.</p>
 <p>Optimise the following parameters:</p>
 <ul>
 <li>max_depth</li>

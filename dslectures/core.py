@@ -2,7 +2,7 @@
 
 __all__ = ['get_dataset', 'rmse', 'convert_strings_to_categories', 'fill_missing_values_with_median',
            'make_polynomial_data', 'PolynomialRegressor', 'display_large', 'rf_feature_importance',
-           'plot_feature_importance', 'plot_dendogram']
+           'plot_feature_importance', 'plot_dendogram', 'plot_fitting_graph', 'plot_classifier_boundaries']
 
 # Cell
 from nbdev.showdoc import *
@@ -195,3 +195,45 @@ def plot_dendogram(X):
         z, labels=X.columns, orientation="left", leaf_font_size=16
     )
     plt.show()
+
+# Cell
+def plot_fitting_graph(x, metric_train, metric_valid, metric_name='metric', xlabel='x', yscale='linear'):
+    """Plot fitting graph for train and validation metrics."""
+    plt.plot(x, metric_train, label='train')
+    plt.plot(x, metric_valid, label='valid')
+    plt.yscale(yscale)
+    plt.title('Fitting graph')
+    plt.ylabel(metric_name)
+    plt.xlabel(xlabel)
+    plt.legend(loc='best')
+    plt.grid(True)
+
+# Cell
+def plot_classifier_boundaries(X, y, clf):
+    """
+    Given features X and labels y along with classifier, plot decision boundaries in two dimensions.
+
+    Args:
+        X: feature array of shape (n_samples, n_features)
+        y: label array of shape (n_samples)
+    """
+
+    h = .02  # step size in the mesh
+
+    # Plot the decision boundary. For that, we will assign a color to each
+    # point in the mesh [x_min, x_max]x[y_min, y_max].
+    x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
+    y_min, y_max = X[:, 1].min() - 1, X[:, 1].max() + 1
+    xx, yy = np.meshgrid(np.arange(x_min, x_max, h),
+                         np.arange(y_min, y_max, h))
+    Z = clf.predict(np.c_[xx.ravel(), yy.ravel()])
+
+    # Put the result into a color plot
+    Z = Z.reshape(xx.shape)
+    plt.figure()
+    plt.pcolormesh(xx, yy, Z, alpha=1)
+
+    # Plot also the training points
+    plt.scatter(X[:, 0], X[:, 1], c=y, edgecolor='k', s=20)
+    plt.xlim(xx.min(), xx.max())
+    plt.ylim(yy.min(), yy.max())
