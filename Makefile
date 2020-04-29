@@ -27,3 +27,8 @@ dist: clean
 
 clean:
 	rm -rf dist
+
+precommit:
+	nbdev_build_lib
+	nbdev_build_docs
+	nbdev_clean_nbs
