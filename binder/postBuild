@@ -12,3 +12,6 @@ jupyter lab build
 # Unset NODE_OPTIONS environment variable
 # (OS X/Linux)
 unset NODE_OPTIONS
+# install library:
+pip install packaging
+pip install -e .
