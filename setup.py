@@ -15,6 +15,7 @@ setup_cfg = {o:cfg[o] for o in cfg_keys}
 
 licenses = {
     'apache2': ('Apache Software License 2.0','OSI Approved :: Apache Software License'),
+    'GNU AGPLv3': ('GNU Affero General Public License v3', 'OSI Approved :: GNU Affero General Public License v3 ')
 }
 statuses = [ '1 - Planning', '2 - Pre-Alpha', '3 - Alpha',
     '4 - Beta', '5 - Production/Stable', '6 - Mature', '7 - Inactive' ]
