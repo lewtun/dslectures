@@ -49,8 +49,8 @@ entries:
       title: Lesson 11 - Dimensions and visualisation
       url: /lesson11_visualisation
     - output: web,pdf
-      title: Lesson 12 - NLP classic
-      url: /lesson12_nlp-classic
+      title: Lesson 12 - Introduction to NLP
+      url: /lesson12_nlp-intro
     - output: web,pdf
       title: Python primer
       url: /python-primer
