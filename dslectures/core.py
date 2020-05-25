@@ -7,6 +7,7 @@ __all__ = ['get_dataset', 'rmse', 'convert_strings_to_categories', 'fill_missing
 # Cell
 from nbdev.showdoc import *
 import wget
+import gdown
 import os
 import numpy as np
 import pandas as pd
@@ -19,7 +20,7 @@ from scipy.cluster import hierarchy as hc
 import matplotlib.pyplot as plt
 
 # Cell
-def get_dataset(dataset_name: str):
+def get_dataset(dataset_name: str, path="../data/"):
     """
     Download datasets from Google Drive.
     """
@@ -36,12 +37,13 @@ def get_dataset(dataset_name: str):
         "kaggle_housing_train.csv": "1BHiuZyMab7rPA8Rog29fIYhJmjvJLkVI",
         "kaggle_housing_test.csv": "1KSfBhIdFlejUWAnrfFl10c-rjA4VhgkT",
         "kaggle_titanic_train.csv": "1BHiuZyMab7rPA8Rog29fIYhJmjvJLkVI",
-        "kaggle_titanic_test.csv": "1NFCDTBF4dM8rllv0fP3VnPmoRLmfdOEB"
+        "kaggle_titanic_test.csv": "1NFCDTBF4dM8rllv0fP3VnPmoRLmfdOEB",
+        "fine_tuned.pth": "1jbyl7HAYOYA4HA7NS34JykOLuJwcNkmb",
     }
-
-    path = "../data/"
     os.makedirs(path, exist_ok=True)
     gdrive_path = "https://docs.google.com/uc?export=download&id="
+    s3_path = "https://dslectures.s3.eu-central-1.amazonaws.com/"
+
     if dataset_name in name_to_id:
         if os.path.exists(path + dataset_name):
             print(
@@ -49,7 +51,10 @@ def get_dataset(dataset_name: str):
             )
             return
         try:
-            file_url = gdrive_path + name_to_id[dataset_name]
+            if dataset_name=="fine_tuned.pth":
+                file_url = s3_path + dataset_name
+            else:
+                file_url = gdrive_path + name_to_id[dataset_name]
             wget.download(file_url, out=path)
         except Exception as e:
             print("Something went wrong during download. Try again.")
