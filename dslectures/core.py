@@ -7,7 +7,6 @@ __all__ = ['get_dataset', 'rmse', 'convert_strings_to_categories', 'fill_missing
 # Cell
 from nbdev.showdoc import *
 import wget
-import gdown
 import os
 import numpy as np
 import pandas as pd
