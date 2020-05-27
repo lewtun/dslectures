@@ -37,7 +37,8 @@ def get_dataset(dataset_name: str, path="../data/"):
         "kaggle_housing_test.csv": "1KSfBhIdFlejUWAnrfFl10c-rjA4VhgkT",
         "kaggle_titanic_train.csv": "1BHiuZyMab7rPA8Rog29fIYhJmjvJLkVI",
         "kaggle_titanic_test.csv": "1NFCDTBF4dM8rllv0fP3VnPmoRLmfdOEB",
-        "fine_tuned.pth": "1jbyl7HAYOYA4HA7NS34JykOLuJwcNkmb",
+        "fine_tuned.pth": "S3",
+        "data_lm.pkl": "S3"
     }
     os.makedirs(path, exist_ok=True)
     gdrive_path = "https://docs.google.com/uc?export=download&id="
@@ -50,7 +51,7 @@ def get_dataset(dataset_name: str, path="../data/"):
             )
             return
         try:
-            if dataset_name=="fine_tuned.pth":
+            if name_to_id[dataset_name]=="S3":
                 file_url = s3_path + dataset_name
             else:
                 file_url = gdrive_path + name_to_id[dataset_name]
