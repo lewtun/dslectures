@@ -71,10 +71,10 @@ description: "An introduction to Deep Learning and its applications in NLP"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction"> </a></h2><p>Last time we built a sentiment classifier with <code>scikit-learn</code> and achieved around 85% on the test set. This is already pretty good but can we do better? We are still wrong 15/100 times. It turns out we can but we need to turn to deep learning.</p>
+<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction"> </a></h2><p>Last time we built a sentiment classifier with <code>scikit-learn</code> and achieved around 85% accuracy on the test set. This is already pretty good, but can we do better? We are still wrong 15/100 times. It turns out we can if we use deep learning.</p>
 <div style="text-align: center">
 {% include image.html max-width="400" file="/dslectures/images/deeper.jpg" %}
-</div><p>Deep learning uses an architecture that is modeled after the brain and uses networks of artificial neurons to mimic its behaviour. These models are much bigger than the models we encountered so far and can have millions to billions of parameters. Training these models and adjusting the parameters is also more challenging and genreally requires much more data and compute. Therefore we will run this notebook on a GPU that enables much faster training than a CPU.</p>
+</div><p>Deep learning uses an architecture that is modeled after the brain and uses networks of artificial neurons to mimic its behaviour. These models are much bigger than the models we encountered so far and can have millions to billions of parameters. Training these models and adjusting the parameters is also more challenging, and generally requires much more data and compute. A lot of computations are easily parallelizable, which is a strength of modern GPUs. Therefore we will run this notebook on a GPU that enables much faster training than a CPU.</p>
 <div style="text-align: center">
 {% include image.html max-width="400" file="/dslectures/images/gpu_meme.jpg" %}
 </div><p>Since we don't have much training data on the IMDb dataset for deep learning standards we use transfer learning to still achieve high accuracy in predicting the sentiment of the movie reviews.</p>
@@ -84,16 +84,16 @@ description: "An introduction to Deep Learning and its applications in NLP"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Transfer-learning">Transfer learning<a class="anchor-link" href="#Transfer-learning"> </a></h2><p>Training deep learning models is requires a lot of data. It is not uncommen to train models on millions of images or gigabytes of text data to achieve good results. Most real world problems don't have that amount of labelled data ready and not all companies or individuals who want to train a model can afford to hire people to label data for them.</p>
-<p>This has been a challenge for many years that fortunately has been solved for image based models a couple of years ago and recently also for NLP. The approach that helps train models with limited labelled data is called <strong>transfer learning</strong>.</p>
-<p>The idea is that once a model is trained on a large dataset for a certain task (e.g. classifying houses vs. planes) the model has learned certain features of the data that can be reused for another task. Such a features could be how to detect edges or textures in images. If these features are useful for another task, then we can train the model on new data without requiring as many labels as if we were training it from scratch.</p>
+<h2 id="Transfer-learning">Transfer learning<a class="anchor-link" href="#Transfer-learning"> </a></h2><p>Training deep learning models requires a lot of data. It is not uncommon to train models on millions of images or gigabytes of text data to achieve good results. Most real-world problems don't have that amount of labeled data ready, and not all companies or individuals who want to train a model can afford to hire people to label data for them.</p>
+<p>For many years this has been very challenging. Fortunately, it has been solved for image based models a couple of years ago and recently also for NLP. One approach that helps train models with limited labeled data is called <strong>transfer learning</strong>.</p>
+<p>The idea is that once a model is trained on a large dataset for a specific task (e.g., classifying houses vs. planes), the model has learned certain features of the data that can be reused for another task. Such features could be how to detect edges or textures in images. If these features are useful for another task, then we can train the model on new data without requiring as many labels as if we were training it from scratch.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="ULMFiT">ULMFiT<a class="anchor-link" href="#ULMFiT"> </a></h3><p>For transfer learning in NLP Jeremy Howard and Sebastian Ruder came up with a similar approach calls <code>ULMFiT</code> for texts. The central theme of the approach is language modeling.</p>
+<h3 id="ULMFiT">ULMFiT<a class="anchor-link" href="#ULMFiT"> </a></h3><p>For transfer learning in NLP Jeremy Howard and Sebastian Ruder came up with a similar approach called <code>ULMFiT</code> (Universal Language Model Fine-tuning for Text Classification) for texts. The central theme of the approach is language modeling.</p>
 
 </div>
 </div>
@@ -102,7 +102,7 @@ description: "An introduction to Deep Learning and its applications in NLP"
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Language-modeling">Language modeling<a class="anchor-link" href="#Language-modeling"> </a></h4><p>In language modeling the goal is to predict the next word based on the previous word in a text. An example:</p>
 <p><code>Yesterday I discovered a really nice cinema so I went there to watch a ____ .</code></p>
-<p>The task of the model is to fill the blank. The advantage of language modeling is that it does not require any labels but to achieve good results the model needs to learn a lot about language. In this example, the model needs to understand that one watches movies in cinemas. The same goes for sentiment and other topics. With <code>ULMFiT</code> one can train a language model and then use it for classifications tasks in three steps.</p>
+<p>The task of the model is to fill the blank. The advantage of language modeling is that it does not require any labels, but to achieve good results, the model needs to learn a lot about language. In this example, the model needs to understand that one watches movies in cinemas. The same goes for sentiment and other topics. With <code>ULMFiT</code> one can train a language model and then use it for classifications tasks in three steps.</p>
 
 </div>
 </div>
@@ -113,28 +113,28 @@ description: "An introduction to Deep Learning and its applications in NLP"
 <div style="text-align: center">
 {% include image.html max-width="800" file="/dslectures/images/ulmfit_approach.png" %}
 </div><ol>
-<li><p><strong>Language model (wiki)</strong>: A language model is trained on a large dataset. Wikipedia is a common choice for this task as it includes many topics and the text is of high quality. This step usually takes the most time on the order of days. In this step the model learns the general structure of language.</p>
+<li><p><strong>Language model (wiki)</strong>: A language model is trained on a large dataset. Wikipedia is a common choice for this task as it includes many topics, and the text is of high quality. This step usually takes the most time on the order of days. In this step, the model learns the general structure of language.</p>
 </li>
-<li><p><strong>Language model (domain)</strong>: The language model trained on Wikipedia might be missing some aspects of the domain we are interested in. If we want to do sentiment classification Wikipedia does not offer much insight, since Wikipedia articles are generally of neutral sentiment. Therefore, we continue training the language model on the text we are interested in. This step still takes several hours.</p>
+<li><p><strong>Language model (domain)</strong>: The language model trained on Wikipedia might be missing some aspects of the domain we are interested in. If we want to do sentiment classification, Wikipedia does not offer much insight since Wikipedia articles are generally of neutral sentiment. Therefore, we continue training the language model on the text we are interested in. This step still takes several hours.</p>
 </li>
-<li><p><strong>Classifier (domain)</strong>: Now that the language model works well on the text we are interested in it is time to build a classifier. We do this by adapting the output of the network to yield classes instead of words. This step only takes a couple of minutes to an hour to complete.</p>
+<li><p><strong>Classifier (domain)</strong>: Now that the language model works well on the text we are interested in, it is time to build a classifier. We do this by adapting the output of the network to yield classes instead of words. This step only takes a couple of minutes to an hour to complete.</p>
 </li>
 </ol>
-<p>The power of this approach is that you only need little labelled data for the last step and you only need to go through the expensive first step once. Even the second step can be reused on the dataset if you for example build a a sentiment classifier and additionally a topic classifier. This can be done in minutes and allows to achieve great results with little time and resources.</p>
+<p>The power of this approach is that you only need little labeled data for the last step and only need to go through the expensive first step once. Even the second step can be reused on the dataset if you, for example, build a sentiment classifier and additionally a topic classifier. This can be done in minutes and allows us to achieve great results with little time and resources.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Other-methods">Other methods<a class="anchor-link" href="#Other-methods"> </a></h3><p>Today, there are many approaches in NLP that use transfer learning such as Google's BERT. These models cost on the order of $100'000 to pretrain (1. step) and massive resources. Fortunaty, most of these models are shared and can then be fine-tuned on small machines.</p>
+<h3 id="Other-methods">Other methods<a class="anchor-link" href="#Other-methods"> </a></h3><p>Today, there are many approaches in NLP that use transfer learning such as Google's BERT. These models cost on the order of $100'000 to pretrain (1. step) and massive computational facilities. Fortunately, most of these models are shared and can then be fine-tuned on small machines.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="The-fastai-library">The <code>fastai</code> library<a class="anchor-link" href="#The-fastai-library"> </a></h2><p>The <code>fastai</code> library wraps around the deep learning framework <code>PyTorch</code> and has a lot of functionality built in to achieve great results quickly. The library abstracts a lot of functionality so it can be a bit hard to follow in the beginning. To get a better understanding we highly recommend the <a href="https://course.fast.ai/">fastai course</a>. In this lesson we will use the library to build a world-class classifier with just a few lines of code.</p>
+<h2 id="The-fastai-library">The <code>fastai</code> library<a class="anchor-link" href="#The-fastai-library"> </a></h2><p>The <code>fastai</code> library wraps around the deep learning framework <code>PyTorch</code> and has a lot of functionality built in to achieve great results quickly. The library abstracts a lot of functionality, so it can be difficult to follow initially. To get a better understanding, we highly recommend the <a href="https://course.fast.ai/">fastai course</a>. In this lesson, we will use the library to build a world-class classifier with just a few lines of code.</p>
 
 </div>
 </div>
@@ -188,7 +188,7 @@ description: "An introduction to Deep Learning and its applications in NLP"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Download-data">Download data<a class="anchor-link" href="#Download-data"> </a></h3><p>The fastai library includes a lot of datasets including the IMDb dataset we already know. Similar to our <code>download_dataset()</code> function we can do this with fastai's <code>untar_data()</code> function.</p>
+<h3 id="Download-data">Download data<a class="anchor-link" href="#Download-data"> </a></h3><p>The fastai library includes a lot of datasets including, the IMDb dataset we already know. Similar to our <code>download_dataset()</code> function we can do this with fastai's <code>untar_data()</code> function.</p>
 
 </div>
 </div>
@@ -212,7 +212,7 @@ description: "An introduction to Deep Learning and its applications in NLP"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Data-structure">Data structure<a class="anchor-link" href="#Data-structure"> </a></h3><p>Looking at the downloaded folder we can see that there are several files and folders. The relevant ones for our case are <code>test</code>, <code>train</code> and <code>unsup</code>. The <code>train</code> and <code>test</code> folders split the data the same way we split it in the previous lecture. The new <code>unsup</code> (for unsupervised) folder contains 50k movie reviews that are not classified. We can't use them to train a classifier but we can use them to fine-tune the language model.</p>
+<h3 id="Data-structure">Data structure<a class="anchor-link" href="#Data-structure"> </a></h3><p>Looking at the downloaded folder, we can see that there are several files and folders. The relevant ones for our case are <code>test</code>, <code>train</code>, and <code>unsup</code>. The <code>train</code> and <code>test</code> folders split the data the same way we split it in the previous lecture. The new <code>unsup</code> (for unsupervised) folder contains 50k movie reviews that are not classified. We can't use them for training a classifier, but we can use them to fine-tune the language model.</p>
 
 </div>
 </div>
@@ -258,7 +258,7 @@ description: "An introduction to Deep Learning and its applications in NLP"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Looking at the training folder we find two folders for the negative and positive movie reviews.</p>
+<p>Looking at the training folder, we find two folders for the negative and positive movie reviews.</p>
 
 </div>
 </div>
@@ -282,7 +282,7 @@ description: "An introduction to Deep Learning and its applications in NLP"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In both folders we find many files each containing one movie review. This is exactly the same data we used last time it is just arranged in a different structure. We don't need to load all these files manually - the fastai library does this automatically.</p>
+<p>In both folders, we find many files, each containing one movie review. This is exactly the same data we used last time. It is just arranged in a different structure. We don't need to load all these files manually - the fastai library does this automatically.</p>
 
 </div>
 </div>
@@ -338,7 +338,7 @@ description: "An introduction to Deep Learning and its applications in NLP"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Preprocess-data-for-language-modeling">Preprocess data for language modeling<a class="anchor-link" href="#Preprocess-data-for-language-modeling"> </a></h3><p>In the last lecture we implemented our own function to preprocess the texts and tokenize them. In principle we could do the same here but fastai comes with built-in functions to take care of this. In addtion we can specify which folders to use and what percentage to split off for validation. The batch size <code>bs</code> specifies how many samples the model is optimised for at each step.</p>
+<h3 id="Preprocess-data-for-language-modeling">Preprocess data for language modeling<a class="anchor-link" href="#Preprocess-data-for-language-modeling"> </a></h3><p>In the last lecture, we implemented our own function to preprocess the texts and tokenize them. In principle, we could do the same here, but fastai comes with built-in functions to take care of this. In addtion, we can specify which folders to use and what percentage to split off for validation. The batch size <code>bs</code> specifies how many samples the model is optimised for at each step.</p>
 
 </div>
 </div>
@@ -387,7 +387,7 @@ description: "An introduction to Deep Learning and its applications in NLP"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Similar to the vectorizer vocabulary we can have a look at the encoding scheme. The <code>itos</code> (stands for id-to-string) object tells us which token is encoded at which position.</p>
+<p>Similar to the vectorizer vocabulary, we can have a look at the encoding scheme. The <code>itos</code> (stands for id-to-string) object tells us which token is encoded at which position.</p>
 
 </div>
 </div>
@@ -460,7 +460,7 @@ description: "An introduction to Deep Learning and its applications in NLP"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We can see that the first few positions are reserved for special tokens starting with <code>xx</code>. The token <code>xxunk</code> is used for a word that is not in the dictionary and the <code>xxbos</code> and <code>xxeos</code> identify the beginning and the end of a string. So if the first entry in the encoding vector is 1 this means that the token is <code>xxunk</code>. If the third entry is 1 then the token is <code>xxbos</code>.</p>
+<p>We can see that the first few positions are reserved for special tokens starting with <code>xx</code>. The token <code>xxunk</code> is used for a word that is not in the dictionary. The <code>xxbos</code> and <code>xxeos</code> identify the beginning and the end of a string. So if the first entry in the encoding vector is 1 this means that the token is <code>xxunk</code>. If the third entry is 1 then the token is <code>xxbos</code>.</p>
 
 </div>
 </div>
@@ -579,8 +579,8 @@ description: "An introduction to Deep Learning and its applications in NLP"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Representation">Representation<a class="anchor-link" href="#Representation"> </a></h3><p>When we vectorized the texts in the last lecture we represented them as count vectors. The architecture we use in this lecture allows for each word to be processed sequentially and thus conserving the order information. Therefore we encode the text with <strong>one-hot encodings</strong>. However, storing the information as vectors would not be very memory efficient; one entry is 1 and all the other entries are 0. It is more efficient to just store the information on which entry is 1 and then create the vector when we need it.</p>
-<p>We can look at the data representation of the exmaple we printed above. Each number represents a word in the vocabulary and specifies the entry in the one-hot encoding that is set to one.</p>
+<h3 id="Representation">Representation<a class="anchor-link" href="#Representation"> </a></h3><p>When we vectorized the texts in the last lecture, we represented them as count vectors. The architecture we use in this lecture allows for each word to be processed sequentially and thus conserving the order information. Therefore we encode the text with <strong>one-hot encodings</strong>. However, storing the information as vectors would not be very memory efficient; one entry is 1 and all the other entries are 0. It is more efficient to just store the information on which entry is 1 and then create the vector when we need it.</p>
+<p>We can look at the data representation of the example we printed above. Each number represents a word in the vocabulary and specifies the entry in the one-hot encoding that is set to one.</p>
 
 </div>
 </div>
@@ -645,7 +645,7 @@ description: "An introduction to Deep Learning and its applications in NLP"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Train-model">Train model<a class="anchor-link" href="#Train-model"> </a></h3><p>We will train a variant of a model called LSTM (long short-term memory) network. This is a neural network with a feedback loop. That means that when fed a sequence of tokens it feeds back it output for the next prediction. That way the model has a mechanism remembering the past inputs. This is especially useful when dealing with sequential data such as texts, where the sequence of words and characters carries important meaning.</p>
+<h3 id="Train-model">Train model<a class="anchor-link" href="#Train-model"> </a></h3><p>We will train a variant of a model called LSTM (long short-term memory) network. This is a neural network with a feedback loop. That means that when fed a sequence of tokens, it feeds back its output for the next prediction. With this the model has a mechanism remembering the past inputs. This is especially useful when dealing with sequential data such as texts, where the sequence of words and characters carries important meaning.</p>
 <div style="text-align: center">
 {% include image.html max-width="400" file="/dslectures/images/rnn-diagram.png" %}
     <p style="text-align: center;"> <b>Reference:</b> https://colah.github.io/posts/2015-08-Understanding-LSTMs/ </p>
@@ -655,7 +655,7 @@ description: "An introduction to Deep Learning and its applications in NLP"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Load-pretrained-model">Load pretrained model<a class="anchor-link" href="#Load-pretrained-model"> </a></h4><p>Training the model on Wikipedia takes a day or two. Fortunately, people have already trained the model and shared it in the fastai library. Therefore, we can just lode the pretrained langauge model. When we load it we also pass the dataset it will be trained on.</p>
+<h4 id="Load-pretrained-model">Load pretrained model<a class="anchor-link" href="#Load-pretrained-model"> </a></h4><p>Training the model on Wikipedia takes a day or two. Fortunately, people have already trained the model and shared it in the fastai library. Therefore, we can just load the pretrained langauge model. When we load it, we also pass the dataset it will be trained on.</p>
 
 </div>
 </div>
@@ -679,8 +679,8 @@ description: "An introduction to Deep Learning and its applications in NLP"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Learning-rate-finder">Learning rate finder<a class="anchor-link" href="#Learning-rate-finder"> </a></h4><p>The learning rate is a key parameter when training models in deep learning. It specifies how strongly we update the model parameters. If the learning rate is too small training takes forever. If the learning rate is too big we will never converge to a minima.</p>
-<p>With the <code>lr_find()</code> function we can explore how the loss function behaves with regards to the value of the learning rate:</p>
+<h4 id="Learning-rate-finder">Learning rate finder<a class="anchor-link" href="#Learning-rate-finder"> </a></h4><p>The learning rate is a key parameter when training models in deep learning. It specifies how strongly we update the model parameters. If the learning rate is too small, the training takes forever. If the learning rate is too big, we will never converge to a minimum.</p>
+<p>With the <code>lr_find()</code> function, we can explore how the loss function behaves with regards to the value of the learning rate:</p>
 
 </div>
 </div>
@@ -810,7 +810,7 @@ description: "An introduction to Deep Learning and its applications in NLP"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>First of all we see that if we choose the learning rate too big the loss function starts to increase. We want to avoid this at all cost. So we want to find the spot where the loss function decreases the steepest with the largest learning rate. In this case a good value is <code>1e-2</code>. The first parameter determines how many epochs we train. One epoch correspnds to one pass through the training set.</p>
+<p>First of all, we see that if we choose the learning rate too big, the loss function starts to increase. We want to avoid this at all costs. So we want to find the spot where the loss function decreases the steepest with the largest learning rate. In this case, a good value is <code>1e-2</code>. The first parameter determines how many epochs we train. One epoch corresponds to one pass through the training set.</p>
 
 </div>
 </div>
@@ -868,8 +868,8 @@ description: "An introduction to Deep Learning and its applications in NLP"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Deep learning models learn more and more abstractions with each layer. The first layers of an image model might learn about edges and textures in an image and as you progress through the layers you can see how the model combines egdes to eyes or ears and eventually combines these to faces. Therefore the last few layers are usually the ones that are very task specific while the others contain general information.</p>
-<p>For this reason we usually start by just tuning the last few layers because we don't want to loose that information and then in the end fine-tune the whole model. This is what we did above: we just trained the last few layers. Now to get the best possible performance we want to train the whole model. The <code>unfreeze()</code> function enables the training of the whole model. We train the model for 10 more epochs with a slightly lower learning rate.</p>
+<p>Deep learning models learn more and more abstractions with each layer. The first layers of an image model might learn about edges and textures in an image, and as you progress through the layers, you can see how the model combines edges to eyes or ears and eventually combines these to faces. Therefore the last few layers are usually the ones that are very task-specific while the others contain general information.</p>
+<p>For this reason, we usually start by just tuning the last few layers because we don't want to lose that information and then, in the end, fine-tune the whole model. This is what we did above: we just trained the last few layers. Now to get the best possible performance, we want to train the whole model. The <code>unfreeze()</code> function enables the training of the whole model. We train the model for 10 more epochs with a slightly lower learning rate.</p>
 
 </div>
 </div>
@@ -1007,7 +1007,7 @@ description: "An introduction to Deep Learning and its applications in NLP"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Save-language-model">Save language model<a class="anchor-link" href="#Save-language-model"> </a></h3><p>Since the step above took about 4h we want to save the progress so we don't have to repeat the step when we restart the notebook.</p>
+<h3 id="Save-language-model">Save language model<a class="anchor-link" href="#Save-language-model"> </a></h3><p>Since the step above took about 4h we want to save the progress, so we don't have to repeat the step when we restart the notebook.</p>
 
 </div>
 </div>
@@ -1139,14 +1139,14 @@ I liked this movie because it was about a person playing far , the same way . It
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Exercise-1">Exercise 1<a class="anchor-link" href="#Exercise-1"> </a></h3><p>Generate a few movie reviews with different input texts. Post the funniest review in the Teams channel.</p>
+<h3 id="Exercise-1">Exercise 1<a class="anchor-link" href="#Exercise-1"> </a></h3><p>Generate a few movie reviews with different input texts. Post the funniest review on the Teams channel.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Encoder">Encoder<a class="anchor-link" href="#Encoder"> </a></h3><p>As mentioned previously, the last layers of a deep learning model are usually the most task specific. In the case of language modeling the last layer predicts the next word in a sequence. We want to do text classification however, so we don't need that layer. Therefore, we discard the last layer and save only what is called the encoder. In the next step we add a new layer on top of the encoder for text classification.</p>
+<h3 id="Encoder">Encoder<a class="anchor-link" href="#Encoder"> </a></h3><p>As mentioned previously, the last layers of a deep learning model are usually the most task-specific. In the case of language modeling, the last layer predicts the next word in a sequence. We want to do text classification, however, so we don't need that layer. Therefore, we discard the last layer and only save what is called the encoder. In the next step, we add a new layer on top of the encoder for text classification.</p>
 
 </div>
 </div>
@@ -1170,14 +1170,14 @@ I liked this movie because it was about a person playing far , the same way . It
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Train-classifier">Train classifier<a class="anchor-link" href="#Train-classifier"> </a></h2><p>In this section we will use the fine-tuned language model and build a text classifier on top of it.  The procedure is very similar to the language model fine-tuning but needs some minor adjustments for text classification.</p>
+<h2 id="Train-classifier">Train classifier<a class="anchor-link" href="#Train-classifier"> </a></h2><p>In this section, we will use the fine-tuned language model and build a text classifier on top of it.  The procedure is very similar to the language model fine-tuning but needs some minor adjustments for text classification.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Preprocess-data-for-classification">Preprocess data for classification<a class="anchor-link" href="#Preprocess-data-for-classification"> </a></h3><p>Preprocessing the data follows similar steps as for language modeling. The main differences are that 1) we don't want a random train/valid split but the official one and 2) we want to label each element with its sentiment based on the folder name.</p>
+<h3 id="Preprocess-data-for-classification">Preprocess data for classification<a class="anchor-link" href="#Preprocess-data-for-classification"> </a></h3><p>Preprocessing the data follows similar steps as for language modeling. The main differences are that 1) we don't want a random train/valid split, but the official one and 2) we want to label each element with its sentiment based on the folder name.</p>
 
 </div>
 </div>
@@ -1324,7 +1324,7 @@ I liked this movie because it was about a person playing far , the same way . It
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Find-learning-rate">Find learning rate<a class="anchor-link" href="#Find-learning-rate"> </a></h3><p>Again, we need to find the best learning rate for training the classifer.</p>
+<h3 id="Find-the-learning-rate">Find the learning rate<a class="anchor-link" href="#Find-the-learning-rate"> </a></h3><p>Again, we need to find the best learning rate for training the classifier.</p>
 
 </div>
 </div>
@@ -1696,7 +1696,7 @@ I liked this movie because it was about a person playing far , the same way . It
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Note that after the last optimisation step the model is able to predict the sentiment on the test set with <strong>94%</strong> accuracy. This is roughly 10% better than our Naïve Bayes model from last lecture. In other words, this model makes <strong>3 times</strong> fewer mistakes than the Naïve Bayes model!</p>
+<p>Note that after the last optimisation step the model can predict the sentiment on the test set with <strong>94%</strong> accuracy. This is roughly 10% better than our Naïve Bayes model from the last lecture. In other words, this model makes <strong>3 times</strong> fewer mistakes than the Naïve Bayes model!</p>
 
 </div>
 </div>
