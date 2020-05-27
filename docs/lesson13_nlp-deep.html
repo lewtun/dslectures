@@ -36,6 +36,13 @@ description: "An introduction to Deep Learning and its applications in NLP"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>{% include note.html content='Make sure you are connected to a GPU machine when running the Colab notebook by clicking on <code>Runtime -&gt; Change runtime type</code> and set hardware type to GPU.' %}</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Learning-objectives">Learning objectives<a class="anchor-link" href="#Learning-objectives"> </a></h2><p>In this lecture we cover the basics of Deep Learning and its application to NLP. The learning goals are:</p>
 <ul>
 <li>The basics of transfer learning</li>
@@ -138,6 +145,23 @@ description: "An introduction to Deep Learning and its applications in NLP"
 </div>
 </div>
 </div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pip install dslectures
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -1039,11 +1063,13 @@ description: "An introduction to Deep Learning and its applications in NLP"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_lm</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">),</span> <span class="s1">&#39;data_lm.pkl&#39;</span><span class="p">,</span> <span class="n">bs</span><span class="o">=</span><span class="n">bs</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_lm</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;../data/&quot;</span><span class="p">),</span> <span class="s1">&#39;data_lm.pkl&#39;</span><span class="p">,</span> <span class="n">bs</span><span class="o">=</span><span class="n">bs</span><span class="p">)</span>
 <span class="n">data_lm</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">path</span>
 
 <span class="n">learn</span> <span class="o">=</span> <span class="n">language_model_learner</span><span class="p">(</span><span class="n">data_lm</span><span class="p">,</span> <span class="n">AWD_LSTM</span><span class="p">,</span> <span class="n">drop_mult</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">model_dir</span><span class="o">=</span><span class="s2">&quot;../data/&quot;</span><span class="p">)</span>
+<span class="n">learn</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="n">learn</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;fine_tuned&#39;</span><span class="p">);</span>
+<span class="n">learn</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">path</span>
 </pre></div>
 
     </div>
