@@ -47,7 +47,7 @@ description: "Helper functions used throughout the lessons."
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_dataset</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_dataset</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s2">&quot;../data/&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Download datasets from Google Drive.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -64,12 +64,14 @@ description: "Helper functions used throughout the lessons."
         <span class="s2">&quot;kaggle_housing_train.csv&quot;</span><span class="p">:</span> <span class="s2">&quot;1BHiuZyMab7rPA8Rog29fIYhJmjvJLkVI&quot;</span><span class="p">,</span>
         <span class="s2">&quot;kaggle_housing_test.csv&quot;</span><span class="p">:</span> <span class="s2">&quot;1KSfBhIdFlejUWAnrfFl10c-rjA4VhgkT&quot;</span><span class="p">,</span>
         <span class="s2">&quot;kaggle_titanic_train.csv&quot;</span><span class="p">:</span> <span class="s2">&quot;1BHiuZyMab7rPA8Rog29fIYhJmjvJLkVI&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;kaggle_titanic_test.csv&quot;</span><span class="p">:</span> <span class="s2">&quot;1NFCDTBF4dM8rllv0fP3VnPmoRLmfdOEB&quot;</span>
+        <span class="s2">&quot;kaggle_titanic_test.csv&quot;</span><span class="p">:</span> <span class="s2">&quot;1NFCDTBF4dM8rllv0fP3VnPmoRLmfdOEB&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;fine_tuned.pth&quot;</span><span class="p">:</span> <span class="s2">&quot;S3&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;data_lm.pkl&quot;</span><span class="p">:</span> <span class="s2">&quot;S3&quot;</span>
     <span class="p">}</span>
-
-    <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;../data/&quot;</span>
     <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">gdrive_path</span> <span class="o">=</span> <span class="s2">&quot;https://docs.google.com/uc?export=download&amp;id=&quot;</span>
+    <span class="n">s3_path</span> <span class="o">=</span> <span class="s2">&quot;https://dslectures.s3.eu-central-1.amazonaws.com/&quot;</span>
+    
     <span class="k">if</span> <span class="n">dataset_name</span> <span class="ow">in</span> <span class="n">name_to_id</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="n">dataset_name</span><span class="p">):</span>
             <span class="nb">print</span><span class="p">(</span>
@@ -77,7 +79,10 @@ description: "Helper functions used throughout the lessons."
             <span class="p">)</span>
             <span class="k">return</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">file_url</span> <span class="o">=</span> <span class="n">gdrive_path</span> <span class="o">+</span> <span class="n">name_to_id</span><span class="p">[</span><span class="n">dataset_name</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">name_to_id</span><span class="p">[</span><span class="n">dataset_name</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;S3&quot;</span><span class="p">:</span>
+                <span class="n">file_url</span> <span class="o">=</span> <span class="n">s3_path</span> <span class="o">+</span> <span class="n">dataset_name</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">file_url</span> <span class="o">=</span> <span class="n">gdrive_path</span> <span class="o">+</span> <span class="n">name_to_id</span><span class="p">[</span><span class="n">dataset_name</span><span class="p">]</span>
             <span class="n">wget</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">file_url</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">path</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Something went wrong during download. Try again.&quot;</span><span class="p">)</span>
@@ -105,7 +110,7 @@ description: "Helper functions used throughout the lessons."
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_dataset" class="doc_header"><code>get_dataset</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L22" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_dataset</code>(<strong><code>dataset_name</code></strong>:<code>str</code>)</p>
+<h4 id="get_dataset" class="doc_header"><code>get_dataset</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L22" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_dataset</code>(<strong><code>dataset_name</code></strong>:<code>str</code>, <strong><code>path</code></strong>=<em><code>'../data/'</code></em>)</p>
 </blockquote>
 <p>Download datasets from Google Drive.</p>
 
@@ -624,6 +629,43 @@ description: "Helper functions used throughout the lessons."
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="fastai-fine-tuned-model">fastai fine-tuned model<a class="anchor-link" href="#fastai-fine-tuned-model"> </a></h3>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_dataset</span><span class="p">(</span><span class="s2">&quot;fine_tuned.pth&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Download of fine_tuned.pth dataset complete.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Metrics">Metrics<a class="anchor-link" href="#Metrics"> </a></h2>
 </div>
 </div>
@@ -666,7 +708,7 @@ description: "Helper functions used throughout the lessons."
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="rmse" class="doc_header"><code>rmse</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L62" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>rmse</code>(<strong><code>y</code></strong>, <strong><code>yhat</code></strong>)</p>
+<h4 id="rmse" class="doc_header"><code>rmse</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L67" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>rmse</code>(<strong><code>y</code></strong>, <strong><code>yhat</code></strong>)</p>
 </blockquote>
 <p>A utility function to calculate the Root Mean Square Error (RMSE).</p>
 <p>Args:
@@ -758,7 +800,7 @@ description: "Helper functions used throughout the lessons."
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="convert_strings_to_categories" class="doc_header"><code>convert_strings_to_categories</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L75" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>convert_strings_to_categories</code>(<strong><code>df</code></strong>)</p>
+<h4 id="convert_strings_to_categories" class="doc_header"><code>convert_strings_to_categories</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L80" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>convert_strings_to_categories</code>(<strong><code>df</code></strong>)</p>
 </blockquote>
 <p>A utility function to convert all string columns to Categorical data type.</p>
 
@@ -1037,7 +1079,7 @@ dtype: int8</pre>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="fill_missing_values_with_median" class="doc_header"><code>fill_missing_values_with_median</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L82" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>fill_missing_values_with_median</code>(<strong><code>df</code></strong>)</p>
+<h4 id="fill_missing_values_with_median" class="doc_header"><code>fill_missing_values_with_median</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L87" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>fill_missing_values_with_median</code>(<strong><code>df</code></strong>)</p>
 </blockquote>
 <p>Replaces missing values in numerical columns with the median.</p>
 
@@ -1300,7 +1342,7 @@ dtype: int8</pre>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="make_polynomial_data" class="doc_header"><code>make_polynomial_data</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L91" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>make_polynomial_data</code>(<strong><code>weight</code></strong>, <strong><code>n_samples</code></strong>=<em><code>100</code></em>, <strong><code>seed</code></strong>=<em><code>42</code></em>)</p>
+<h4 id="make_polynomial_data" class="doc_header"><code>make_polynomial_data</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L96" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>make_polynomial_data</code>(<strong><code>weight</code></strong>, <strong><code>n_samples</code></strong>=<em><code>100</code></em>, <strong><code>seed</code></strong>=<em><code>42</code></em>)</p>
 </blockquote>
 <p>Creates noisy polynomial data.</p>
 <p>Args:
@@ -1450,7 +1492,7 @@ dtype: int8</pre>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="PolynomialRegressor" class="doc_header"><code>class</code> <code>PolynomialRegressor</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L124" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>PolynomialRegressor</code>(<strong><code>degree</code></strong>=<em><code>0</code></em>, <strong><code>w_hat</code></strong>=<em><code>None</code></em>)</p>
+<h2 id="PolynomialRegressor" class="doc_header"><code>class</code> <code>PolynomialRegressor</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L129" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>PolynomialRegressor</code>(<strong><code>degree</code></strong>=<em><code>0</code></em>, <strong><code>w_hat</code></strong>=<em><code>None</code></em>)</p>
 </blockquote>
 <p>Scikit-like interface to fit polynomials.</p>
 
@@ -1585,7 +1627,7 @@ dtype: int8</pre>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="display_large" class="doc_header"><code>display_large</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L166" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>display_large</code>(<strong><code>df</code></strong>)</p>
+<h4 id="display_large" class="doc_header"><code>display_large</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L171" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>display_large</code>(<strong><code>df</code></strong>)</p>
 </blockquote>
 <p>Displays up to 1000 columns and rows of pandas.DataFrame or pandas.Series objects.</p>
 
@@ -2008,7 +2050,7 @@ dtype: int8</pre>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="rf_feature_importance" class="doc_header"><code>rf_feature_importance</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L172" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>rf_feature_importance</code>(<strong><code>fitted_model</code></strong>, <strong><code>df</code></strong>)</p>
+<h4 id="rf_feature_importance" class="doc_header"><code>rf_feature_importance</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L177" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>rf_feature_importance</code>(<strong><code>fitted_model</code></strong>, <strong><code>df</code></strong>)</p>
 </blockquote>
 <p>Creates a pandas.Dataframe of a Random Forest's feature importance per column.</p>
 
@@ -2058,7 +2100,7 @@ dtype: int8</pre>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="plot_feature_importance" class="doc_header"><code>plot_feature_importance</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L179" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>plot_feature_importance</code>(<strong><code>feature_importance</code></strong>)</p>
+<h4 id="plot_feature_importance" class="doc_header"><code>plot_feature_importance</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L184" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>plot_feature_importance</code>(<strong><code>feature_importance</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -2112,7 +2154,7 @@ dtype: int8</pre>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="plot_dendogram" class="doc_header"><code>plot_dendogram</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L184" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>plot_dendogram</code>(<strong><code>X</code></strong>)</p>
+<h4 id="plot_dendogram" class="doc_header"><code>plot_dendogram</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L189" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>plot_dendogram</code>(<strong><code>X</code></strong>)</p>
 </blockquote>
 <p>Plots a dendogram to see which features are related.</p>
 
@@ -2163,7 +2205,7 @@ dtype: int8</pre>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="plot_fitting_graph" class="doc_header"><code>plot_fitting_graph</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L200" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>plot_fitting_graph</code>(<strong><code>x</code></strong>, <strong><code>metric_train</code></strong>, <strong><code>metric_valid</code></strong>, <strong><code>metric_name</code></strong>=<em><code>'metric'</code></em>, <strong><code>xlabel</code></strong>=<em><code>'x'</code></em>, <strong><code>yscale</code></strong>=<em><code>'linear'</code></em>)</p>
+<h4 id="plot_fitting_graph" class="doc_header"><code>plot_fitting_graph</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L205" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>plot_fitting_graph</code>(<strong><code>x</code></strong>, <strong><code>metric_train</code></strong>, <strong><code>metric_valid</code></strong>, <strong><code>metric_name</code></strong>=<em><code>'metric'</code></em>, <strong><code>xlabel</code></strong>=<em><code>'x'</code></em>, <strong><code>yscale</code></strong>=<em><code>'linear'</code></em>)</p>
 </blockquote>
 <p>Plot fitting graph for train and validation metrics.</p>
 
@@ -2232,7 +2274,7 @@ dtype: int8</pre>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="plot_classifier_boundaries" class="doc_header"><code>plot_classifier_boundaries</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L212" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>plot_classifier_boundaries</code>(<strong><code>X</code></strong>, <strong><code>y</code></strong>, <strong><code>clf</code></strong>)</p>
+<h4 id="plot_classifier_boundaries" class="doc_header"><code>plot_classifier_boundaries</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/core.py#L217" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>plot_classifier_boundaries</code>(<strong><code>X</code></strong>, <strong><code>y</code></strong>, <strong><code>clf</code></strong>)</p>
 </blockquote>
 <p>Given features X and labels y along with classifier, plot decision boundaries in two dimensions.</p>
 <p>Args:
