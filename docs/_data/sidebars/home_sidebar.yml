@@ -16,6 +16,9 @@ entries:
       title: fast.ai helper functions
       url: /structured
     - output: web,pdf
+      title: Image downloader
+      url: /image_downloader
+    - output: web,pdf
       title: Lesson 1 - Introduction to pandas and seaborn
       url: /lesson01_intro-to-pandas
     - output: web,pdf
