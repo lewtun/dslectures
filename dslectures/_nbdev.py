@@ -25,8 +25,7 @@ index = {"get_dataset": "00_core.ipynb",
          "scale_vars": "01_structured.ipynb",
          "proc_df": "01_structured.ipynb",
          "rf_feat_importance": "01_structured.ipynb",
-         "ImageDownloader": "02_image_downloader.ipynb",
-         "download_google_images": "02_image_downloader.ipynb"}
+         "ImageDownloader": "02_image_downloader.ipynb"}
 
 modules = ["core.py",
            "structured.py",
