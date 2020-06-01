@@ -27,6 +27,63 @@ description: "In preparation of lesson 15 we create an image dataset."
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Learning-objectives">Learning objectives<a class="anchor-link" href="#Learning-objectives"> </a></h2><p>In this lecture we will create an image dataset that we can then use in the next lecture to build an image classifier. To get labeled data we will download the images from Google image searches.</p>
+<p>You should learn how to create new dataset, look at examples and save the dataset.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="References">References<a class="anchor-link" href="#References"> </a></h2><p>This lesson prepares for lesson 15 where we will create an image classifier. This content will be similar to the first lesson of the fastai course. If you have time we recommend watching the the lesson recording.</p>
+<ul>
+<li>Practical Deep Learning for Coders - Lesson 1: Image classification by fastai [<a href="https://youtu.be/XfoYk_Z5AkI">video</a>]</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Homework">Homework<a class="anchor-link" href="#Homework"> </a></h2><p>Create at least one image dataset.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Goal">Goal<a class="anchor-link" href="#Goal"> </a></h2><p>Before we can create an image classifier we need to create a dataset with training data. We could you one of the standard image datasets but in real life you usually need to be creative to get enough labeled data for your use-case. We will download images from Google search to download images corresponding to a certain category.</p>
+<div style="text-align: center">
+{% include image.html max-width="400" file="/dslectures/images/data-meme.jpg" %}
+</div><p>At the end of this notebook you should have at least one dataset with images of different categories. The format of the dataset should be the following:</p>
+
+<pre><code>data 
+│
+└───dog_vs_cat_dataset
+    │
+    └───cat
+    │   │   cat_img_1.png
+    │   │   cat_img_2.png
+    │   │   ...
+    │
+    └───dog
+        │   dog_img_1.png
+        │   dog_img_2.png
+        │   ...</code></pre>
+<p>This is the same structure we already encountered when we trained a text classifier with <code>ULMFiT</code> in the last lecture. Every class is contained in a folder that is named after the class. We built a helper class called <a href="/dslectures/image_downloader#ImageDownloader"><code>ImageDownloader</code></a> that we can use to set this up. This class also downloads Google image search results automatically into these folders.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Prerequisites">Prerequisites<a class="anchor-link" href="#Prerequisites"> </a></h2><p>In order to get the images from Google search we need the <code>chromium-chromedriver</code>. If you run this notebook on binder <code>chromium-chromedriver</code> is already installed. If you want to install it on an other machine you need to install it manually. On a linux machine this can be done with the following commands:</p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -34,12 +91,232 @@ description: "In preparation of lesson 15 we create an image dataset."
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">shutil</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># ! apt-get update</span>
+<span class="c1"># ! apt-get install chromium-chromedriver</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For more information visit <a href="https://www.chromium.org/">https://www.chromium.org/</a>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Install-fastai-library">Install fastai library<a class="anchor-link" href="#Install-fastai-library"> </a></h2><p>First we need to install the fastai library since we need some of its helper functions to download images and then also visualise the downloaded images.
+{% include note.html content='This step might take a few minutes.' %}</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pip install fastai --no-cache-dir -qq
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Import">Import<a class="anchor-link" href="#Import"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Then we can import the <a href="/dslectures/image_downloader#ImageDownloader"><code>ImageDownloader</code></a> and the fastai helper functions.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">image_downloader</span> <span class="kn">import</span> <span class="n">ImageDownloader</span>
 <span class="kn">from</span> <span class="nn">fastai.vision</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">fastai.widgets</span> <span class="kn">import</span> <span class="n">DatasetFormatter</span><span class="p">,</span> <span class="n">ImageCleaner</span>
-<span class="kn">from</span> <span class="nn">image_downloader</span> <span class="kn">import</span> <span class="n">ImageDownloader</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Create-dataset">Create dataset<a class="anchor-link" href="#Create-dataset"> </a></h2><p>Now we need to define where we want to save the dataset and what it should be called. As usual, we save it in the <code>../data/</code> folder. In this example I want to create a memes dataset.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../data/&#39;</span><span class="p">)</span>
+<span class="n">dataset_name</span> <span class="o">=</span> <span class="s1">&#39;memes&#39;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>With this information I can create a new <a href="/dslectures/image_downloader#ImageDownloader"><code>ImageDownloader</code></a> object.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">img_dl</span> <span class="o">=</span> <span class="n">ImageDownloader</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">dataset_name</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This will also create a new folder in the <code>data_path</code> called <code>'meme'</code>:</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_path</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[PosixPath(&#39;../data/housing.csv&#39;),
+ PosixPath(&#39;../data/housing_addresses.csv&#39;),
+ PosixPath(&#39;../data/housing_processed.csv&#39;),
+ PosixPath(&#39;../data/.DS_Store&#39;),
+ PosixPath(&#39;../data/solution.csv&#39;),
+ PosixPath(&#39;../data/zero_submission.csv&#39;),
+ PosixPath(&#39;../data/test.csv&#39;),
+ PosixPath(&#39;../data/.gitkeep&#39;),
+ PosixPath(&#39;../data/autos.csv&#39;),
+ PosixPath(&#39;../data/imdb.csv&#39;),
+ PosixPath(&#39;../data/train.csv&#39;),
+ PosixPath(&#39;../data/.ipynb_checkpoints&#39;),
+ PosixPath(&#39;../data/median_submission.csv&#39;),
+ PosixPath(&#39;../data/word2vec-google-news-300.pkl&#39;),
+ PosixPath(&#39;../data/fine_tuned.pth&#39;),
+ PosixPath(&#39;../data/sample_submission.csv&#39;),
+ PosixPath(&#39;../data/churn.csv&#39;),
+ PosixPath(&#39;../data/housing_gmaps_data_raw.csv&#39;)]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Create-new-class">Create new class<a class="anchor-link" href="#Create-new-class"> </a></h2><p>We are now ready to create our first class in this dataset. We want to create two classes: one containing dank memes and another class with lame memes. Therefore we call the first class <code>'dank_meme'</code>. This will also be the name of the folder in the dataset folder. It is usually a good idea to avoid whitespaces when naming folders and files. You can replace them with underscores or dashes.</p>
+<p>The second piece of information we need is the search query. This is what you would enter on the Google search website. In this case we want to search for <code>'dank memes'</code>.
+{% include note.html content='Since a lot of information about a meme is stored in text written on top of the image this particular example could be very hard for image classifiers. Ideally, pick an example where all the necessary information for the classification is stored in the image itself.' %}</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">class_name</span> <span class="o">=</span> <span class="s1">&#39;dank_meme&#39;</span>
+<span class="n">search_query</span> <span class="o">=</span> <span class="s1">&#39;dank meme&#39;</span>
+
+<span class="n">img_dl</span><span class="o">.</span><span class="n">add_images_to_class</span><span class="p">(</span><span class="n">class_name</span><span class="p">,</span> <span class="n">search_query</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Depending on the search query this should yield somewhere between 100-700 images that are stored in the class folder. Maybe you want to download images from several search queries into the same class folder. You can do that with the image downloader. Simply create another query and pass it with the same class name.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">search_query</span> <span class="o">=</span> <span class="s1">&#39;great meme&#39;</span>
+
+<span class="n">img_dl</span><span class="o">.</span><span class="n">add_images_to_class</span><span class="p">(</span><span class="n">class_name</span><span class="p">,</span> <span class="n">search_query</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -56,7 +333,9 @@ description: "In preparation of lesson 15 we create an image dataset."
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;../data/my_image_dataset&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">search_query</span> <span class="o">=</span> <span class="s1">&#39;funny meme&#39;</span>
+
+<span class="n">img_dl</span><span class="o">.</span><span class="n">add_images_to_class</span><span class="p">(</span><span class="n">class_name</span><span class="p">,</span> <span class="n">search_query</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -66,6 +345,26 @@ description: "In preparation of lesson 15 we create an image dataset."
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This should be enough images for that class to work with.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Create-another-class">Create another class<a class="anchor-link" href="#Create-another-class"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We now want to create the second class in our dataset with lame memes. To do so we can run the same function but with a different <code>class_name</code>.</p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -73,7 +372,10 @@ description: "In preparation of lesson 15 we create an image dataset."
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ImageDownloader</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">class_name</span> <span class="o">=</span> <span class="s1">&#39;lame_meme&#39;</span>
+<span class="n">search_query</span> <span class="o">=</span> <span class="s1">&#39;lame meme&#39;</span>
+
+<span class="n">img_dl</span><span class="o">.</span><span class="n">add_images_to_class</span><span class="p">(</span><span class="n">class_name</span><span class="p">,</span> <span class="n">search_query</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -83,6 +385,141 @@ description: "In preparation of lesson 15 we create an image dataset."
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can create as many classes as you want withing one dataset. For the purpose of next weeks lecture we suggest creating at least one dataset with 2-20 classes. Of course you can also create more than one dataset!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Delete-dataset">Delete dataset<a class="anchor-link" href="#Delete-dataset"> </a></h2><p>It can happen that you want to start from scratch. Unfortunately, deleting folders that contain files is not possible from within JupyterLab. You can use the following command to delete a folder with all its content.
+{% include warning.html content='This command is not reversible and deletes all the contents of the target folder recursively. Make sure you don&#8217;t run it on the wrong folder on your local machine.' %}</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># !rm -rf ../data/my_dataset_name/</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Delete-class">Delete class<a class="anchor-link" href="#Delete-class"> </a></h2><p>If you only want to delete a certain class in your dataset you can do this with the following command</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># !rm -rf ../data/my_dataset_name/my_class/</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Look-at-some-examples">Look at some examples<a class="anchor-link" href="#Look-at-some-examples"> </a></h2><p>Finally we want to look at some examples. This might look familiar from the data loading functions in the last lecture and is indeed also part of the fastai library.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">ImageDataBunch</span><span class="o">.</span><span class="n">from_folder</span><span class="p">(</span><span class="n">data_path</span><span class="o">/</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">224</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Once we loaded the data we can plot a random selection of images from the dataset.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">show_batch</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Download-dataset">Download dataset<a class="anchor-link" href="#Download-dataset"> </a></h2><p>Finally, we need to download the dataset, since storage on Binder is not persistent. Downloading each image individually is note really practical, therefore we compress the dataset folder which we can then download.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>tar -zcf <span class="o">{</span>data_path/dataset_name<span class="o">}</span>.tar.gz <span class="o">{</span>data_path/dataset_name<span class="o">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Clicking on the folder icon on the top left of the JupyterLab user interface you should be able to navigate to the <code>'../data/'</code> folder and then right click on the compressed file (with the file ending <code>.tar.gz</code> and download it.</p>
+
+</div>
+</div>
+</div>
 </div>
  
 

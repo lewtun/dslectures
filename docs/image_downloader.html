@@ -30,6 +30,32 @@ description: "Useful helper function to download images from Google search. Adap
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pip install fastai --no-cache-dir -qq
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>WARNING: pip is being invoked by an old script wrapper. This will fail in a future version of pip.
+Please see https://github.com/pypa/pip/issues/5599 for advice on fixing the underlying issue.
+To avoid this problem you can invoke Python with &#39;-m pip&#39; instead of running pip directly.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
 
 </div>
     {% endraw %}
@@ -41,11 +67,42 @@ description: "Useful helper function to download images from Google search. Adap
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">ImageDownloader</span><span class="p">:</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>apt-get update -qq
+<span class="o">!</span>apt-get install chromium-chromedriver -y -qq
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_img_sizes</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;&gt;400*300&#39;</span><span class="p">:</span><span class="s1">&#39;isz:lt,islt:qsvga&#39;</span><span class="p">,</span><span class="s1">&#39;&gt;640*480&#39;</span><span class="p">:</span><span class="s1">&#39;isz:lt,islt:vga&#39;</span><span class="p">,</span><span class="s1">&#39;&gt;800*600&#39;</span><span class="p">:</span><span class="s1">&#39;isz:lt,islt:svga&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;&gt;1024*768&#39;</span><span class="p">:</span><span class="s1">&#39;visz:lt,islt:xga&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;2MP&#39;</span><span class="p">:</span><span class="s1">&#39;isz:lt,islt:2mp&#39;</span><span class="p">,</span><span class="s1">&#39;&gt;4MP&#39;</span><span class="p">:</span><span class="s1">&#39;isz:lt,islt:4mp&#39;</span><span class="p">,</span><span class="s1">&#39;&gt;6MP&#39;</span><span class="p">:</span><span class="s1">&#39;isz:lt,islt:6mp&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;&gt;8MP&#39;</span><span class="p">:</span><span class="s1">&#39;isz:lt,islt:8mp&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;10MP&#39;</span><span class="p">:</span><span class="s1">&#39;isz:lt,islt:10mp&#39;</span><span class="p">,</span><span class="s1">&#39;&gt;12MP&#39;</span><span class="p">:</span><span class="s1">&#39;isz:lt,islt:12mp&#39;</span><span class="p">,</span><span class="s1">&#39;&gt;15MP&#39;</span><span class="p">:</span><span class="s1">&#39;isz:lt,islt:15mp&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;&gt;20MP&#39;</span><span class="p">:</span><span class="s1">&#39;isz:lt,islt:20mp&#39;</span><span class="p">,</span><span class="s1">&#39;&gt;40MP&#39;</span><span class="p">:</span><span class="s1">&#39;isz:lt,islt:40mp&#39;</span><span class="p">,</span><span class="s1">&#39;&gt;70MP&#39;</span><span class="p">:</span><span class="s1">&#39;isz:lt,islt:70mp&#39;</span><span class="p">}</span>
+
+
+<span class="k">class</span> <span class="nc">ImageDownloader</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_path</span><span class="p">,</span> <span class="n">dataset_name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;The ImageDownloader helps download images from the google image search page&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_dataset_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">/</span><span class="n">dataset_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dataset_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_path</span><span class="o">/</span><span class="n">dataset_name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_dataset_name</span> <span class="o">=</span> <span class="n">dataset_name</span>
         
         <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_path</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -67,15 +124,17 @@ description: "Useful helper function to download images from Google search. Adap
         <span class="n">options</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">ChromeOptions</span><span class="p">()</span>
         <span class="n">options</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--headless&quot;</span><span class="p">)</span>
         <span class="n">options</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--no-sandbox&#39;</span><span class="p">)</span>
+        <span class="n">options</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--disable-dev-shm-usage&#39;</span><span class="p">)</span>        
+
         <span class="k">try</span><span class="p">:</span> 
-            <span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">(</span><span class="n">chrome_options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
+            <span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
         <span class="k">except</span><span class="p">:</span> 
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;Error initializing chromedriver. </span>
 <span class="s2">                  Check if it&#39;s in your path by running `which chromedriver`&quot;&quot;&quot;</span><span class="p">)</span>
         <span class="n">driver</span><span class="o">.</span><span class="n">set_window_size</span><span class="p">(</span><span class="mi">1440</span><span class="p">,</span> <span class="mi">900</span><span class="p">)</span>
         <span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
         <span class="n">old_height</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_images</span> <span class="o">//</span> <span class="mi">100</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
             <span class="n">driver</span><span class="o">.</span><span class="n">execute_script</span><span class="p">(</span><span class="s2">&quot;window.scrollTo(0, document.body.scrollHeight);&quot;</span><span class="p">)</span>
             <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">())</span>
             <span class="n">new_height</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">execute_script</span><span class="p">(</span><span class="s2">&quot;return document.body.scrollHeight&quot;</span><span class="p">)</span>
@@ -89,11 +148,10 @@ description: "Useful helper function to download images from Google search. Adap
         <span class="k">return</span> <span class="n">driver</span><span class="o">.</span><span class="n">page_source</span>
     
     <span class="k">def</span> <span class="nf">get_img_urls_from_html</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">html</span><span class="p">):</span>
-        
+        <span class="sd">&quot;&quot;&quot;Extract image urls from html code.&quot;&quot;&quot;</span>
         <span class="n">bs</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
         <span class="n">img_tags</span> <span class="o">=</span> <span class="n">bs</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">)</span>
         <span class="n">urls</span> <span class="o">=</span> <span class="p">[]</span>
-        
         <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">img_tags</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">tag</span><span class="o">.</span><span class="n">has_attr</span><span class="p">(</span><span class="s1">&#39;data-src&#39;</span><span class="p">):</span>
                 <span class="n">urls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tag</span><span class="p">[</span><span class="s1">&#39;data-src&#39;</span><span class="p">])</span>
@@ -124,6 +182,16 @@ description: "Useful helper function to download images from Google search. Adap
     <span class="k">return</span> <span class="p">(</span><span class="s1">&#39;https://www.google.com/search?q=&#39;</span> <span class="o">+</span> <span class="n">quote</span><span class="p">(</span><span class="n">search_term</span><span class="p">)</span> <span class="o">+</span>
             <span class="s1">&#39;&amp;espv=2&amp;biw=1366&amp;bih=667&amp;site=webhp&amp;source=lnms&amp;tbm=isch&#39;</span> <span class="o">+</span>
             <span class="n">_url_params</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="nb">format</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&amp;sa=X&amp;ei=XosDVaCXD8TasATItgE&amp;ved=0CAcQ_AUoAg&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">_url_params</span><span class="p">(</span><span class="n">size</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&gt;400*300&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;jpg&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="s2">&quot;Build Google Images Search Url params and return them as a string.&quot;</span>
+    <span class="n">_fmts</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;jpg&#39;</span><span class="p">:</span><span class="s1">&#39;ift:jpg&#39;</span><span class="p">,</span><span class="s1">&#39;gif&#39;</span><span class="p">:</span><span class="s1">&#39;ift:gif&#39;</span><span class="p">,</span><span class="s1">&#39;png&#39;</span><span class="p">:</span><span class="s1">&#39;ift:png&#39;</span><span class="p">,</span><span class="s1">&#39;bmp&#39;</span><span class="p">:</span><span class="s1">&#39;ift:bmp&#39;</span><span class="p">,</span> <span class="s1">&#39;svg&#39;</span><span class="p">:</span><span class="s1">&#39;ift:svg&#39;</span><span class="p">,</span><span class="s1">&#39;webp&#39;</span><span class="p">:</span><span class="s1">&#39;webp&#39;</span><span class="p">,</span><span class="s1">&#39;ico&#39;</span><span class="p">:</span><span class="s1">&#39;ift:ico&#39;</span><span class="p">}</span>
+    <span class="k">if</span> <span class="n">size</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_img_sizes</span><span class="p">:</span> 
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;Unexpected size argument value: </span><span class="si">{size}</span><span class="s2">.</span>
+<span class="s2">                    See `widgets.image_downloader._img_sizes` for supported sizes.&quot;&quot;&quot;</span><span class="p">)</span> 
+    <span class="k">if</span> <span class="nb">format</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_fmts</span><span class="p">:</span> 
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unexpected image file format: </span><span class="si">{format}</span><span class="s2">. Use jpg, gif, png, bmp, svg, webp, or ico.&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s2">&quot;&amp;tbs=&quot;</span> <span class="o">+</span> <span class="n">_img_sizes</span><span class="p">[</span><span class="n">size</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">_fmts</span><span class="p">[</span><span class="nb">format</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -144,11 +212,189 @@ description: "Useful helper function to download images from Google search. Adap
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="ImageDownloader" class="doc_header"><code>class</code> <code>ImageDownloader</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/image_downloader.py#L17" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ImageDownloader</code>(<strong><code>data_path</code></strong>, <strong><code>dataset_name</code></strong>)</p>
+<h2 id="ImageDownloader" class="doc_header"><code>class</code> <code>ImageDownloader</code><a href="https://github.com/lewtun/dslectures/tree/master/dslectures/image_downloader.py#L25" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ImageDownloader</code>(<strong><code>data_path</code></strong>, <strong><code>dataset_name</code></strong>)</p>
 </blockquote>
 
 </div>
 
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Example:-Cats-vs-dogs">Example: Cats vs dogs<a class="anchor-link" href="#Example:-Cats-vs-dogs"> </a></h2><p>In this example a new dataset is created and images for cats and dogs are downloaded.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../data/&#39;</span><span class="p">)</span>
+<span class="n">dataset_name</span> <span class="o">=</span> <span class="s1">&#39;cats_vs_dogs&#39;</span>
+
+<span class="n">img_dl</span> <span class="o">=</span> <span class="n">ImageDownloader</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">dataset_name</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">class_name</span> <span class="o">=</span> <span class="s1">&#39;cat&#39;</span>
+<span class="n">search_query</span> <span class="o">=</span> <span class="s1">&#39;cat&#39;</span>
+
+<span class="n">img_dl</span><span class="o">.</span><span class="n">add_images_to_class</span><span class="p">(</span><span class="n">class_name</span><span class="p">,</span> <span class="n">search_query</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>597 image links found on Google image search for the query &#34;cat&#34;.
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>597 images now available in class cat.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">search_query</span> <span class="o">=</span> <span class="s1">&#39;cat funny&#39;</span>
+
+<span class="n">img_dl</span><span class="o">.</span><span class="n">add_images_to_class</span><span class="p">(</span><span class="n">class_name</span><span class="p">,</span> <span class="n">search_query</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>586 image links found on Google image search for the query &#34;cat funny&#34;.
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1182 images now available in class cat.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">class_name</span> <span class="o">=</span> <span class="s1">&#39;dog&#39;</span>
+<span class="n">search_query</span> <span class="o">=</span> <span class="s1">&#39;dog&#39;</span>
+<span class="n">img_dl</span><span class="o">.</span><span class="n">add_images_to_class</span><span class="p">(</span><span class="n">class_name</span><span class="p">,</span> <span class="n">search_query</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>643 image links found on Google image search for the query &#34;dog&#34;.
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>643 images now available in class dog.
+</pre>
+</div>
 </div>
 
 </div>

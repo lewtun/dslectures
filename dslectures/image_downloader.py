@@ -10,15 +10,23 @@ except:
     print("fastai not installed. To use the ImageDownloader widget install fastai first.")
 from urllib.parse import quote
 from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 import time
 
 # Cell
+
+_img_sizes = {'>400*300':'isz:lt,islt:qsvga','>640*480':'isz:lt,islt:vga','>800*600':'isz:lt,islt:svga',
+              '>1024*768':'visz:lt,islt:xga', '>2MP':'isz:lt,islt:2mp','>4MP':'isz:lt,islt:4mp','>6MP':'isz:lt,islt:6mp',
+              '>8MP':'isz:lt,islt:8mp', '>10MP':'isz:lt,islt:10mp','>12MP':'isz:lt,islt:12mp','>15MP':'isz:lt,islt:15mp',
+              '>20MP':'isz:lt,islt:20mp','>40MP':'isz:lt,islt:40mp','>70MP':'isz:lt,islt:70mp'}
+
 
 class ImageDownloader:
     def __init__(self, data_path, dataset_name):
         """The ImageDownloader helps download images from the google image search page"""
         self._path = Path(data_path)
-        self._dataset_path = self.path/dataset_name
+        self._dataset_path = self._path/dataset_name
         self._dataset_name = dataset_name
 
         os.makedirs(self._path, exist_ok=True)
@@ -40,15 +48,17 @@ class ImageDownloader:
         options = webdriver.ChromeOptions()
         options.add_argument("--headless")
         options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
+
         try:
-            driver = webdriver.Chrome(chrome_options=options)
+            driver = webdriver.Chrome(options=options)
         except:
             print("""Error initializing chromedriver.
                   Check if it's in your path by running `which chromedriver`""")
         driver.set_window_size(1440, 900)
         driver.get(url)
         old_height = 0
-        for i in range(n_images // 100 + 1):
+        for i in range(10):
             driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
             time.sleep(1.0 + random.random())
             new_height = driver.execute_script("return document.body.scrollHeight")
@@ -62,11 +72,10 @@ class ImageDownloader:
         return driver.page_source
 
     def get_img_urls_from_html(self, html):
-
+        """Extract image urls from html code."""
         bs = BeautifulSoup(html, 'html.parser')
         img_tags = bs.find_all('img')
         urls = []
-
         for tag in img_tags:
             if tag.has_attr('data-src'):
                 urls.append(tag['data-src'])
@@ -97,3 +106,13 @@ def _search_url(search_term:str, size:str='>400*300', format:str='jpg') -> str:
     return ('https://www.google.com/search?q=' + quote(search_term) +
             '&espv=2&biw=1366&bih=667&site=webhp&source=lnms&tbm=isch' +
             _url_params(size, format) + '&sa=X&ei=XosDVaCXD8TasATItgE&ved=0CAcQ_AUoAg')
+
+def _url_params(size:str='>400*300', format:str='jpg') -> str:
+    "Build Google Images Search Url params and return them as a string."
+    _fmts = {'jpg':'ift:jpg','gif':'ift:gif','png':'ift:png','bmp':'ift:bmp', 'svg':'ift:svg','webp':'webp','ico':'ift:ico'}
+    if size not in _img_sizes:
+        raise RuntimeError(f"""Unexpected size argument value: {size}.
+                    See `widgets.image_downloader._img_sizes` for supported sizes.""")
+    if format not in _fmts:
+        raise RuntimeError(f"Unexpected image file format: {format}. Use jpg, gif, png, bmp, svg, webp, or ico.")
+    return "&tbs=" + _img_sizes[size] + "," + _fmts[format]
