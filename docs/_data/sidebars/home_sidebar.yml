@@ -16,6 +16,9 @@ entries:
       title: fast.ai helper functions
       url: /structured
     - output: web,pdf
+      title: Image downloader
+      url: /image_downloader
+    - output: web,pdf
       title: Lesson 1 - Introduction to pandas and seaborn
       url: /lesson01_intro-to-pandas
     - output: web,pdf
@@ -54,6 +57,9 @@ entries:
     - output: web,pdf
       title: Lesson 13 - NLP with Deep Learning
       url: /lesson13_nlp-deep
+    - output: web,pdf
+      title: Lesson 14 - Create an image dataset
+      url: /lesson14_image-dataset
     - output: web,pdf
       title: Python primer
       url: /python-primer

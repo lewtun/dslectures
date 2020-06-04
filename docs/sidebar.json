@@ -3,6 +3,7 @@
     "Overview": "/",
     "Core library": "/core",
     "fast.ai helper functions": "/structured",
+    "Image downloader": "/image_downloader",
     "Lesson 1 - Introduction to pandas and seaborn": "/lesson01_intro-to-pandas",
     "Lesson 2 - Exploratory data analysis": "/lesson02_exploratory-data-analysis",
     "Lesson 3 - Data cleaning and feature engineering": "/lesson03_data-cleaning",
@@ -16,6 +17,7 @@
     "Lesson 11 - Dimensions and visualisation": "/lesson11_visualisation",
     "Lesson 12 - Introduction to NLP": "/lesson12_nlp-intro",
     "Lesson 13 - NLP with Deep Learning": "/lesson13_nlp-deep",
+    "Lesson 14 - Create an image dataset": "/lesson14_image-dataset",
     "Python primer": "/python-primer"
   }
 }
