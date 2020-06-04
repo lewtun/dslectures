@@ -72,7 +72,7 @@ description: "In preparation of lesson 15 we create an image dataset."
         │   dog_img_1.png
         │   dog_img_2.png
         │   ...</code></pre>
-<p>This is the same structure we already encountered when we trained a text classifier with <code>ULMFiT</code> in the last lecture. Every class is contained in a folder that is named after the class. We built a helper class called <a href="/dslectures/image_downloader#ImageDownloader"><code>ImageDownloader</code></a> that we can use to set this up. This class also downloads Google image search results automatically into these folders.</p>
+<p>This is the same structure we already encountered when we trained a text classifier with <code>ULMFiT</code> in the last lecture. Every class (i.e. image label) is contained in a folder that is named after the class. We built a helper class called <a href="/dslectures/image_downloader#ImageDownloader"><code>ImageDownloader</code></a> that we can use to set this up. This class also downloads Google image search results automatically into these folders.</p>
 
 </div>
 </div>
@@ -131,22 +131,6 @@ description: "In preparation of lesson 15 we create an image dataset."
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>WARNING: pip is being invoked by an old script wrapper. This will fail in a future version of pip.
-Please see https://github.com/pypa/pip/issues/5599 for advice on fixing the underlying issue.
-To avoid this problem you can invoke Python with &#39;-m pip&#39; instead of running pip directly.
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
     {% endraw %}
 
@@ -163,6 +147,24 @@ To avoid this problem you can invoke Python with &#39;-m pip&#39; instead of run
 </div>
 </div>
 </div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># uncomment if running locally or on Google Colab</span>
+<span class="c1"># !pip install --upgrade dslectures</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -208,7 +210,7 @@ To avoid this problem you can invoke Python with &#39;-m pip&#39; instead of run
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>With this information I can create a new <a href="/dslectures/image_downloader#ImageDownloader"><code>ImageDownloader</code></a> object.</p>
+<p>With this information we can create a new <a href="/dslectures/image_downloader#ImageDownloader"><code>ImageDownloader</code></a> object.</p>
 
 </div>
 </div>
