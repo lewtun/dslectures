@@ -18,6 +18,7 @@
     "Lesson 12 - Introduction to NLP": "/lesson12_nlp-intro",
     "Lesson 13 - NLP with Deep Learning": "/lesson13_nlp-deep",
     "Lesson 14 - Create an image dataset": "/lesson14_image-dataset",
+    "Lesson 15 - Image classification with Deep Learning": "/lesson15_cv-deep",
     "Python primer": "/python-primer"
   }
 }
