@@ -61,7 +61,7 @@ entries:
       title: Lesson 14 - Create an image dataset
       url: /lesson14_image-dataset
     - output: web,pdf
-      title: Lesson 15 - Image classification with Deep Learning
+      title: Lesson 15 - Image classification with deep learning
       url: /lesson15_cv-deep
     - output: web,pdf
       title: Python primer
